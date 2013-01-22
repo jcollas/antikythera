@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1F92F5EC0FDFF83200548BE8 /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F92F5EA0FDFF83200548BE8 /* GLViewController.m */; };
+		1FF404F30FF2AC4B00D17C20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		28FD14FE0DC6FC130079059D /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* GLView.m */; };
+		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
+		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		C91A35F8118343A400FA1697 /* BoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A35F7118343A400FA1697 /* BoxModel.m */; };
+		C91A362A1183484500FA1697 /* SideCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A36291183484500FA1697 /* SideCamera.m */; };
+		C9423593117BA2A800385EC6 /* PointerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9423592117BA2A800385EC6 /* PointerModel.m */; };
+		C94235C3117BB0BF00385EC6 /* PointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94235C2117BB0BF00385EC6 /* PointerView.m */; };
+		C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C95046ED116E72FC00AE2F5D /* ConnectorModel.m */; };
+		C9504703116E755700AE2F5D /* ShowcaseCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9504702116E755700AE2F5D /* ShowcaseCamera.m */; };
+		C96AAE0F116FF7DA00869DF6 /* GearShaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */; };
+		C970E24F118F7E8F00E6A01A /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C970E24E118F7E8F00E6A01A /* BoxView.m */; };
+		C9747105118948B4007E04E5 /* FlatDialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9747104118948B4007E04E5 /* FlatDialModel.m */; };
+		C9747108118948EE007E04E5 /* UserDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9747107118948EE007E04E5 /* UserDialView.m */; };
+		C97607CB1183CBF5000F322E /* UICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C97607CA1183CBF5000F322E /* UICamera.m */; };
+		C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */; };
+		C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */; };
+		C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */; };
+		C9CCAA05116BFB920097AE70 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA04116BFB920097AE70 /* Connector.m */; };
+		C9CCAA0D116C076C0097AE70 /* Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA0C116C076C0097AE70 /* Gear.m */; };
+		C9CCAA83116C26230097AE70 /* GearView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA82116C26230097AE70 /* GearView.m */; };
+		C9CCAA86116CC52A0097AE70 /* ConnectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA85116CC52A0097AE70 /* ConnectorView.m */; };
+		C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */; };
+		C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB25116D87B60097AE70 /* GLModel3D.m */; };
+		C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB30116D8B660097AE70 /* GearModel.m */; };
+		C9CCABEE116E31650097AE70 /* FlyThroughCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCABED116E31650097AE70 /* FlyThroughCamera.m */; };
+		C9CCAC06116E32740097AE70 /* TopCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAC05116E32740097AE70 /* TopCamera.m */; };
+		C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */; };
+		C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FB30441182AB1500021EDB /* LunarPointerView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AntikytheraOpenGLPrototypeAppDelegate.h; path = Classes/AntikytheraOpenGLPrototypeAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		1D3623250D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AntikytheraOpenGLPrototypeAppDelegate.m; path = Classes/AntikytheraOpenGLPrototypeAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		1D6058910D05DD3D006BFB54 /* AntikytheraOpenGLPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntikytheraOpenGLPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = Classes/ConstantsAndMacros.h; sourceTree = SOURCE_ROOT; };
+		1F92F5E90FDFF83200548BE8 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLViewController.h; path = Classes/GLViewController.h; sourceTree = SOURCE_ROOT; };
+		1F92F5EA0FDFF83200548BE8 /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLViewController.m; path = Classes/GLViewController.m; sourceTree = SOURCE_ROOT; };
+		1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = Classes/OpenGLCommon.h; sourceTree = SOURCE_ROOT; };
+		1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28FD14FC0DC6FC130079059D /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = Classes/GLView.h; sourceTree = SOURCE_ROOT; };
+		28FD14FD0DC6FC130079059D /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = Classes/GLView.m; sourceTree = SOURCE_ROOT; };
+		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* AntikytheraOpenGLPrototype_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraOpenGLPrototype_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* AntikytheraOpenGLPrototype-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AntikytheraOpenGLPrototype-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C91A35F6118343A400FA1697 /* BoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModel.h; sourceTree = "<group>"; };
+		C91A35F7118343A400FA1697 /* BoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModel.m; sourceTree = "<group>"; };
+		C91A36281183484500FA1697 /* SideCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideCamera.h; sourceTree = "<group>"; };
+		C91A36291183484500FA1697 /* SideCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideCamera.m; sourceTree = "<group>"; };
+		C9423591117BA2A800385EC6 /* PointerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerModel.h; sourceTree = "<group>"; };
+		C9423592117BA2A800385EC6 /* PointerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerModel.m; sourceTree = "<group>"; };
+		C94235C1117BB0BF00385EC6 /* PointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerView.h; sourceTree = "<group>"; };
+		C94235C2117BB0BF00385EC6 /* PointerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerView.m; sourceTree = "<group>"; };
+		C95046EC116E72FC00AE2F5D /* ConnectorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorModel.h; sourceTree = "<group>"; };
+		C95046ED116E72FC00AE2F5D /* ConnectorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectorModel.m; sourceTree = "<group>"; };
+		C9504701116E755700AE2F5D /* ShowcaseCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowcaseCamera.h; sourceTree = "<group>"; };
+		C9504702116E755700AE2F5D /* ShowcaseCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowcaseCamera.m; sourceTree = "<group>"; };
+		C96AAE0D116FF7DA00869DF6 /* GearShaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearShaderModel.h; sourceTree = "<group>"; };
+		C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearShaderModel.m; sourceTree = "<group>"; };
+		C970E24D118F7E8F00E6A01A /* BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
+		C970E24E118F7E8F00E6A01A /* BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
+		C9747103118948B4007E04E5 /* FlatDialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatDialModel.h; sourceTree = "<group>"; };
+		C9747104118948B4007E04E5 /* FlatDialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDialModel.m; sourceTree = "<group>"; };
+		C9747106118948EE007E04E5 /* UserDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDialView.h; sourceTree = "<group>"; };
+		C9747107118948EE007E04E5 /* UserDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDialView.m; sourceTree = "<group>"; };
+		C97607CA1183CBF5000F322E /* UICamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICamera.m; sourceTree = "<group>"; };
+		C97608491183D88F000F322E /* UICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICamera.h; sourceTree = "<group>"; };
+		C976084A1183DB40000F322E /* Touchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Touchable.h; sourceTree = "<group>"; };
+		C99D6C0B1186104600BAE9BD /* AMViewStateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewStateHandler.h; sourceTree = "<group>"; };
+		C9BCDC10116EBAAF00B6A4BA /* PinAndSlotConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAndSlotConnector.h; sourceTree = "<group>"; };
+		C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAndSlotConnector.m; sourceTree = "<group>"; };
+		C9BCDCB0116EE2D200B6A4BA /* PinAndSlotConnectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAndSlotConnectorView.h; sourceTree = "<group>"; };
+		C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAndSlotConnectorView.m; sourceTree = "<group>"; };
+		C9CCA9FA116BF8DE0097AE70 /* MechanicalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MechanicalDevice.h; sourceTree = "<group>"; };
+		C9CCA9FC116BF9300097AE70 /* AntikytheraMechanism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraMechanism.h; sourceTree = "<group>"; };
+		C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntikytheraMechanism.m; sourceTree = "<group>"; };
+		C9CCAA02116BFAF70097AE70 /* DeviceComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceComponent.h; sourceTree = "<group>"; };
+		C9CCAA03116BFB920097AE70 /* Connector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
+		C9CCAA04116BFB920097AE70 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
+		C9CCAA0B116C076C0097AE70 /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
+		C9CCAA0C116C076C0097AE70 /* Gear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gear.m; sourceTree = "<group>"; };
+		C9CCAA7F116C25DD0097AE70 /* ModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelView.h; sourceTree = "<group>"; };
+		C9CCAA81116C26230097AE70 /* GearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearView.h; sourceTree = "<group>"; };
+		C9CCAA82116C26230097AE70 /* GearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearView.m; sourceTree = "<group>"; };
+		C9CCAA84116CC52A0097AE70 /* ConnectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorView.h; sourceTree = "<group>"; };
+		C9CCAA85116CC52A0097AE70 /* ConnectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectorView.m; sourceTree = "<group>"; };
+		C9CCAA8B116CC87F0097AE70 /* ComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentView.h; sourceTree = "<group>"; };
+		C9CCAAAE116CD1300097AE70 /* DeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceView.h; sourceTree = "<group>"; };
+		C9CCAAB1116CD1820097AE70 /* AntikytheraMechanismView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraMechanismView.h; sourceTree = "<group>"; };
+		C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntikytheraMechanismView.m; sourceTree = "<group>"; };
+		C9CCAB24116D87B60097AE70 /* GLModel3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModel3D.h; sourceTree = "<group>"; };
+		C9CCAB25116D87B60097AE70 /* GLModel3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLModel3D.m; sourceTree = "<group>"; };
+		C9CCAB2F116D8B660097AE70 /* GearModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearModel.h; sourceTree = "<group>"; };
+		C9CCAB30116D8B660097AE70 /* GearModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearModel.m; sourceTree = "<group>"; };
+		C9CCABEC116E31650097AE70 /* FlyThroughCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThroughCamera.h; sourceTree = "<group>"; };
+		C9CCABED116E31650097AE70 /* FlyThroughCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThroughCamera.m; sourceTree = "<group>"; };
+		C9CCAC04116E32740097AE70 /* TopCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCamera.h; sourceTree = "<group>"; };
+		C9CCAC05116E32740097AE70 /* TopCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCamera.m; sourceTree = "<group>"; };
+		C9D0A8471155515A006394AF /* CameraViewpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewpoint.h; sourceTree = "<group>"; };
+		C9D2FE2B118156F30042C84E /* HalfGlobeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfGlobeModel.h; sourceTree = "<group>"; };
+		C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfGlobeModel.m; sourceTree = "<group>"; wrapsLines = 0; };
+		C9FB30431182AB1500021EDB /* LunarPointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarPointerView.h; sourceTree = "<group>"; };
+		C9FB30441182AB1500021EDB /* LunarPointerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarPointerView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
+				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
+				1FF404F30FF2AC4B00D17C20 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.h */,
+				1D3623250D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.m */,
+				1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */,
+				1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.h */,
+				28FD14FC0DC6FC130079059D /* GLView.h */,
+				28FD14FD0DC6FC130079059D /* GLView.m */,
+				1F92F5E90FDFF83200548BE8 /* GLViewController.h */,
+				1F92F5EA0FDFF83200548BE8 /* GLViewController.m */,
+				C9CCABEF116E316A0097AE70 /* Camera Viewpoints */,
+				C9CCA9FB116BF90E0097AE70 /* Devices */,
+				C9CCAA80116C26000097AE70 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* AntikytheraOpenGLPrototype.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* AntikytheraOpenGLPrototype_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* AntikytheraOpenGLPrototype-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28FD15070DC6FC5B0079059D /* QuartzCore.framework */,
+				28FD14FF0DC6FC520079059D /* OpenGLES.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C99D6C0A1186100500BAE9BD /* AM View State */ = {
+			isa = PBXGroup;
+			children = (
+				C99D6C0B1186104600BAE9BD /* AMViewStateHandler.h */,
+			);
+			name = "AM View State";
+			sourceTree = "<group>";
+		};
+		C9CCA9FB116BF90E0097AE70 /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCA9FA116BF8DE0097AE70 /* MechanicalDevice.h */,
+				C9CCA9FC116BF9300097AE70 /* AntikytheraMechanism.h */,
+				C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */,
+				C9CCAA0A116C06E00097AE70 /* Device Components */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		C9CCAA0A116C06E00097AE70 /* Device Components */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCAA02116BFAF70097AE70 /* DeviceComponent.h */,
+				C9CCAA03116BFB920097AE70 /* Connector.h */,
+				C9CCAA04116BFB920097AE70 /* Connector.m */,
+				C9CCAA0B116C076C0097AE70 /* Gear.h */,
+				C9CCAA0C116C076C0097AE70 /* Gear.m */,
+				C9BCDC10116EBAAF00B6A4BA /* PinAndSlotConnector.h */,
+				C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */,
+			);
+			name = "Device Components";
+			sourceTree = "<group>";
+		};
+		C9CCAA80116C26000097AE70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCAA7F116C25DD0097AE70 /* ModelView.h */,
+				C9747106118948EE007E04E5 /* UserDialView.h */,
+				C9747107118948EE007E04E5 /* UserDialView.m */,
+				C9CCAAB0116CD16A0097AE70 /* Device Views */,
+				C9CCAAAF116CD1620097AE70 /* Component Views */,
+				C9CCAB27116D89C20097AE70 /* GLModel3D */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C9CCAAAF116CD1620097AE70 /* Component Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCAA8B116CC87F0097AE70 /* ComponentView.h */,
+				C9CCAA81116C26230097AE70 /* GearView.h */,
+				C9CCAA82116C26230097AE70 /* GearView.m */,
+				C9CCAA84116CC52A0097AE70 /* ConnectorView.h */,
+				C9CCAA85116CC52A0097AE70 /* ConnectorView.m */,
+				C9BCDCB0116EE2D200B6A4BA /* PinAndSlotConnectorView.h */,
+				C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */,
+				C94235C1117BB0BF00385EC6 /* PointerView.h */,
+				C94235C2117BB0BF00385EC6 /* PointerView.m */,
+				C9FB30431182AB1500021EDB /* LunarPointerView.h */,
+				C9FB30441182AB1500021EDB /* LunarPointerView.m */,
+				C970E24D118F7E8F00E6A01A /* BoxView.h */,
+				C970E24E118F7E8F00E6A01A /* BoxView.m */,
+			);
+			name = "Component Views";
+			sourceTree = "<group>";
+		};
+		C9CCAAB0116CD16A0097AE70 /* Device Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCAAAE116CD1300097AE70 /* DeviceView.h */,
+				C9CCAAB1116CD1820097AE70 /* AntikytheraMechanismView.h */,
+				C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */,
+				C99D6C0A1186100500BAE9BD /* AM View State */,
+			);
+			name = "Device Views";
+			sourceTree = "<group>";
+		};
+		C9CCAB27116D89C20097AE70 /* GLModel3D */ = {
+			isa = PBXGroup;
+			children = (
+				C9CCAB24116D87B60097AE70 /* GLModel3D.h */,
+				C9CCAB25116D87B60097AE70 /* GLModel3D.m */,
+				C9CCAB2F116D8B660097AE70 /* GearModel.h */,
+				C9CCAB30116D8B660097AE70 /* GearModel.m */,
+				C96AAE0D116FF7DA00869DF6 /* GearShaderModel.h */,
+				C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */,
+				C95046EC116E72FC00AE2F5D /* ConnectorModel.h */,
+				C95046ED116E72FC00AE2F5D /* ConnectorModel.m */,
+				C9423591117BA2A800385EC6 /* PointerModel.h */,
+				C9423592117BA2A800385EC6 /* PointerModel.m */,
+				C9D2FE2B118156F30042C84E /* HalfGlobeModel.h */,
+				C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */,
+				C91A35F6118343A400FA1697 /* BoxModel.h */,
+				C91A35F7118343A400FA1697 /* BoxModel.m */,
+				C9747103118948B4007E04E5 /* FlatDialModel.h */,
+				C9747104118948B4007E04E5 /* FlatDialModel.m */,
+			);
+			name = GLModel3D;
+			sourceTree = "<group>";
+		};
+		C9CCABEF116E316A0097AE70 /* Camera Viewpoints */ = {
+			isa = PBXGroup;
+			children = (
+				C9D0A8471155515A006394AF /* CameraViewpoint.h */,
+				C976084A1183DB40000F322E /* Touchable.h */,
+				C9CCABEC116E31650097AE70 /* FlyThroughCamera.h */,
+				C9CCABED116E31650097AE70 /* FlyThroughCamera.m */,
+				C9CCAC04116E32740097AE70 /* TopCamera.h */,
+				C9CCAC05116E32740097AE70 /* TopCamera.m */,
+				C9504701116E755700AE2F5D /* ShowcaseCamera.h */,
+				C9504702116E755700AE2F5D /* ShowcaseCamera.m */,
+				C91A36281183484500FA1697 /* SideCamera.h */,
+				C91A36291183484500FA1697 /* SideCamera.m */,
+				C97608491183D88F000F322E /* UICamera.h */,
+				C97607CA1183CBF5000F322E /* UICamera.m */,
+			);
+			name = "Camera Viewpoints";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* AntikytheraOpenGLPrototype */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AntikytheraOpenGLPrototype" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AntikytheraOpenGLPrototype;
+			productName = AntikytheraOpenGLPrototype;
+			productReference = 1D6058910D05DD3D006BFB54 /* AntikytheraOpenGLPrototype.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AntikytheraOpenGLPrototype" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* AntikytheraOpenGLPrototype */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* AntikytheraOpenGLPrototypeAppDelegate.m in Sources */,
+				28FD14FE0DC6FC130079059D /* GLView.m in Sources */,
+				1F92F5EC0FDFF83200548BE8 /* GLViewController.m in Sources */,
+				C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.m in Sources */,
+				C9CCAA05116BFB920097AE70 /* Connector.m in Sources */,
+				C9CCAA0D116C076C0097AE70 /* Gear.m in Sources */,
+				C9CCAA83116C26230097AE70 /* GearView.m in Sources */,
+				C9CCAA86116CC52A0097AE70 /* ConnectorView.m in Sources */,
+				C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.m in Sources */,
+				C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */,
+				C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */,
+				C9CCABEE116E31650097AE70 /* FlyThroughCamera.m in Sources */,
+				C9CCAC06116E32740097AE70 /* TopCamera.m in Sources */,
+				C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */,
+				C9504703116E755700AE2F5D /* ShowcaseCamera.m in Sources */,
+				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.m in Sources */,
+				C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.m in Sources */,
+				C96AAE0F116FF7DA00869DF6 /* GearShaderModel.m in Sources */,
+				C9423593117BA2A800385EC6 /* PointerModel.m in Sources */,
+				C94235C3117BB0BF00385EC6 /* PointerView.m in Sources */,
+				C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */,
+				C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */,
+				C91A35F8118343A400FA1697 /* BoxModel.m in Sources */,
+				C91A362A1183484500FA1697 /* SideCamera.m in Sources */,
+				C97607CB1183CBF5000F322E /* UICamera.m in Sources */,
+				C9747105118948B4007E04E5 /* FlatDialModel.m in Sources */,
+				C9747108118948EE007E04E5 /* UserDialView.m in Sources */,
+				C970E24F118F7E8F00E6A01A /* BoxView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AntikytheraOpenGLPrototype_Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "AntikytheraOpenGLPrototype-Info.plist";
+				PRODUCT_NAME = AntikytheraOpenGLPrototype;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AntikytheraOpenGLPrototype_Prefix.pch;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				INFOPLIST_FILE = "AntikytheraOpenGLPrototype-Info.plist";
+				PRODUCT_NAME = AntikytheraOpenGLPrototype;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "AntikytheraOpenGLPrototype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "AntikytheraOpenGLPrototype" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
