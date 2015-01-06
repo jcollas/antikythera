@@ -10,9 +10,7 @@
 #import "GLModel3D.h"
 
 
-@interface BoxModel : GLModel3D {
-	float width,height,length;
-}
+@interface BoxModel : GLModel3D
 
 @property (nonatomic,readonly) float width,height,length;
 

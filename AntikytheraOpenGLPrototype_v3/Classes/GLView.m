@@ -25,11 +25,6 @@
 
 @implementation GLView
 
-@synthesize context;
-@synthesize animationTimer;
-@synthesize animationInterval;
-@synthesize delegate;
-
 + (Class)layerClass 
 {
     return [CAEAGLLayer class];
@@ -49,30 +44,29 @@
         if (context == NULL)
         {
 #endif
-            context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+            self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
             
-            if (!context || ![EAGLContext setCurrentContext:context]) {
-                [self release];
+            if (!self.context || ![EAGLContext setCurrentContext:self.context]) {
                 return nil;
             }
 #if kAttemptToUseOpenGLES2
         }
 #endif
         
-        animationInterval = 1.0 / kRenderingFrequency;
+        self.animationInterval = 1.0 / kRenderingFrequency;
     }
     return self;
 }
 - (void)drawView 
 {
     glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
-    [delegate drawView:self];
+    [self.delegate drawView:self];
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
-    [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+    [self.context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 - (void)layoutSubviews 
 {
-    [EAGLContext setCurrentContext:context];
+    [EAGLContext setCurrentContext:self.context];
     [self destroyFramebuffer];
     [self createFramebuffer];
     [self drawView];
@@ -85,7 +79,7 @@
     
     glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
-    [context renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:(CAEAGLLayer*)self.layer];
+    [self.context renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:(CAEAGLLayer*)self.layer];
     glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES, GL_RENDERBUFFER_OES, viewRenderbuffer);
     
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
@@ -104,7 +98,7 @@
         NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
         return NO;
     }
-    [delegate setupView:self];
+    [self.delegate setupView:self];
     return YES;
 }
 - (void)destroyFramebuffer 
@@ -122,7 +116,7 @@
 }
 - (void)startAnimation 
 {
-    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:animationInterval target:self selector:@selector(drawView) userInfo:nil repeats:YES];
+    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:self.animationInterval target:self selector:@selector(drawView) userInfo:nil repeats:YES];
 }
 - (void)stopAnimation 
 {
@@ -130,13 +124,13 @@
 }
 - (void)setAnimationTimer:(NSTimer *)newTimer 
 {
-    [animationTimer invalidate];
-    animationTimer = newTimer;
+    [_animationTimer invalidate];
+    _animationTimer = newTimer;
 }
-- (void)setAnimationInterval:(NSTimeInterval)interval 
+- (void)setAnimationInterval:(NSTimeInterval)interval
 {
-    animationInterval = interval;
-    if (animationTimer) 
+    _animationInterval = interval;
+    if (self.animationTimer)
     {
         [self stopAnimation];
         [self startAnimation];
@@ -146,11 +140,8 @@
 {
     [self stopAnimation];
     
-    if ([EAGLContext currentContext] == context) 
+    if ([EAGLContext currentContext] == self.context)
         [EAGLContext setCurrentContext:nil];
-    
-    [context release];  
-    [super dealloc];
 }
 
 @end

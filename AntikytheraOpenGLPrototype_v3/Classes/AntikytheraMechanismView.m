@@ -11,8 +11,6 @@
 
 @implementation AntikytheraMechanismView
 
-@synthesize currentState,currentStatePhase;
-
 // Initializes view with specific mechanism
 - (id) initWithMechanism:(AntikytheraMechanism*)mechanism {
 	if (self = [super init]) {
@@ -219,15 +217,15 @@
 }
 
 - (void) setCurrentState:(AMState)state Phase:(AMStatePhase)phase {
-	currentState = state;
-	currentStatePhase = phase;
+	_currentState = state;
+	_currentStatePhase = phase;
 	
 	NSEnumerator *enumerator = [views objectEnumerator];
     id view;
 	
     while ((view = [enumerator nextObject]) != nil) {
 		if ([(NSObject*)view conformsToProtocol:@protocol(AMViewStateHandler)]) {
-			[(id<AMViewStateHandler>)view updateWithState:currentState Phase:currentStatePhase];
+			[(id<AMViewStateHandler>)view updateWithState:_currentState Phase:_currentStatePhase];
 		}
 	}
 }

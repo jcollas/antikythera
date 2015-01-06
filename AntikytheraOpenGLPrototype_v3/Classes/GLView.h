@@ -24,17 +24,13 @@
     GLint backingWidth;
     GLint backingHeight;
     
-    EAGLContext *context;    
     GLuint viewRenderbuffer, viewFramebuffer;
     GLuint depthRenderbuffer;
-    
-    NSTimer *animationTimer;
-    NSTimeInterval animationInterval;
-    
-    id <GLViewDelegate>     delegate;
 }
-@property NSTimeInterval animationInterval;
-@property (assign) /* weak ref */ id <GLViewDelegate> delegate;
+
+@property (nonatomic) NSTimeInterval animationInterval;
+@property (nonatomic, weak) /* weak ref */ IBOutlet id <GLViewDelegate> delegate;
+
 - (void)startAnimation;
 - (void)stopAnimation;
 - (void)drawView;

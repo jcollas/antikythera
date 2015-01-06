@@ -10,10 +10,7 @@
 
 @class GLView;
 
-@interface AntikytheraOpenGLPrototypeAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-    GLView *glView;
-}
+@interface AntikytheraOpenGLPrototypeAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet GLView *glView;

@@ -12,34 +12,24 @@
 
 @implementation AntikytheraOpenGLPrototypeAppDelegate
 
-@synthesize window;
-@synthesize glView;
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
 	CGRect  rect = [[UIScreen mainScreen] bounds];
-    [window setFrame:rect];
+    [self.window setFrame:rect];
     
-	glView.animationInterval = 1.0 / 60.0;
-	[glView startAnimation];
+	self.glView.animationInterval = 1.0 / 60.0;
+	[self.glView startAnimation];
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	glView.animationInterval = 1.0 / 60.0;
+	self.glView.animationInterval = 1.0 / 60.0;
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-	glView.animationInterval = 1.0 / 60.0;
-}
-
-
-- (void)dealloc {
-	[window release];
-	[glView release];
-	[super dealloc];
+	self.glView.animationInterval = 1.0 / 60.0;
 }
 
 @end

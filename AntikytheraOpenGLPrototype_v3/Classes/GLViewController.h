@@ -34,6 +34,7 @@
 	
 	UserDialView *userDial;
 	BOOL dialMode;
+    BOOL isSetup;
 	
 	id<CameraViewpoint> camera;
 	id<Touchable> touchDelegate;

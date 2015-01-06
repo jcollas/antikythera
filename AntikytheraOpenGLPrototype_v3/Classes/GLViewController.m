@@ -41,7 +41,12 @@
 {
 	const GLfloat zNear = 1.0, zFar = 2000.0, fieldOfView = 45.0; 
 	GLfloat size;
+    
+    if (isSetup) {
+        return;
+    }
 	
+    isSetup = TRUE;
 	glMatrixMode(GL_PROJECTION);
 
 	size = zNear * tanf(DEGREES_TO_RADIANS(fieldOfView)/2.0); 
@@ -155,7 +160,6 @@
 														otherButtonTitles:button1,button2,button3,button4,nil];
 		actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
 		[actionSheet showInView:self.view.window];
-		[actionSheet release];
 	}
 
 }
@@ -178,12 +182,6 @@
 			[antikytheraMechanismView setCurrentState:STATE_DEFAULT Phase:PHASE_RUNNING];
 			break;
 	}
-}
-
-- (void)dealloc
-{
-	[antikytheraMechanism release];
-    [super dealloc];
 }
 
 @end

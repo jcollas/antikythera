@@ -22,9 +22,6 @@
 @interface AntikytheraMechanismView : NSObject <DeviceView> {
 	AntikytheraMechanism *myMechanism;
 	
-	AMState currentState;
-	AMStatePhase currentStatePhase;
-	
 	NSMutableArray *views;
 	
 	GearView	*gvA1, // 48

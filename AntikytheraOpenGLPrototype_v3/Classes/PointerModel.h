@@ -10,13 +10,7 @@
 #import "GLModel3D.h"
 
 
-@interface PointerModel : GLModel3D {
-	float shaftLength;
-	float shaftRadius;
-	
-	float pointerLength;
-	float pointerWidth;
-}
+@interface PointerModel : GLModel3D
 
 @property (nonatomic,readonly) float shaftLength;
 @property (nonatomic,readonly) float shaftRadius;

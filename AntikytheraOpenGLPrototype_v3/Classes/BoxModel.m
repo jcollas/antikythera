@@ -11,8 +11,6 @@
 
 @implementation BoxModel
 
-@synthesize width,height,length;
-
 - (id) initWithWidth:(float)w Height:(float)h Length:(float)len {
 	if (self=[super init]) {
 		[self buildModelWithWidth:w Height:h Length:len];
@@ -24,9 +22,9 @@
 - (void) buildModelWithWidth:(float)w Height:(float)h Length:(float)len {
 	float halfLength,halfWidth,halfHeight;
 	
-	width = w; halfWidth = width/2;
-	height = h; halfLength = height/2;
-	length = len; halfHeight = length/2;
+	_width = w; halfWidth = _width/2;
+	_height = h; halfLength = _height/2;
+	_length = len; halfHeight = _length/2;
 	
 	vertexCount = 8;
 	vertices = (Vertex3D*)malloc(vertexCount*sizeof(Vertex3D));

@@ -11,12 +11,6 @@
 
 @implementation PointerModel
 
-@synthesize shaftLength;
-@synthesize shaftRadius;
-
-@synthesize pointerLength;
-@synthesize pointerWidth;
-
 - (id) initWithShaftLength:(float)sLen ShaftRadius:(float)sRad PointerLength:(float)pLen PointerWidth:(float)pWidth {
 	if (self = [super init]) {
 		[self buildModelWithShaftLength:sLen ShaftRadius:sRad PointerLength:pLen PointerWidth:pWidth]; //Weird bug: for some reason -- gone?
@@ -29,11 +23,11 @@
 	float sliceAngle,halfAngle,angle;
 	const int sideCount = 8;
 	
-	shaftLength = sLen;
-	shaftRadius = sRad;
+	_shaftLength = sLen;
+	_shaftRadius = sRad;
 	
-	pointerLength = pLen;
-	pointerWidth = pWidth;
+	_pointerLength = pLen;
+	_pointerWidth = pWidth;
 	
 	sliceAngle = (2.0f*M_PI)/sideCount;
 	halfAngle = sliceAngle/2.0f;
@@ -45,17 +39,17 @@
 	
 	
 	// Shaft Vertices:
-	vertices[0] = Vertex3DMake(0.0f,0.0f,shaftLength);
+	vertices[0] = Vertex3DMake(0.0f,0.0f,self.shaftLength);
 	vertices[1] = Vertex3DMake(0.0f,0.0f,0.0f);
 	
 	for (int i=0; i<sideCount; i++) {
 		angle = i*sliceAngle;
 		
-		vertices[i*4+2] = Vertex3DMake(shaftRadius*cos(angle-halfAngle),shaftRadius*sin(angle-halfAngle),shaftLength);
-		vertices[i*4+3] = Vertex3DMake(shaftRadius*cos(angle),shaftRadius*sin(angle),shaftLength);
+		vertices[i*4+2] = Vertex3DMake(self.shaftRadius*cos(angle-halfAngle),self.shaftRadius*sin(angle-halfAngle),self.shaftLength);
+		vertices[i*4+3] = Vertex3DMake(self.shaftRadius*cos(angle),self.shaftRadius*sin(angle),self.shaftLength);
 		
-		vertices[i*4+4] = Vertex3DMake(shaftRadius*cos(angle-halfAngle),shaftRadius*sin(angle-halfAngle),0.0f);
-		vertices[i*4+5] = Vertex3DMake(shaftRadius*cos(angle),shaftRadius*sin(angle),0.0f);
+		vertices[i*4+4] = Vertex3DMake(self.shaftRadius*cos(angle-halfAngle),self.shaftRadius*sin(angle-halfAngle),0.0f);
+		vertices[i*4+5] = Vertex3DMake(self.shaftRadius*cos(angle),self.shaftRadius*sin(angle),0.0f);
 	}
 	
 	
@@ -87,18 +81,18 @@
 	elements[le+2] = lv+1;
 	
 	// Pointer Vertices
-	float height = shaftLength/fabs(shaftLength);
-	vertices[lv+1] = Vertex3DMake(shaftRadius,0.0f,height);
-	vertices[lv+2] = Vertex3DMake(0.0f,shaftRadius,height);
+	float height = self.shaftLength/fabs(self.shaftLength);
+	vertices[lv+1] = Vertex3DMake(self.shaftRadius,0.0f,height);
+	vertices[lv+2] = Vertex3DMake(0.0f,self.shaftRadius,height);
 	
-	vertices[lv+3] = Vertex3DMake(pointerLength,0.0f,height);
-	vertices[lv+4] = Vertex3DMake(pointerLength-shaftRadius,shaftRadius,height);
+	vertices[lv+3] = Vertex3DMake(self.pointerLength,0.0f,height);
+	vertices[lv+4] = Vertex3DMake(self.pointerLength-self.shaftRadius,self.shaftRadius,height);
 	
-	vertices[lv+5] = Vertex3DMake(shaftRadius,0.0f,0.0f);
-	vertices[lv+6] = Vertex3DMake(0.0f,shaftRadius,0.0f);
+	vertices[lv+5] = Vertex3DMake(self.shaftRadius,0.0f,0.0f);
+	vertices[lv+6] = Vertex3DMake(0.0f,self.shaftRadius,0.0f);
 	
-	vertices[lv+7] = Vertex3DMake(pointerLength,0.0f,0.0f);
-	vertices[lv+8] = Vertex3DMake(pointerLength-shaftRadius,shaftRadius,0.0f);
+	vertices[lv+7] = Vertex3DMake(self.pointerLength,0.0f,0.0f);
+	vertices[lv+8] = Vertex3DMake(self.pointerLength-self.shaftRadius,self.shaftRadius,0.0f);
 	
 	// Pointer Elements
 	elements[le+3] = lv+1;
