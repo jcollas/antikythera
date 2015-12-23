@@ -15,12 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     weak var glView: GLView!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        application.setStatusBarHidden(true, withAnimation: .None)
-        //
-        //	CGRect  rect = [[UIScreen mainScreen] bounds];
-        //    [self.window setFrame:rect];
-        
+
         self.glView = window?.rootViewController?.view as! GLView
         
         self.glView.animationInterval = 1.0 / 60.0

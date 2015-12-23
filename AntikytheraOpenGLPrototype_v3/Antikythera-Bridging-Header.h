@@ -13,9 +13,7 @@
 #import "CameraViewpoint.h"
 #import "Touchable.h"
 #import "FlyThroughCamera.h"
-#import "TopCamera.h"
 #import "ShowcaseCamera.h"
-#import "SideCamera.h"
 #import "UICamera.h"
 
 #import "AntikytheraMechanism.h"

@@ -74,11 +74,11 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         GLModel3D.enableGLModel3D()
         
-        //	camera = (id<CameraViewpoint>)[[FlyThroughCamera alloc] init];
-        //	camera = (id<CameraViewpoint>)[[TopCamera alloc] init];
-        //	camera = (id<CameraViewpoint>)[[ShowcaseCamera alloc] init];
-        //	camera = (id<CameraViewpoint>)[[SideCamera alloc] init];
-        camera = UICamera(view:self.view)
+        //	camera = FlyThroughCamera()
+        //	camera = TopCamera()
+        //  camera = ShowcaseCamera()
+        //	camera = SideCamera()
+        camera = UICamera(view: self.view)
         
         if camera is Touchable {
             touchDelegate = camera as? Touchable
@@ -116,6 +116,10 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         glMatrixMode(GLenum(GL_PROJECTION))
         glPopMatrix()
         glMatrixMode(GLenum(GL_MODELVIEW))
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

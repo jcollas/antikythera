@@ -18,8 +18,9 @@
 		C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C050AE661A2B5037005936F1 /* Default-568h@2x.png */; };
 		C0FDE5381C2A1A32008283F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FDE5371C2A1A32008283F4 /* Main.storyboard */; };
 		C0FDE53C1C2A357D008283F4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FDE53B1C2A357D008283F4 /* GLKit.framework */; };
+		C0FDE57A1C2AD56C008283F4 /* Viewpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */; };
 		C91A35F8118343A400FA1697 /* BoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A35F7118343A400FA1697 /* BoxModel.m */; };
-		C91A362A1183484500FA1697 /* SideCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A36291183484500FA1697 /* SideCamera.m */; };
+		C91A362A1183484500FA1697 /* SideCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A36291183484500FA1697 /* SideCamera.swift */; };
 		C9423593117BA2A800385EC6 /* PointerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9423592117BA2A800385EC6 /* PointerModel.m */; };
 		C94235C3117BB0BF00385EC6 /* PointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94235C2117BB0BF00385EC6 /* PointerView.m */; };
 		C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C95046ED116E72FC00AE2F5D /* ConnectorModel.m */; };
@@ -40,7 +41,7 @@
 		C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB25116D87B60097AE70 /* GLModel3D.m */; };
 		C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB30116D8B660097AE70 /* GearModel.m */; };
 		C9CCABEE116E31650097AE70 /* FlyThroughCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCABED116E31650097AE70 /* FlyThroughCamera.m */; };
-		C9CCAC06116E32740097AE70 /* TopCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAC05116E32740097AE70 /* TopCamera.m */; };
+		C9CCAC06116E32740097AE70 /* TopCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAC05116E32740097AE70 /* TopCamera.swift */; };
 		C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */; };
 		C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FB30441182AB1500021EDB /* LunarPointerView.m */; };
 /* End PBXBuildFile section */
@@ -64,10 +65,10 @@
 		C0FDE5371C2A1A32008283F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0FDE5391C2A29F9008283F4 /* Antikythera-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Antikythera-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0FDE53B1C2A357D008283F4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewpoints.swift; sourceTree = "<group>"; };
 		C91A35F6118343A400FA1697 /* BoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModel.h; sourceTree = "<group>"; };
 		C91A35F7118343A400FA1697 /* BoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModel.m; sourceTree = "<group>"; };
-		C91A36281183484500FA1697 /* SideCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideCamera.h; sourceTree = "<group>"; };
-		C91A36291183484500FA1697 /* SideCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideCamera.m; sourceTree = "<group>"; };
+		C91A36291183484500FA1697 /* SideCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideCamera.swift; sourceTree = "<group>"; };
 		C9423591117BA2A800385EC6 /* PointerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerModel.h; sourceTree = "<group>"; };
 		C9423592117BA2A800385EC6 /* PointerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerModel.m; sourceTree = "<group>"; };
 		C94235C1117BB0BF00385EC6 /* PointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerView.h; sourceTree = "<group>"; };
@@ -115,8 +116,7 @@
 		C9CCAB30116D8B660097AE70 /* GearModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearModel.m; sourceTree = "<group>"; };
 		C9CCABEC116E31650097AE70 /* FlyThroughCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyThroughCamera.h; sourceTree = "<group>"; };
 		C9CCABED116E31650097AE70 /* FlyThroughCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyThroughCamera.m; sourceTree = "<group>"; };
-		C9CCAC04116E32740097AE70 /* TopCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCamera.h; sourceTree = "<group>"; };
-		C9CCAC05116E32740097AE70 /* TopCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCamera.m; sourceTree = "<group>"; };
+		C9CCAC05116E32740097AE70 /* TopCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCamera.swift; sourceTree = "<group>"; };
 		C9D0A8471155515A006394AF /* CameraViewpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewpoint.h; sourceTree = "<group>"; };
 		C9D2FE2B118156F30042C84E /* HalfGlobeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfGlobeModel.h; sourceTree = "<group>"; };
 		C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfGlobeModel.m; sourceTree = "<group>"; wrapsLines = 0; };
@@ -320,16 +320,15 @@
 		C9CCABEF116E316A0097AE70 /* Camera Viewpoints */ = {
 			isa = PBXGroup;
 			children = (
+				C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */,
 				C9D0A8471155515A006394AF /* CameraViewpoint.h */,
 				C976084A1183DB40000F322E /* Touchable.h */,
 				C9CCABEC116E31650097AE70 /* FlyThroughCamera.h */,
 				C9CCABED116E31650097AE70 /* FlyThroughCamera.m */,
-				C9CCAC04116E32740097AE70 /* TopCamera.h */,
-				C9CCAC05116E32740097AE70 /* TopCamera.m */,
+				C9CCAC05116E32740097AE70 /* TopCamera.swift */,
 				C9504701116E755700AE2F5D /* ShowcaseCamera.h */,
 				C9504702116E755700AE2F5D /* ShowcaseCamera.m */,
-				C91A36281183484500FA1697 /* SideCamera.h */,
-				C91A36291183484500FA1697 /* SideCamera.m */,
+				C91A36291183484500FA1697 /* SideCamera.swift */,
 				C97608491183D88F000F322E /* UICamera.h */,
 				C97607CA1183CBF5000F322E /* UICamera.m */,
 			);
@@ -401,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3623260D0F684500981E51 /* AppDelegate.swift in Sources */,
+				C0FDE57A1C2AD56C008283F4 /* Viewpoints.swift in Sources */,
 				28FD14FE0DC6FC130079059D /* GLView.m in Sources */,
 				1F92F5EC0FDFF83200548BE8 /* GLViewController.swift in Sources */,
 				C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.m in Sources */,
@@ -412,7 +412,7 @@
 				C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */,
 				C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */,
 				C9CCABEE116E31650097AE70 /* FlyThroughCamera.m in Sources */,
-				C9CCAC06116E32740097AE70 /* TopCamera.m in Sources */,
+				C9CCAC06116E32740097AE70 /* TopCamera.swift in Sources */,
 				C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */,
 				C9504703116E755700AE2F5D /* ShowcaseCamera.m in Sources */,
 				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.m in Sources */,
@@ -423,7 +423,7 @@
 				C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */,
 				C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */,
 				C91A35F8118343A400FA1697 /* BoxModel.m in Sources */,
-				C91A362A1183484500FA1697 /* SideCamera.m in Sources */,
+				C91A362A1183484500FA1697 /* SideCamera.swift in Sources */,
 				C97607CB1183CBF5000F322E /* UICamera.m in Sources */,
 				C9747105118948B4007E04E5 /* FlatDialModel.m in Sources */,
 				C9747108118948EE007E04E5 /* UserDialView.m in Sources */,
