@@ -110,7 +110,7 @@
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	NSSet *allTouches = [event touchesForView:myView];
-	NSLog(@"touchesEnded: Touches=%d TouchesForView=%d",[touches count],[allTouches count]);
+	NSLog(@"touchesEnded: Touches=%lu TouchesForView=%lu",(unsigned long)[touches count],(unsigned long)[allTouches count]);
 	int activeTouches = [allTouches count] - [touches count];
 	
 	[self saveViewChanges];

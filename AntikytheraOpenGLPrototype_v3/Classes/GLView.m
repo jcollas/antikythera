@@ -12,7 +12,7 @@
 
 #import "GLView.h"
 #import "ConstantsAndMacros.h"
-
+#import "AntikytheraOpenGLPrototype-Swift.h"
 
 @interface GLView ()
 @property (nonatomic, retain) EAGLContext *context;
@@ -98,7 +98,7 @@
         NSLog(@"failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES));
         return NO;
     }
-    [self.delegate setupView:self];
+//    [self.delegate setupView:self];
     return YES;
 }
 - (void)destroyFramebuffer 
