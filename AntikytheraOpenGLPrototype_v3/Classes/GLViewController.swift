@@ -25,7 +25,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
     func drawView(theView: UIView) {
         glLoadIdentity()
         glClearColor(0.0, 0.0, 0.0, 1.0)
-        glClear(GLbitfield(GL_COLOR_BUFFER_BIT) | GLbitfield(GL_DEPTH_BUFFER_BIT))
+        glClear(GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
         //	glEnable(GL_DEPTH_TEST);
         //	glDisable(GL_CULL_FACE);
         
@@ -55,7 +55,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
     override func viewDidLoad() {
         let zNear: Float = 1.0, zFar: Float = 2000.0, fieldOfView: Float = 45.0
 
-        glMatrixMode(GLbitfield(GL_PROJECTION))
+        glMatrixMode(GLenum(GL_PROJECTION))
         
         let radians = (Float(M_PI) * fieldOfView) / 180.0
         let size = zNear * Float(tanf(radians/2.0))
@@ -64,13 +64,13 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
                    Float(size/Float(rect.size.width/rect.size.height)), zNear, zFar)
         glViewport(0, 0, GLsizei(rect.size.width), GLsizei(rect.size.height))
         
-        glMatrixMode(GLbitfield(GL_MODELVIEW))
+        glMatrixMode(GLenum(GL_MODELVIEW))
         
-        glEnable(GLbitfield(GL_LINE_SMOOTH))
-        glHint(GLbitfield(GL_LINE_SMOOTH_HINT),GLbitfield(GL_DONT_CARE))
+        glEnable(GLenum(GL_LINE_SMOOTH))
+        glHint(GLenum(GL_LINE_SMOOTH_HINT),GLenum(GL_DONT_CARE))
         
-        glEnable(GLbitfield(GL_BLEND))
-        glBlendFunc(GLbitfield(GL_SRC_ALPHA),GLbitfield(GL_ONE_MINUS_SRC_ALPHA))
+        glEnable(GLenum(GL_BLEND))
+        glBlendFunc(GLenum(GL_SRC_ALPHA),GLenum(GL_ONE_MINUS_SRC_ALPHA))
         
         GLModel3D.enableGLModel3D()
         
@@ -104,18 +104,18 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
     }
 
     func pushOrthoMatrix() {
-        glMatrixMode(GLbitfield(GL_PROJECTION))
+        glMatrixMode(GLenum(GL_PROJECTION))
         glPushMatrix()
         glLoadIdentity()
         glOrthof(0, Float(view.bounds.size.width), 0, Float(view.bounds.size.height), -5, 1)
-        glMatrixMode(GLbitfield(GL_MODELVIEW))
+        glMatrixMode(GLenum(GL_MODELVIEW))
         glLoadIdentity()
     }
 
     func popOrthoMatrix() {
-        glMatrixMode(GLbitfield(GL_PROJECTION))
+        glMatrixMode(GLenum(GL_PROJECTION))
         glPopMatrix()
-        glMatrixMode(GLbitfield(GL_MODELVIEW))
+        glMatrixMode(GLenum(GL_MODELVIEW))
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
