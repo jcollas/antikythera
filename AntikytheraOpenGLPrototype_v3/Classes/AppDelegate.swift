@@ -8,6 +8,14 @@
 
 import UIKit
 
+func DegreesToRadians (value:Double) -> Double {
+    return value * M_PI / 180.0
+}
+
+func RadiansToDegrees (value:Double) -> Double {
+    return value * 180.0 / M_PI
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

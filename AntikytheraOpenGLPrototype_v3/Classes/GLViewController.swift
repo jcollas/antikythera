@@ -98,8 +98,8 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         }
         
         userDial = UserDialView(radius:dialRad, mechanism:antikytheraMechanism, view:self.view)
-        userDial.setColor( Color3DMake(1.0, 1.0, 1.0, 0.5) )
-        userDial.setPosition(Vertex3DMake(self.view.bounds.size.width-CGFloat(dialRad*2.0), CGFloat(dialRad*2.0), 0.0))
+        userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.5)
+        userDial.position = Vertex3DMake(self.view.bounds.size.width-CGFloat(dialRad*2.0), CGFloat(dialRad*2.0), 0.0)
         dialMode = false
     }
 
@@ -129,11 +129,11 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
             let touch = allTouches?.first
             let location = touch?.locationInView(self.view)
             if userDial.hitTest(Vertex3DMake(location!.x,self.view.bounds.size.height-location!.y,0.0)) {
-                userDial.setColor(Color3DMake(1.0, 0.0, 0.0, 0.3))
+                userDial.color = Color3DMake(1.0, 0.0, 0.0, 0.3)
                 dialMode = true
                 userDial.touchesBegan(touches, withEvent: event)
             } else {
-                userDial.setColor(Color3DMake(1.0, 1.0, 1.0, 0.3))
+                userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.3)
                 dialMode = false
             }
         }
@@ -158,7 +158,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         if dialMode && allTouches?.count == 1 {
             dialMode = false
-            userDial.setColor(Color3DMake(1.0, 1.0, 1.0, 0.3))
+            userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.3)
         } else if (!dialMode) {
             if (touchDelegate != nil) {
                 touchDelegate?.touchesEnded(touches, withEvent:event)

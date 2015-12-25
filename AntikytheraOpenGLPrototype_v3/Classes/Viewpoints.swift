@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol CameraViewpoint2 {
+protocol CameraViewpoint {
 
     func updateViewpoint()
 
 }
 
-protocol Touchable2 {
+protocol Touchable {
 
     func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)

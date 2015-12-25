@@ -10,15 +10,11 @@
 #define Antikythera_Antikythera_Bridging_Header_h
 
 #import "GLView.h"
-#import "CameraViewpoint.h"
-#import "Touchable.h"
-#import "FlyThroughCamera.h"
-#import "ShowcaseCamera.h"
-#import "UICamera.h"
+#import "ModelView.h"
+#import "BoxModel.h"
 
 #import "AntikytheraMechanism.h"
 #import "AntikytheraMechanismView.h"
-#import "UserDialView.h"
 
 #import "GLModel3D.h"
 
