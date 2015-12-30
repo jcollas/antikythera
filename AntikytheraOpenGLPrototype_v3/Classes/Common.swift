@@ -112,6 +112,12 @@ struct Vector3D: Equatable {
     var z: Float
     static let Zero = Vector3D(x: 0.0, y: 0.0, z: 0.0)
 
+    init() {
+        x = 0.0
+        y = 0.0
+        z = 0.0
+    }
+    
     init(x: Float, y: Float, z: Float) {
         self.x = x
         self.y = y
@@ -147,7 +153,7 @@ struct Vector3D: Equatable {
     }
     
     func crossProduct(vector: Vector3D) -> Vector3D {
-        var ret = Vector3D(x: x, y: y, z: z)
+        var ret = Vector3D()
         
         ret.x = (y * vector.z) - (z * vector.y)
         ret.y = (z * vector.x) - (x * vector.z)
@@ -157,7 +163,7 @@ struct Vector3D: Equatable {
     }
     
     func startAndEndPoints(end: Vector3D) -> Vector3D {
-        var ret = Vector3D(x: x, y: y, z: z)
+        var ret = Vector3D()
 
         ret.x = end.x - x
         ret.y = end.y - y
@@ -167,7 +173,7 @@ struct Vector3D: Equatable {
     }
     
     func add(vector: Vector3D) -> Vector3D {
-        var ret = Vector3D(x: x, y: y, z: z)
+        var ret = Vector3D()
 
         ret.x = x + vector.x
         ret.y = y + vector.y
@@ -229,7 +235,7 @@ struct Triangle3D {
 //        let u = triangle.v2.startAndEndPoints(triangle.v1)
 //        let v = triangle.v3.startAndEndPoints(triangle.v1)
 //        
-//        var ret = Vector3D.Zero
+//        var ret = Vector3D()
 //        ret.x = (u.y * v.z) - (u.z * v.y)
 //        ret.y = (u.z * v.x) - (u.x * v.z)
 //        ret.z = (u.x * v.y) - (u.y * v.x)
