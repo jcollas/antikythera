@@ -6,6 +6,9 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+import UIKit
+import OpenGLES
+
 let kMIN_ZOOM: CGFloat = 20.0
 let kMAX_ZOOM: CGFloat = 600.0
 
@@ -27,8 +30,8 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
 
     var startDist: CGFloat = 200.0
     var distance: CGFloat = 0.0
-    var center = Vertex3DMake(0.0, 0.0, 0.0)
-    var panDiff = Vertex3DMake(0.0, 0.0, 0.0)
+    var center = Vertex3D.Zero
+    var panDiff = Vertex3D.Zero
     var gestureStartPoint: CGPoint!
     var gestureStartDistance: CGFloat!
     var currentGesture: GestureType = .None
@@ -106,7 +109,7 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
             let delta = hypotf(Float(p2.x-p1.x), Float(p2.y-p1.y))
             let deltaPos = CGPointMake(gestureStartPoint.x - (p1.x+p2.x)/2,gestureStartPoint.y - (p1.y+p2.y)/2)
             
-            panDiff = Vertex3DMake(-deltaPos.x/5, 0.0, deltaPos.y/5)
+            panDiff = Vertex3D(x: Float(-deltaPos.x)/5.0, y: 0.0, z: Float(deltaPos.y)/5.0)
             
             distance = (gestureStartDistance - CGFloat(delta))
             if ((startDist+distance) < kMIN_ZOOM) {
@@ -150,7 +153,7 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         
         center.x += panDiff.x
         center.z += panDiff.z
-        panDiff = Vertex3DMake(0.0, 0.0, 0.0)
+        panDiff = Vertex3D.Zero
     }
 
     func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {

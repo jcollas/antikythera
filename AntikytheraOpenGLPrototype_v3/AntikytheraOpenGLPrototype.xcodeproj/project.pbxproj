@@ -12,38 +12,40 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		1F92F5EC0FDFF83200548BE8 /* GLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */; };
 		1FF404F30FF2AC4B00D17C20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */; };
-		28FD14FE0DC6FC130079059D /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* GLView.m */; };
+		28FD14FE0DC6FC130079059D /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* GLView.swift */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C050AE661A2B5037005936F1 /* Default-568h@2x.png */; };
+		C08968E21C2E4589006EBECC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA7F116C25DD0097AE70 /* Models.swift */; };
+		C0E3761C1C320D3600C99043 /* OpenGLCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.swift */; };
 		C0FDE5381C2A1A32008283F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FDE5371C2A1A32008283F4 /* Main.storyboard */; };
 		C0FDE53C1C2A357D008283F4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FDE53B1C2A357D008283F4 /* GLKit.framework */; };
 		C0FDE57A1C2AD56C008283F4 /* Viewpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */; };
-		C91A35F8118343A400FA1697 /* BoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A35F7118343A400FA1697 /* BoxModel.m */; };
+		C91A35F8118343A400FA1697 /* BoxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A35F7118343A400FA1697 /* BoxModel.swift */; };
 		C91A362A1183484500FA1697 /* SideCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A36291183484500FA1697 /* SideCamera.swift */; };
-		C9423593117BA2A800385EC6 /* PointerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9423592117BA2A800385EC6 /* PointerModel.m */; };
-		C94235C3117BB0BF00385EC6 /* PointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C94235C2117BB0BF00385EC6 /* PointerView.m */; };
-		C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C95046ED116E72FC00AE2F5D /* ConnectorModel.m */; };
+		C9423593117BA2A800385EC6 /* PointerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9423592117BA2A800385EC6 /* PointerModel.swift */; };
+		C94235C3117BB0BF00385EC6 /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94235C2117BB0BF00385EC6 /* PointerView.swift */; };
+		C95046EE116E72FC00AE2F5D /* ConnectorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95046ED116E72FC00AE2F5D /* ConnectorModel.swift */; };
 		C9504703116E755700AE2F5D /* ShowcaseCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9504702116E755700AE2F5D /* ShowcaseCamera.swift */; };
-		C96AAE0F116FF7DA00869DF6 /* GearShaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */; };
-		C970E24F118F7E8F00E6A01A /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C970E24E118F7E8F00E6A01A /* BoxView.m */; };
-		C9747105118948B4007E04E5 /* FlatDialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9747104118948B4007E04E5 /* FlatDialModel.m */; };
+		C96AAE0F116FF7DA00869DF6 /* GearShaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AAE0E116FF7DA00869DF6 /* GearShaderModel.swift */; };
+		C970E24F118F7E8F00E6A01A /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970E24E118F7E8F00E6A01A /* BoxView.swift */; };
+		C9747105118948B4007E04E5 /* FlatDialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9747104118948B4007E04E5 /* FlatDialModel.swift */; };
 		C9747108118948EE007E04E5 /* UserDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9747107118948EE007E04E5 /* UserDialView.swift */; };
 		C97607CB1183CBF5000F322E /* UICamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97607CA1183CBF5000F322E /* UICamera.swift */; };
-		C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */; };
-		C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */; };
-		C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */; };
-		C9CCAA05116BFB920097AE70 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA04116BFB920097AE70 /* Connector.m */; };
-		C9CCAA0D116C076C0097AE70 /* Gear.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA0C116C076C0097AE70 /* Gear.m */; };
-		C9CCAA83116C26230097AE70 /* GearView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA82116C26230097AE70 /* GearView.m */; };
-		C9CCAA86116CC52A0097AE70 /* ConnectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA85116CC52A0097AE70 /* ConnectorView.m */; };
-		C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */; };
-		C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB25116D87B60097AE70 /* GLModel3D.m */; };
-		C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB30116D8B660097AE70 /* GearModel.m */; };
+		C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.swift */; };
+		C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.swift */; };
+		C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.swift */; };
+		C9CCAA05116BFB920097AE70 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA04116BFB920097AE70 /* Connector.swift */; };
+		C9CCAA0D116C076C0097AE70 /* Gear.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA0C116C076C0097AE70 /* Gear.swift */; };
+		C9CCAA83116C26230097AE70 /* GearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA82116C26230097AE70 /* GearView.swift */; };
+		C9CCAA86116CC52A0097AE70 /* ConnectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA85116CC52A0097AE70 /* ConnectorView.swift */; };
+		C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.swift */; };
+		C9CCAB26116D87B60097AE70 /* GLModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB25116D87B60097AE70 /* GLModel3D.swift */; };
+		C9CCAB31116D8B660097AE70 /* GearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAB30116D8B660097AE70 /* GearModel.swift */; };
 		C9CCABEE116E31650097AE70 /* FlyThroughCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCABED116E31650097AE70 /* FlyThroughCamera.swift */; };
 		C9CCAC06116E32740097AE70 /* TopCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAC05116E32740097AE70 /* TopCamera.swift */; };
-		C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */; };
-		C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FB30441182AB1500021EDB /* LunarPointerView.m */; };
+		C9D2FE2D118156F30042C84E /* HalfGlobeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D2FE2C118156F30042C84E /* HalfGlobeModel.swift */; };
+		C9FB30451182AB1500021EDB /* LunarPointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB30441182AB1500021EDB /* LunarPointerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +55,9 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = Classes/ConstantsAndMacros.h; sourceTree = SOURCE_ROOT; };
 		1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLViewController.swift; path = Classes/GLViewController.swift; sourceTree = SOURCE_ROOT; };
-		1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLCommon.h; path = Classes/OpenGLCommon.h; sourceTree = SOURCE_ROOT; };
+		1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenGLCommon.swift; path = Classes/OpenGLCommon.swift; sourceTree = SOURCE_ROOT; };
 		1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28FD14FC0DC6FC130079059D /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = Classes/GLView.h; sourceTree = SOURCE_ROOT; };
-		28FD14FD0DC6FC130079059D /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = Classes/GLView.m; sourceTree = SOURCE_ROOT; };
+		28FD14FD0DC6FC130079059D /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLView.swift; path = Classes/GLView.swift; sourceTree = SOURCE_ROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* AntikytheraOpenGLPrototype_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraOpenGLPrototype_Prefix.pch; sourceTree = "<group>"; };
@@ -66,56 +67,32 @@
 		C0FDE5391C2A29F9008283F4 /* Antikythera-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Antikythera-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0FDE53B1C2A357D008283F4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewpoints.swift; sourceTree = "<group>"; };
-		C91A35F6118343A400FA1697 /* BoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxModel.h; sourceTree = "<group>"; };
-		C91A35F7118343A400FA1697 /* BoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxModel.m; sourceTree = "<group>"; };
+		C91A35F7118343A400FA1697 /* BoxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
 		C91A36291183484500FA1697 /* SideCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideCamera.swift; sourceTree = "<group>"; };
-		C9423591117BA2A800385EC6 /* PointerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerModel.h; sourceTree = "<group>"; };
-		C9423592117BA2A800385EC6 /* PointerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerModel.m; sourceTree = "<group>"; };
-		C94235C1117BB0BF00385EC6 /* PointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerView.h; sourceTree = "<group>"; };
-		C94235C2117BB0BF00385EC6 /* PointerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointerView.m; sourceTree = "<group>"; };
-		C95046EC116E72FC00AE2F5D /* ConnectorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorModel.h; sourceTree = "<group>"; };
-		C95046ED116E72FC00AE2F5D /* ConnectorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectorModel.m; sourceTree = "<group>"; };
+		C9423592117BA2A800385EC6 /* PointerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerModel.swift; sourceTree = "<group>"; };
+		C94235C2117BB0BF00385EC6 /* PointerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
+		C95046ED116E72FC00AE2F5D /* ConnectorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorModel.swift; sourceTree = "<group>"; };
 		C9504702116E755700AE2F5D /* ShowcaseCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseCamera.swift; sourceTree = "<group>"; };
-		C96AAE0D116FF7DA00869DF6 /* GearShaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearShaderModel.h; sourceTree = "<group>"; };
-		C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearShaderModel.m; sourceTree = "<group>"; };
-		C970E24D118F7E8F00E6A01A /* BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
-		C970E24E118F7E8F00E6A01A /* BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
-		C9747103118948B4007E04E5 /* FlatDialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatDialModel.h; sourceTree = "<group>"; };
-		C9747104118948B4007E04E5 /* FlatDialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDialModel.m; sourceTree = "<group>"; };
+		C96AAE0E116FF7DA00869DF6 /* GearShaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearShaderModel.swift; sourceTree = "<group>"; };
+		C970E24E118F7E8F00E6A01A /* BoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
+		C9747104118948B4007E04E5 /* FlatDialModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatDialModel.swift; sourceTree = "<group>"; };
 		C9747107118948EE007E04E5 /* UserDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDialView.swift; sourceTree = "<group>"; };
 		C97607CA1183CBF5000F322E /* UICamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICamera.swift; sourceTree = "<group>"; };
-		C99D6C0B1186104600BAE9BD /* AMViewStateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewStateHandler.h; sourceTree = "<group>"; };
-		C9BCDC10116EBAAF00B6A4BA /* PinAndSlotConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAndSlotConnector.h; sourceTree = "<group>"; };
-		C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAndSlotConnector.m; sourceTree = "<group>"; };
-		C9BCDCB0116EE2D200B6A4BA /* PinAndSlotConnectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAndSlotConnectorView.h; sourceTree = "<group>"; };
-		C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAndSlotConnectorView.m; sourceTree = "<group>"; };
-		C9CCA9FA116BF8DE0097AE70 /* MechanicalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MechanicalDevice.h; sourceTree = "<group>"; };
-		C9CCA9FC116BF9300097AE70 /* AntikytheraMechanism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraMechanism.h; sourceTree = "<group>"; };
-		C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntikytheraMechanism.m; sourceTree = "<group>"; };
-		C9CCAA02116BFAF70097AE70 /* DeviceComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceComponent.h; sourceTree = "<group>"; };
-		C9CCAA03116BFB920097AE70 /* Connector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
-		C9CCAA04116BFB920097AE70 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
-		C9CCAA0B116C076C0097AE70 /* Gear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gear.h; sourceTree = "<group>"; };
-		C9CCAA0C116C076C0097AE70 /* Gear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gear.m; sourceTree = "<group>"; };
-		C9CCAA7F116C25DD0097AE70 /* ModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelView.h; sourceTree = "<group>"; };
-		C9CCAA81116C26230097AE70 /* GearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearView.h; sourceTree = "<group>"; };
-		C9CCAA82116C26230097AE70 /* GearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearView.m; sourceTree = "<group>"; };
-		C9CCAA84116CC52A0097AE70 /* ConnectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorView.h; sourceTree = "<group>"; };
-		C9CCAA85116CC52A0097AE70 /* ConnectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectorView.m; sourceTree = "<group>"; };
-		C9CCAA8B116CC87F0097AE70 /* ComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentView.h; sourceTree = "<group>"; };
-		C9CCAAAE116CD1300097AE70 /* DeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceView.h; sourceTree = "<group>"; };
-		C9CCAAB1116CD1820097AE70 /* AntikytheraMechanismView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraMechanismView.h; sourceTree = "<group>"; };
-		C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntikytheraMechanismView.m; sourceTree = "<group>"; };
-		C9CCAB24116D87B60097AE70 /* GLModel3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModel3D.h; sourceTree = "<group>"; };
-		C9CCAB25116D87B60097AE70 /* GLModel3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLModel3D.m; sourceTree = "<group>"; };
-		C9CCAB2F116D8B660097AE70 /* GearModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearModel.h; sourceTree = "<group>"; };
-		C9CCAB30116D8B660097AE70 /* GearModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GearModel.m; sourceTree = "<group>"; };
+		C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAndSlotConnector.swift; sourceTree = "<group>"; };
+		C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinAndSlotConnectorView.swift; sourceTree = "<group>"; };
+		C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntikytheraMechanism.swift; sourceTree = "<group>"; };
+		C9CCAA04116BFB920097AE70 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		C9CCAA0C116C076C0097AE70 /* Gear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gear.swift; sourceTree = "<group>"; };
+		C9CCAA7F116C25DD0097AE70 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C9CCAA82116C26230097AE70 /* GearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearView.swift; sourceTree = "<group>"; };
+		C9CCAA85116CC52A0097AE70 /* ConnectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorView.swift; sourceTree = "<group>"; };
+		C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntikytheraMechanismView.swift; sourceTree = "<group>"; };
+		C9CCAB25116D87B60097AE70 /* GLModel3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLModel3D.swift; sourceTree = "<group>"; };
+		C9CCAB30116D8B660097AE70 /* GearModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearModel.swift; sourceTree = "<group>"; };
 		C9CCABED116E31650097AE70 /* FlyThroughCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyThroughCamera.swift; sourceTree = "<group>"; };
 		C9CCAC05116E32740097AE70 /* TopCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCamera.swift; sourceTree = "<group>"; };
-		C9D2FE2B118156F30042C84E /* HalfGlobeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfGlobeModel.h; sourceTree = "<group>"; };
-		C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HalfGlobeModel.m; sourceTree = "<group>"; wrapsLines = 0; };
-		C9FB30431182AB1500021EDB /* LunarPointerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarPointerView.h; sourceTree = "<group>"; };
-		C9FB30441182AB1500021EDB /* LunarPointerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarPointerView.m; sourceTree = "<group>"; };
+		C9D2FE2C118156F30042C84E /* HalfGlobeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfGlobeModel.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		C9FB30441182AB1500021EDB /* LunarPointerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarPointerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,10 +117,10 @@
 			children = (
 				1D3623250D0F684500981E51 /* AppDelegate.swift */,
 				1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */,
-				1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.h */,
-				28FD14FC0DC6FC130079059D /* GLView.h */,
-				28FD14FD0DC6FC130079059D /* GLView.m */,
+				1F92F5EB0FDFF83200548BE8 /* OpenGLCommon.swift */,
+				28FD14FD0DC6FC130079059D /* GLView.swift */,
 				1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */,
+				C9CCAA7F116C25DD0097AE70 /* Models.swift */,
 				C9CCABEF116E316A0097AE70 /* Camera Viewpoints */,
 				C9CCA9FB116BF90E0097AE70 /* Devices */,
 				C9CCAA80116C26000097AE70 /* Views */,
@@ -211,20 +188,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C99D6C0A1186100500BAE9BD /* AM View State */ = {
-			isa = PBXGroup;
-			children = (
-				C99D6C0B1186104600BAE9BD /* AMViewStateHandler.h */,
-			);
-			name = "AM View State";
-			sourceTree = "<group>";
-		};
 		C9CCA9FB116BF90E0097AE70 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCA9FA116BF8DE0097AE70 /* MechanicalDevice.h */,
-				C9CCA9FC116BF9300097AE70 /* AntikytheraMechanism.h */,
-				C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.m */,
+				C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.swift */,
 				C9CCAA0A116C06E00097AE70 /* Device Components */,
 			);
 			name = Devices;
@@ -233,13 +200,9 @@
 		C9CCAA0A116C06E00097AE70 /* Device Components */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAA02116BFAF70097AE70 /* DeviceComponent.h */,
-				C9CCAA03116BFB920097AE70 /* Connector.h */,
-				C9CCAA04116BFB920097AE70 /* Connector.m */,
-				C9CCAA0B116C076C0097AE70 /* Gear.h */,
-				C9CCAA0C116C076C0097AE70 /* Gear.m */,
-				C9BCDC10116EBAAF00B6A4BA /* PinAndSlotConnector.h */,
-				C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.m */,
+				C9CCAA04116BFB920097AE70 /* Connector.swift */,
+				C9CCAA0C116C076C0097AE70 /* Gear.swift */,
+				C9BCDC11116EBAAF00B6A4BA /* PinAndSlotConnector.swift */,
 			);
 			name = "Device Components";
 			sourceTree = "<group>";
@@ -247,7 +210,6 @@
 		C9CCAA80116C26000097AE70 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAA7F116C25DD0097AE70 /* ModelView.h */,
 				C9747107118948EE007E04E5 /* UserDialView.swift */,
 				C9CCAAB0116CD16A0097AE70 /* Device Views */,
 				C9CCAAAF116CD1620097AE70 /* Component Views */,
@@ -259,19 +221,12 @@
 		C9CCAAAF116CD1620097AE70 /* Component Views */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAA8B116CC87F0097AE70 /* ComponentView.h */,
-				C9CCAA81116C26230097AE70 /* GearView.h */,
-				C9CCAA82116C26230097AE70 /* GearView.m */,
-				C9CCAA84116CC52A0097AE70 /* ConnectorView.h */,
-				C9CCAA85116CC52A0097AE70 /* ConnectorView.m */,
-				C9BCDCB0116EE2D200B6A4BA /* PinAndSlotConnectorView.h */,
-				C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.m */,
-				C94235C1117BB0BF00385EC6 /* PointerView.h */,
-				C94235C2117BB0BF00385EC6 /* PointerView.m */,
-				C9FB30431182AB1500021EDB /* LunarPointerView.h */,
-				C9FB30441182AB1500021EDB /* LunarPointerView.m */,
-				C970E24D118F7E8F00E6A01A /* BoxView.h */,
-				C970E24E118F7E8F00E6A01A /* BoxView.m */,
+				C9CCAA82116C26230097AE70 /* GearView.swift */,
+				C9CCAA85116CC52A0097AE70 /* ConnectorView.swift */,
+				C9BCDCB1116EE2D200B6A4BA /* PinAndSlotConnectorView.swift */,
+				C94235C2117BB0BF00385EC6 /* PointerView.swift */,
+				C9FB30441182AB1500021EDB /* LunarPointerView.swift */,
+				C970E24E118F7E8F00E6A01A /* BoxView.swift */,
 			);
 			name = "Component Views";
 			sourceTree = "<group>";
@@ -279,10 +234,7 @@
 		C9CCAAB0116CD16A0097AE70 /* Device Views */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAAAE116CD1300097AE70 /* DeviceView.h */,
-				C9CCAAB1116CD1820097AE70 /* AntikytheraMechanismView.h */,
-				C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.m */,
-				C99D6C0A1186100500BAE9BD /* AM View State */,
+				C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.swift */,
 			);
 			name = "Device Views";
 			sourceTree = "<group>";
@@ -290,22 +242,14 @@
 		C9CCAB27116D89C20097AE70 /* GLModel3D */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAB24116D87B60097AE70 /* GLModel3D.h */,
-				C9CCAB25116D87B60097AE70 /* GLModel3D.m */,
-				C9CCAB2F116D8B660097AE70 /* GearModel.h */,
-				C9CCAB30116D8B660097AE70 /* GearModel.m */,
-				C96AAE0D116FF7DA00869DF6 /* GearShaderModel.h */,
-				C96AAE0E116FF7DA00869DF6 /* GearShaderModel.m */,
-				C95046EC116E72FC00AE2F5D /* ConnectorModel.h */,
-				C95046ED116E72FC00AE2F5D /* ConnectorModel.m */,
-				C9423591117BA2A800385EC6 /* PointerModel.h */,
-				C9423592117BA2A800385EC6 /* PointerModel.m */,
-				C9D2FE2B118156F30042C84E /* HalfGlobeModel.h */,
-				C9D2FE2C118156F30042C84E /* HalfGlobeModel.m */,
-				C91A35F6118343A400FA1697 /* BoxModel.h */,
-				C91A35F7118343A400FA1697 /* BoxModel.m */,
-				C9747103118948B4007E04E5 /* FlatDialModel.h */,
-				C9747104118948B4007E04E5 /* FlatDialModel.m */,
+				C9CCAB25116D87B60097AE70 /* GLModel3D.swift */,
+				C9CCAB30116D8B660097AE70 /* GearModel.swift */,
+				C96AAE0E116FF7DA00869DF6 /* GearShaderModel.swift */,
+				C95046ED116E72FC00AE2F5D /* ConnectorModel.swift */,
+				C9423592117BA2A800385EC6 /* PointerModel.swift */,
+				C9D2FE2C118156F30042C84E /* HalfGlobeModel.swift */,
+				C91A35F7118343A400FA1697 /* BoxModel.swift */,
+				C9747104118948B4007E04E5 /* FlatDialModel.swift */,
 			);
 			name = GLModel3D;
 			sourceTree = "<group>";
@@ -389,33 +333,35 @@
 			files = (
 				1D3623260D0F684500981E51 /* AppDelegate.swift in Sources */,
 				C0FDE57A1C2AD56C008283F4 /* Viewpoints.swift in Sources */,
-				28FD14FE0DC6FC130079059D /* GLView.m in Sources */,
+				28FD14FE0DC6FC130079059D /* GLView.swift in Sources */,
 				1F92F5EC0FDFF83200548BE8 /* GLViewController.swift in Sources */,
-				C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.m in Sources */,
-				C9CCAA05116BFB920097AE70 /* Connector.m in Sources */,
-				C9CCAA0D116C076C0097AE70 /* Gear.m in Sources */,
-				C9CCAA83116C26230097AE70 /* GearView.m in Sources */,
-				C9CCAA86116CC52A0097AE70 /* ConnectorView.m in Sources */,
-				C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.m in Sources */,
-				C9CCAB26116D87B60097AE70 /* GLModel3D.m in Sources */,
-				C9CCAB31116D8B660097AE70 /* GearModel.m in Sources */,
+				C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.swift in Sources */,
+				C9CCAA05116BFB920097AE70 /* Connector.swift in Sources */,
+				C9CCAA0D116C076C0097AE70 /* Gear.swift in Sources */,
+				C9CCAA83116C26230097AE70 /* GearView.swift in Sources */,
+				C9CCAA86116CC52A0097AE70 /* ConnectorView.swift in Sources */,
+				C08968E21C2E4589006EBECC /* Models.swift in Sources */,
+				C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.swift in Sources */,
+				C9CCAB26116D87B60097AE70 /* GLModel3D.swift in Sources */,
+				C9CCAB31116D8B660097AE70 /* GearModel.swift in Sources */,
 				C9CCABEE116E31650097AE70 /* FlyThroughCamera.swift in Sources */,
 				C9CCAC06116E32740097AE70 /* TopCamera.swift in Sources */,
-				C95046EE116E72FC00AE2F5D /* ConnectorModel.m in Sources */,
+				C95046EE116E72FC00AE2F5D /* ConnectorModel.swift in Sources */,
 				C9504703116E755700AE2F5D /* ShowcaseCamera.swift in Sources */,
-				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.m in Sources */,
-				C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.m in Sources */,
-				C96AAE0F116FF7DA00869DF6 /* GearShaderModel.m in Sources */,
-				C9423593117BA2A800385EC6 /* PointerModel.m in Sources */,
-				C94235C3117BB0BF00385EC6 /* PointerView.m in Sources */,
-				C9D2FE2D118156F30042C84E /* HalfGlobeModel.m in Sources */,
-				C9FB30451182AB1500021EDB /* LunarPointerView.m in Sources */,
-				C91A35F8118343A400FA1697 /* BoxModel.m in Sources */,
+				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.swift in Sources */,
+				C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.swift in Sources */,
+				C96AAE0F116FF7DA00869DF6 /* GearShaderModel.swift in Sources */,
+				C0E3761C1C320D3600C99043 /* OpenGLCommon.swift in Sources */,
+				C9423593117BA2A800385EC6 /* PointerModel.swift in Sources */,
+				C94235C3117BB0BF00385EC6 /* PointerView.swift in Sources */,
+				C9D2FE2D118156F30042C84E /* HalfGlobeModel.swift in Sources */,
+				C9FB30451182AB1500021EDB /* LunarPointerView.swift in Sources */,
+				C91A35F8118343A400FA1697 /* BoxModel.swift in Sources */,
 				C91A362A1183484500FA1697 /* SideCamera.swift in Sources */,
 				C97607CB1183CBF5000F322E /* UICamera.swift in Sources */,
-				C9747105118948B4007E04E5 /* FlatDialModel.m in Sources */,
+				C9747105118948B4007E04E5 /* FlatDialModel.swift in Sources */,
 				C9747108118948EE007E04E5 /* UserDialView.swift in Sources */,
-				C970E24F118F7E8F00E6A01A /* BoxView.m in Sources */,
+				C970E24F118F7E8F00E6A01A /* BoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AntikytheraOpenGLPrototype;
 				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -450,6 +397,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AntikytheraOpenGLPrototype_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
@@ -459,6 +407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = AntikytheraOpenGLPrototype;
 				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};
@@ -468,6 +417,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;

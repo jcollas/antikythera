@@ -31,7 +31,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         camera.updateViewpoint()
         
-        //	if (antikytheraMechanismView.currentState == STATE_PIN_AND_SLOT) {
+        //	if (antikytheraMechanismView.currentState == .PinAndSlot) {
         //		[antikytheraMechanism rotate:0.1f];
         //	} else {
         //		[antikytheraMechanism rotate:2.0f];
@@ -80,17 +80,10 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         //	camera = SideCamera()
         camera = UICamera(view: self.view)
         
-        if camera is Touchable {
-            touchDelegate = camera as? Touchable
-        } else {
-            touchDelegate = nil
-        }
+        touchDelegate = camera as? Touchable
         
         antikytheraMechanism = AntikytheraMechanism()
-        antikytheraMechanism.buildDevice()
-        
         antikytheraMechanismView = AntikytheraMechanismView(mechanism: antikytheraMechanism)
-        antikytheraMechanismView.buildDeviceView()
         
         var dialRad = Float(self.view.bounds.size.width)/10.0
         if (dialRad < 40.0) {
@@ -98,8 +91,8 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         }
         
         userDial = UserDialView(radius:dialRad, mechanism:antikytheraMechanism, view:self.view)
-        userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.5)
-        userDial.position = Vertex3DMake(self.view.bounds.size.width-CGFloat(dialRad*2.0), CGFloat(dialRad*2.0), 0.0)
+        userDial.color = Color3D(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        userDial.position = Vector3D(x: Float(self.view.bounds.size.width)-dialRad*2.0, y: dialRad*2.0, z: 0.0)
         dialMode = false
     }
 
@@ -128,17 +121,17 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         if !dialMode && allTouches?.count == 1 {
             let touch = allTouches?.first
             let location = touch?.locationInView(self.view)
-            if userDial.hitTest(Vertex3DMake(location!.x,self.view.bounds.size.height-location!.y,0.0)) {
-                userDial.color = Color3DMake(1.0, 0.0, 0.0, 0.3)
+            if userDial.hitTest(Vector3D(x: Float(location!.x), y: Float(self.view.bounds.size.height-location!.y), z: 0.0)) {
+                userDial.color = Color3D(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.3)
                 dialMode = true
                 userDial.touchesBegan(touches, withEvent: event)
             } else {
-                userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.3)
+                userDial.color = Color3D(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
                 dialMode = false
             }
         }
         
-        if (!dialMode && touchDelegate != nil) {
+        if !dialMode {
             touchDelegate?.touchesBegan(touches, withEvent:event)
         }
     }
@@ -147,9 +140,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         if (dialMode) {
             userDial.touchesMoved(touches, withEvent:event)
         } else {
-            if (touchDelegate != nil) {
-                touchDelegate?.touchesMoved(touches, withEvent:event)
-            }
+            touchDelegate?.touchesMoved(touches, withEvent:event)
         }
     }
 
@@ -158,11 +149,9 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         if dialMode && allTouches?.count == 1 {
             dialMode = false
-            userDial.color = Color3DMake(1.0, 1.0, 1.0, 0.3)
+            userDial.color = Color3D(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3)
         } else if (!dialMode) {
-            if (touchDelegate != nil) {
-                touchDelegate?.touchesEnded(touches, withEvent:event)
-            }
+            touchDelegate?.touchesEnded(touches, withEvent:event)
         }
         
         
@@ -176,7 +165,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
             let actionSheet = UIActionSheet(title:NSLocalizedString("Visualization mode", comment:""),
                                                                      delegate:self,
                                             cancelButtonTitle:cancelButton,
-                                            destructiveButtonTitle: "",
+                                            destructiveButtonTitle: nil,
                                                             otherButtonTitles:button1,button2,button3,button4)
             actionSheet.actionSheetStyle = .BlackTranslucent
             actionSheet.showInView(self.view.window!)
@@ -188,19 +177,19 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         switch (buttonIndex) {
             case 0: // STATE_POINTERS
-                antikytheraMechanismView.setCurrentState(STATE_POINTERS, phase:PHASE_RUNNING)
+                antikytheraMechanismView.setCurrentState(.Pointers, phase: .Running)
 
             case 1: // STATE_GEARS
-                antikytheraMechanismView.setCurrentState(STATE_GEARS, phase:PHASE_RUNNING)
+                antikytheraMechanismView.setCurrentState(.Gears, phase: .Running)
 
             case 2: // STATE_BOX
-                antikytheraMechanismView.setCurrentState(STATE_BOX, phase:PHASE_RUNNING)
+                antikytheraMechanismView.setCurrentState(.Box, phase: .Running)
 
             case 3: // STATE_PIN_AND_SLOT
-                antikytheraMechanismView.setCurrentState(STATE_PIN_AND_SLOT, phase:PHASE_RUNNING)
+                antikytheraMechanismView.setCurrentState(.PinAndSlot, phase: .Running)
 
             default: // STATE_DEFAULT
-                antikytheraMechanismView.setCurrentState(STATE_DEFAULT, phase:PHASE_RUNNING)
+                antikytheraMechanismView.setCurrentState(.Default, phase: .Running)
         }
     }
 

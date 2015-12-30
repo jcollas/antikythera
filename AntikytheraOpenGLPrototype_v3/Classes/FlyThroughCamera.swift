@@ -6,6 +6,8 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
+import OpenGLES
+
 class FlyThroughCamera: NSObject, CameraViewpoint {
     
     var rot: GLfloat = 0.0

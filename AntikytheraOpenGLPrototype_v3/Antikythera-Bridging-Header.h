@@ -9,14 +9,9 @@
 #ifndef Antikythera_Antikythera_Bridging_Header_h
 #define Antikythera_Antikythera_Bridging_Header_h
 
-#import "GLView.h"
-#import "ModelView.h"
-#import "BoxModel.h"
-
-#import "AntikytheraMechanism.h"
-#import "AntikytheraMechanismView.h"
-
-#import "GLModel3D.h"
+#define TARGET_OS_EMBEDDED 1
+//#import "OpenGLCommon.h"
+#import "ConstantsAndMacros.h"
 
 #endif
 

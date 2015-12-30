@@ -6,9 +6,11 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+import UIKit
+import OpenGLES
 
 class UserDialView: NSObject, ModelView, Touchable {
-    var position: Vertex3D
+    var position: Vector3D
     var rotation: Double
     var radius: Double
     var color: Color3D
@@ -22,16 +24,16 @@ class UserDialView: NSObject, ModelView, Touchable {
     let boxModel: BoxModel
 
     init(radius rad: Float, mechanism: AntikytheraMechanism, view: UIView) {
-		position = Vertex3DMake(0.0, 0.0, 0.0)
+		position = Vector3D.Zero
         lastPosition = position
         rotation = 0
 		radius = Double(rad)
-		color = Color3DMake(1.0, 1.0, 1.0, 1.0)
+        color = Color3D(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 		
 		myView = view
 		myMechanism = mechanism
 		
-		boxModel = BoxModel(width:Float(rad*0.1), height:Float(rad*0.75), length:0.5)
+		boxModel = BoxModel(width: rad*0.1, height: rad*0.75, length:0.5)
 }
 
     func setOpacity(opac: Float) { color.alpha = opac }
@@ -76,20 +78,20 @@ class UserDialView: NSObject, ModelView, Touchable {
         let allTouches = event?.touchesForView(myView)
         let touch = allTouches?.first
         let location = touch?.locationInView(myView)
-        lastPosition = Vertex3DMake(location!.x, myView.bounds.size.height-location!.y, 0.0)
+        lastPosition = Vector3D(x: Float(location!.x), y: Float(myView.bounds.size.height-location!.y), z: 0.0)
     }
     
     func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let allTouches = event?.touchesForView(myView)
         let touch = allTouches?.first
         let location = touch?.locationInView(myView)
-        let newPosition = Vertex3DMake(location!.x, myView.bounds.size.height-location!.y, 0.0)
+        let newPosition = Vector3D(x: Float(location!.x), y: Float(myView.bounds.size.height-location!.y), z: 0.0)
         
-        var norm1 = Vector3DMakeWithStartAndEndPoints(position,lastPosition)
-        var norm2 = Vector3DMakeWithStartAndEndPoints(position,newPosition)
+        var norm1 = position.startAndEndPoints(lastPosition)
+        var norm2 = position.startAndEndPoints(newPosition)
         
-        Vector3DNormalize(&norm1)
-        Vector3DNormalize(&norm2)
+        norm1.normalize()
+        norm2.normalize()
         
         var angle: Double = Double(atan2f(norm2.y,norm2.x) - atan2f(norm1.y,norm1.x))
         
