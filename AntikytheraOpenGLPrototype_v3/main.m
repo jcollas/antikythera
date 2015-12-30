@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AntikytheraOpenGLPrototypeAppDelegate.h"
 
+#import "AntikytheraOpenGLPrototypeAppDelegate.h"
+
 int main(int argc, char *argv[]) {
     
     @autoreleasepool {
