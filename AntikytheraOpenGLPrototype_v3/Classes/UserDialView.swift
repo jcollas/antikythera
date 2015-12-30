@@ -106,7 +106,7 @@ class UserDialView: NSObject, ModelView, Touchable {
         angle = RadiansToDegrees(angle)
         if (angle != 0.0) {
             rotation += angle
-            NSLog("%f",angle)
+//            NSLog("%f",angle)
             myMechanism.rotate(Float(angle))
             
             lastPosition = newPosition

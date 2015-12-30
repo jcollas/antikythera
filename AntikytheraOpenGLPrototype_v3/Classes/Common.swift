@@ -6,7 +6,6 @@
 //
 
 import CoreGraphics
-import OpenGLES
 
 func DegreesToRadians (value:Double) -> Double {
     return value * M_PI / 180.0
@@ -19,26 +18,26 @@ func RadiansToDegrees (value:Double) -> Double {
 // MARK:- Color3D
 
 struct Color3D {
-    var red: GLfloat
-    var green: GLfloat
-    var blue: GLfloat
-    var alpha: GLfloat
+    var red: Float
+    var green: Float
+    var blue: Float
+    var alpha: Float
     
-    init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-        self.red = GLfloat(red)
-        self.green = GLfloat(green)
-        self.blue = GLfloat(blue)
-        self.alpha = GLfloat(alpha)
+    init(red: Float, green: Float, blue: Float, alpha: Float) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
     }
     
-    mutating func set(inRed: CGFloat, inGreen: CGFloat, inBlue: CGFloat, inAlpha: CGFloat) {
-        red = GLfloat(inRed)
-        green = GLfloat(inGreen)
-        blue = GLfloat(inBlue)
-        alpha = GLfloat(inAlpha)
+    mutating func set(inRed: Float, inGreen: Float, inBlue: Float, inAlpha: Float) {
+        red = inRed
+        green = inGreen
+        blue = inBlue
+        alpha = inAlpha
     }
     
-    func interpolate(color2: Color3D, percent: GLfloat) -> Color3D {
+    func interpolate(color2: Color3D, percent: Float) -> Color3D {
         var ret: Color3D!
         
         ret.red = red + ((color2.red - red) * percent)
@@ -82,21 +81,21 @@ func == (lhs: Vertex3D, rhs: Vertex3D) -> Bool {
 }
 
 struct Vertex3D: Equatable {
-    var x: GLfloat
-    var y: GLfloat
-    var z: GLfloat
+    var x: Float
+    var y: Float
+    var z: Float
     static let Zero = Vertex3D(x: 0.0, y: 0.0, z: 0.0)
     
     init(x: Float, y: Float, z: Float) {
-        self.x = GLfloat(x)
-        self.y = GLfloat(y)
-        self.z = GLfloat(z)
+        self.x = x
+        self.y = y
+        self.z = z
     }
     
-    mutating func set(inX: CGFloat, inY: CGFloat, inZ: CGFloat) {
-        self.x = GLfloat(inX)
-        self.y = GLfloat(inY)
-        self.z = GLfloat(inZ)
+    mutating func set(inX: Float, inY: Float, inZ: Float) {
+        self.x = inX
+        self.y = inY
+        self.z = inZ
     }
     
 }
@@ -108,27 +107,21 @@ func == (lhs: Vector3D, rhs: Vector3D) -> Bool {
 }
 
 struct Vector3D: Equatable {
-    var x: GLfloat
-    var y: GLfloat
-    var z: GLfloat
+    var x: Float
+    var y: Float
+    var z: Float
     static let Zero = Vector3D(x: 0.0, y: 0.0, z: 0.0)
 
-//    init(x: CGFloat, y: CGFloat, z: CGFloat) {
-//        self.x = GLfloat(x)
-//        self.y = GLfloat(y)
-//        self.z = GLfloat(z)
-//    }
-    
     init(x: Float, y: Float, z: Float) {
-        self.x = GLfloat(x)
-        self.y = GLfloat(y)
-        self.z = GLfloat(z)
+        self.x = x
+        self.y = y
+        self.z = z
     }
     
-    mutating func set(inX: CGFloat, inY: CGFloat, inZ: CGFloat) {
-        self.x = GLfloat(inX)
-        self.y = GLfloat(inY)
-        self.z = GLfloat(inZ)
+    mutating func set(inX: Float, inY: Float, inZ: Float) {
+        self.x = inX
+        self.y = inY
+        self.z = inZ
     }
     
     var magnitude: Float {
@@ -180,7 +173,6 @@ struct Vector3D: Equatable {
         ret.y = y + vector.y
         ret.z = z + vector.z
         return ret
-
     }
     
     mutating func flip() {
@@ -209,14 +201,14 @@ typealias Rotation3D = Vertex3D
 
 // Face3D is used to hold three integers which will be integer index values to another array
 struct Face3D {
-    var v1: GLushort
-    var v2: GLushort
-    var v3: GLushort
+    var v1: Int
+    var v2: Int
+    var v3: Int
 
     init(v1: Int, v2: Int, v3: Int) {
-        self.v1 = GLushort(v1)
-        self.v2 = GLushort(v2)
-        self.v3 = GLushort(v3)
+        self.v1 = v1
+        self.v2 = v2
+        self.v3 = v3
     }
 }
 
@@ -232,24 +224,22 @@ struct Triangle3D {
         self.v2 = v2
         self.v3 = v3
     }
+    
+//    func calculateSurfaceNormal(triangle: Triangle3D) -> Vector3D {
+//        let u = triangle.v2.startAndEndPoints(triangle.v1)
+//        let v = triangle.v3.startAndEndPoints(triangle.v1)
+//        
+//        var ret = Vector3D.Zero
+//        ret.x = (u.y * v.z) - (u.z * v.y)
+//        ret.y = (u.z * v.x) - (u.x * v.z)
+//        ret.z = (u.x * v.y) - (u.y * v.x)
+//        return ret
+//    }
 
-}
-
-/*
-static inline Vector3D Triangle3DCalculateSurfaceNormal(Triangle3D triangle)
-{
-	Vector3D u = Vector3DMakeWithStartAndEndPoints(triangle.v2, triangle.v1);
-	Vector3D v = Vector3DMakeWithStartAndEndPoints(triangle.v3, triangle.v1);
-	
-	Vector3D ret;
-	ret.x = (u.y * v.z) - (u.z * v.y);
-	ret.y = (u.z * v.x) - (u.x * v.z);
-	ret.z = (u.x * v.y) - (u.y * v.x);
-	return ret;
 }
 
 // MARK: - VertexArray3D
-
+/*
 typedef struct {
 	Vertex3D *set;
 	int count;
@@ -323,33 +313,35 @@ static inline void drawTask(DrawTask3D task)
 {
 	glDrawElements(task.mode, task.count, GL_UNSIGNED_SHORT, task.faces);
 }
+*/
 
 // MARK: - Interleaving
 
-typedef struct {
-    GLfloat     s;
-    GLfloat     t;
-} TextureCoord3D;
+struct TextureCoord3D {
+    var s: Float
+    var t: Float
+}
 
-typedef struct {
-    Vertex3D    vertex;
-    Vector3D    normal;
-} VertexData3D;
-typedef struct {
-    Vertex3D        vertex;
-    Vector3D        normal;
-    TextureCoord3D  texCoord;
-} TexturedVertexData3D;
-typedef struct {
-    Vertex3D    vertex;
-    Vector3D    normal;
-    Color3D     color;
-} ColoredVertexData3D;
+struct VertexData3D {
+    var vertext: Vertex3D
+    var normal: Vector3D
+}
 
-#pragma mark -
-#pragma mark Matrices
-#pragma mark -
+struct TexturedVertexData3D {
+    var vertext: Vertex3D
+    var normal: Vector3D
+    var texCoord: TextureCoord3D
+}
 
+struct ColoredVertexData3D {
+    var vertext: Vertex3D
+    var normal: Vector3D
+    var color: Color3D
+}
+
+// MARK: - Matrices
+
+/*
 typedef GLfloat Matrix3D[16];
 */
 
