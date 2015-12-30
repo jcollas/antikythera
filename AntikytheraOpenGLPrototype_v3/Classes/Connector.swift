@@ -61,16 +61,12 @@ class Connector: NSObject, DeviceComponent {
     func updateRotation(arcAngle: Float, fromSource source: DeviceComponent) {
         rotation += arcAngle
         
-        if let topComponent = topComponent {
-            if source != topComponent {
-                updateTopComponentRotation(arcAngle)
-            }
+        if let topComponent = topComponent where source != topComponent {
+            updateTopComponentRotation(arcAngle)
         }
         
-        if let bottomComponent = bottomComponent {
-            if source != bottomComponent {
-                updateBottomComponentRotation(arcAngle)
-            }
+        if let bottomComponent = bottomComponent where source != bottomComponent {
+            updateBottomComponentRotation(arcAngle)
         }
     }
 
