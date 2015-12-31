@@ -25,6 +25,8 @@ class GLViewController: GLKViewController {
     var viewRenderbuffer: GLuint = 0
     var depthRenderbuffer: GLuint = 0
     
+    var context: EAGLContext!
+    
     func setupGL() {
         let zNear: Float = 1.0, zFar: Float = 2000.0, fieldOfView: Float = 45.0
         
@@ -67,7 +69,11 @@ class GLViewController: GLKViewController {
         
         super.viewDidLoad()
         
-        let context = /*EAGLContext(API: .OpenGLES2) ??*/ EAGLContext(API: .OpenGLES1)
+        context = EAGLContext(API: .OpenGLES2)
+        
+        if context == nil {
+            NSLog("Unable to create context")
+        }
         
         let view = self.view as! GLKView
         view.context = context
