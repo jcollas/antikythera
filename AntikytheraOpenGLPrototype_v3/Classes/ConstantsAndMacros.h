@@ -16,7 +16,7 @@
 #define kZFar                           1000.0
 #define kFieldOfView                    45.0
 // Defines whether to setup and use a depth buffer
-#define USE_DEPTH_BUFFER                1
+#define USE_DEPTH_BUFFER                0
 // Set to 1 if you want it to attempt to create a 2.0 context
 #define kAttemptToUseOpenGLES2          0
 // Macros

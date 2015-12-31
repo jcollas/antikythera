@@ -12,21 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    weak var glView: GLView!
+//    weak var glView: GLView!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        self.glView = window?.rootViewController?.view as! GLView
-        
-        self.glView.animationInterval = 1.0 / 60.0
-        self.glView.startAnimation()
+//        self.glView = window?.rootViewController?.view as! GLView
+//        
+//        self.glView.animationInterval = 1.0 / 60.0
+//        self.glView.startAnimation()
 
         return true
     }
 
 
     func applicationWillResignActive(application: UIApplication) {
-        self.glView.animationInterval = 1.0 / 60.0
+//        self.glView.animationInterval = 1.0 / 60.0
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        self.glView.animationInterval = 1.0 / 60.0
+//        self.glView.animationInterval = 1.0 / 60.0
     }
 
     func applicationWillTerminate(application: UIApplication) {

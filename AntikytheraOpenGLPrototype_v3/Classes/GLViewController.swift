@@ -10,7 +10,7 @@ import UIKit
 import GLKit
 import OpenGLES
 
-class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate {
+class GLViewController: GLKViewController {
 
     //This is the main device object that will be shown:
     var antikytheraMechanism: AntikytheraMechanism!
@@ -21,47 +21,35 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
 
     var camera: CameraViewpoint!
     var touchDelegate: Touchable?
-
-    func drawView(theView: UIView) {
-        glLoadIdentity()
-        glClearColor(0.0, 0.0, 0.0, 1.0)
-        glClear(GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
-        //	glEnable(GL_DEPTH_TEST);
-        //	glDisable(GL_CULL_FACE);
-        
-        camera.updateViewpoint()
-        
-        //	if (antikytheraMechanismView.currentState == .PinAndSlot) {
-        //		[antikytheraMechanism rotate:0.1f];
-        //	} else {
-        //		[antikytheraMechanism rotate:2.0f];
-        //	}
-        
-        antikytheraMechanismView.draw()
-        
-        pushOrthoMatrix()
-        glPushMatrix()
-        //	glTranslatef(self.view.bounds.size.width-160, 160, 0.0f);
-        userDial.draw()
-        glPopMatrix()
-        popOrthoMatrix()
-    }
-
-    // UNUSED
-    func setupView(theView: UIView) {
     
-    }
-
-    override func viewDidLoad() {
+    var viewRenderbuffer: GLuint = 0
+    var depthRenderbuffer: GLuint = 0
+    
+    func setupGL() {
         let zNear: Float = 1.0, zFar: Float = 2000.0, fieldOfView: Float = 45.0
-
+        
+        let view = self.view as! GLKView
+        
+        glGenRenderbuffersOES(1, &viewRenderbuffer)
+        
+        glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), viewRenderbuffer)
+        view.context.renderbufferStorage(Int(GL_RENDERBUFFER_OES), fromDrawable: view.layer as! CAEAGLLayer)
+        glFramebufferRenderbufferOES(GLenum(GL_FRAMEBUFFER_OES), GLenum(GL_COLOR_ATTACHMENT0_OES), GLenum(GL_RENDERBUFFER_OES), viewRenderbuffer)
+        
+        if USE_DEPTH_BUFFER == 1 {
+            glGenRenderbuffersOES(1, &depthRenderbuffer)
+            glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer);
+            glRenderbufferStorageOES(GLenum(GL_RENDERBUFFER_OES), GLenum(GL_DEPTH_COMPONENT16_OES), GLsizei(view.drawableWidth), GLsizei(view.drawableHeight))
+            glFramebufferRenderbufferOES(GLenum(GL_FRAMEBUFFER_OES), GLenum(GL_DEPTH_ATTACHMENT_OES), GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer)
+        }
+        
         glMatrixMode(GLenum(GL_PROJECTION))
         
         let radians = (Float(M_PI) * fieldOfView) / 180.0
         let size = zNear * Float(tanf(radians/2.0))
         let rect = self.view.bounds
         glFrustumf(Float(-size), Float(size), Float(-size/Float(rect.size.width/rect.size.height)),
-                   Float(size/Float(rect.size.width/rect.size.height)), zNear, zFar)
+            Float(size/Float(rect.size.width/rect.size.height)), zNear, zFar)
         glViewport(0, 0, GLsizei(rect.size.width), GLsizei(rect.size.height))
         
         glMatrixMode(GLenum(GL_MODELVIEW))
@@ -73,6 +61,18 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         glBlendFunc(GLenum(GL_SRC_ALPHA),GLenum(GL_ONE_MINUS_SRC_ALPHA))
         
         GLModel3D.enableGLModel3D()
+    }
+
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        let context = /*EAGLContext(API: .OpenGLES2) ??*/ EAGLContext(API: .OpenGLES1)
+        
+        let view = self.view as! GLKView
+        view.context = context
+        
+        setupGL()
         
         //	camera = FlyThroughCamera()
         //	camera = TopCamera()
@@ -95,6 +95,29 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         userDial.position = Vector3D(x: Float(self.view.bounds.size.width)-dialRad*2.0, y: dialRad*2.0, z: 0.0)
         dialMode = false
     }
+    
+    override func glkView(view: GLKView, drawInRect rect: CGRect) {
+        glLoadIdentity()
+        glClearColor(0.0, 0.0, 0.0, 1.0)
+        glClear(GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
+        //	glEnable(GL_DEPTH_TEST);
+        //	glDisable(GL_CULL_FACE);
+        
+        //	if (antikytheraMechanismView.currentState == .PinAndSlot) {
+        //		[antikytheraMechanism rotate:0.1f];
+        //	} else {
+        //		[antikytheraMechanism rotate:2.0f];
+        //	}
+        
+        antikytheraMechanismView.draw()
+        
+        pushOrthoMatrix()
+        glPushMatrix()
+        //	glTranslatef(self.view.bounds.size.width-160, 160, 0.0f);
+        userDial.draw()
+        glPopMatrix()
+        popOrthoMatrix()
+    }
 
     func pushOrthoMatrix() {
         glMatrixMode(GLenum(GL_PROJECTION))
@@ -109,6 +132,10 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         glMatrixMode(GLenum(GL_PROJECTION))
         glPopMatrix()
         glMatrixMode(GLenum(GL_MODELVIEW))
+    }
+    
+    func update() {
+        camera.updateViewpoint()
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -170,9 +197,12 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
             actionSheet.actionSheetStyle = .BlackTranslucent
             actionSheet.showInView(self.view.window!)
         }
-        
     }
 
+}
+
+extension GLViewController: UIActionSheetDelegate {
+    
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         
         switch (buttonIndex) {
