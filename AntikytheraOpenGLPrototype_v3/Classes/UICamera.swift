@@ -32,7 +32,7 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
     var distance: CGFloat = 0.0
     var center = Vertex3D.Zero
     var panDiff = Vertex3D.Zero
-    var gestureStartPoint: CGPoint!
+    var gestureStartPoint = CGPoint(x: 0.0, y: 0.0)
     var gestureStartDistance: CGFloat!
     var currentGesture: GestureType = .None
 
