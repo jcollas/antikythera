@@ -11,8 +11,8 @@ import OpenGLES
 class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
     var myConnector: PinAndSlotConnector!
     
-    var pinPosition = Vector3D.Zero
-    var slotPosition = Vector3D.Zero
+    var pinPosition = Vector3D.zero
+    var slotPosition = Vector3D.zero
     var length: Float = 0.0
     var opacity: Float = 1.0
     
@@ -28,37 +28,33 @@ class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
 
     // Sets the position in 3D space based on the views visible connections
     // NOTE: view connections may differ from the model connections.
-    func setPositionFromConnections(top: ComponentView, bottom: ComponentView) {
+    func setPositionFromConnections(_ top: ComponentView, bottom: ComponentView) {
         
         if myConnector.hasTopComponent && myConnector.hasBottomComponent {
-            let topPosition = top.getPosition()
-            let bottomPosition = bottom.getPosition()
+            let topPosition = top.position
+            let bottomPosition = bottom.position
             pinPosition = Vector3D(x: topPosition.x, y: topPosition.y, z:(topPosition.z+bottomPosition.z)/2.0)
             slotPosition = bottomPosition
             let distance = topPosition.startAndEndPoints(bottomPosition)
             length = distance.magnitude / 2.0
         } else {
-            pinPosition = Vector3D.Zero
-            slotPosition = Vector3D.Zero
+            pinPosition = Vector3D.zero
+            slotPosition = Vector3D.zero
             length = 0.0
         }
     }
 
     // Protocol Methods:
-    func getPosition() -> Vector3D {
+    var position: Vector3D {
         return pinPosition
     }
 
-    func getRotation() -> Float {
-        return myConnector.getRotation()
+    var rotation: Float {
+        return myConnector.rotation
     }
 
-    func getRadius() -> Float {
-        return myConnector.getRadius()
-    }
-
-    func getOpacity() -> Float {
-        return opacity
+    var radius: Float {
+        return myConnector.radius
     }
 
     func draw() {
@@ -71,16 +67,16 @@ class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     func drawPin() {
-        let rotation = myConnector.getPinRotation()
+        let rotation = myConnector.pinRotation
         
-        if self.getOpacity() > 0.0 {
+        if self.opacity > 0.0 {
             glPushMatrix()
             
-            glColor4f(1.0, 1.0, 1.0, 0.8*self.getOpacity())
+            glColor4f(1.0, 1.0, 1.0, 0.8*self.opacity)
             
             glTranslatef(pinPosition.x, pinPosition.y, pinPosition.z)
             glRotatef(rotation, 0.0, 0.0, 1.0)
-            glTranslatef(myConnector.getPinOffset(), 0.0, 0.0)
+            glTranslatef(myConnector.pinOffset, 0.0, 0.0)
             glScalef(1.0, 1.0, length)
             
             connectorModel.draw()
@@ -93,12 +89,12 @@ class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
         
     }
 
-    func updateWithState(state: AMState, phase: AMStatePhase) {
+    func updateWithState(_ state: AMState, phase: AMStatePhase) {
         switch (state) {
-        case .Pointers, .Box:
+        case .pointers, .box:
             opacity = 0.0
 
-        case .Gears, .PinAndSlot:
+        case .gears, .pinAndSlot:
             opacity = 1.0
 
         default: //STATE_DEFAULT

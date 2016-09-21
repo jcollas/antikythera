@@ -41,41 +41,38 @@ class Connector: NSObject, DeviceComponent {
     }
 
     // Convenience method for setting connections easily
-    func setConnections(top: DeviceComponent, bottom: DeviceComponent) {
+    func setConnections(_ top: DeviceComponent, bottom: DeviceComponent) {
         topComponent = top
         bottomComponent = bottom
     }
 
     // Protocol Methods:
-    func getRotation() -> Float { return rotation }
-    
-    func getRadius() -> Float { return radius }
 
-    func rotate(arcAngle: Float) {
+    func rotate(_ arcAngle: Float) {
         rotation += arcAngle
         
         updateTopComponentRotation(arcAngle)
         updateBottomComponentRotation(arcAngle)
     }
     
-    func updateRotation(arcAngle: Float, fromSource source: DeviceComponent) {
+    func updateRotation(_ arcAngle: Float, fromSource source: DeviceComponent) {
         rotation += arcAngle
         
-        if let topComponent = topComponent where source != topComponent {
+        if let topComponent = topComponent, source != topComponent {
             updateTopComponentRotation(arcAngle)
         }
         
-        if let bottomComponent = bottomComponent where source != bottomComponent {
+        if let bottomComponent = bottomComponent, source != bottomComponent {
             updateBottomComponentRotation(arcAngle)
         }
     }
 
     // Updates connection rotations, if they exist
-    func updateTopComponentRotation(arcAngle: Float) {
+    func updateTopComponentRotation(_ arcAngle: Float) {
         topComponent?.updateRotation(arcAngle, fromSource: self)
     }
 
-    func updateBottomComponentRotation(arcAngle: Float) {
+    func updateBottomComponentRotation(_ arcAngle: Float) {
         bottomComponent?.updateRotation(arcAngle, fromSource: self)
     }
 

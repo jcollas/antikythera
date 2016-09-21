@@ -22,23 +22,19 @@ class PinAndSlotConnector: Connector {
         super.init(radius: radius)
     }
 
-    func getPinOffset() -> Float {
+    var slotOffset: Float {
         return pinOffset
     }
     
-    func getSlotOffset() -> Float {
-        return pinOffset
-    }
-    
-    func getPinRotation() -> Float {
+    var pinRotation: Float {
         return rotation
     }
 
-    func getSlotRotation() -> Float {
-        return bottomComponent!.getRotation()
+    var slotRotation: Float {
+        return bottomComponent!.rotation
     }
 
-    override func updateBottomComponentRotation(arcAngle: Float) {
+    override func updateBottomComponentRotation(_ arcAngle: Float) {
         
         if hasBottomComponent {
             //		if (arcAngle == 0.0f) { [bottomComponent updateRotation:arcAngle FromSource:self]; }

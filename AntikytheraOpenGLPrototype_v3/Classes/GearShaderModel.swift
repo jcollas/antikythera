@@ -15,27 +15,27 @@ class GearShaderModel: GLModel3D {
 		buildModelFromGear(gear)
     }
 
-    func buildModelFromGear(gear: Gear) {
+    func buildModelFromGear(_ gear: Gear) {
         let toothSize: Float = 0.8
         
-        let sideCount = gear.getToothCount()/2
-        let radius = gear.getRadius() - toothSize/2.0
+        let sideCount = gear.toothCount/2
+        let radius = gear.radius - toothSize/2.0
 //        let toothRadius = radius + toothSize
         
-        let sliceAngle = Float(M_PI)/Float(sideCount)
+        let sliceAngle = .pi / Float(sideCount)
         let halfAngle = sliceAngle/2.0
         
         let vertexCount = (sideCount*4+2)
-        vertices = [Vertex3D](count: vertexCount, repeatedValue: Vertex3D.Zero)
+        vertices = [Vertex3D](repeating: Vertex3D.zero, count: vertexCount)
         let elementCount = (sideCount*10+1)
-        elements = [GLushort](count: elementCount, repeatedValue: 0)
+        elements = [GLushort](repeating: 0, count: elementCount)
         
         
         // Vertices:
         vertices[0] = Vertex3D(x: 0.0, y: 0.0, z: 1.0)
         vertices[1] = Vertex3D(x: 0.0, y: 0.0, z: -1.0)
         
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             let angle = Float(i)*sliceAngle
             
             vertices[i*4+2] = Vertex3D(x: radius*cos(angle-halfAngle), y: radius*sin(angle-halfAngle), z: 1.0)
@@ -47,7 +47,7 @@ class GearShaderModel: GLModel3D {
         
         
         // Elements:
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             elements[i*10] = 0          //1
             elements[i*10+1] = GLushort(i*4+2)	//2
             elements[i*10+2] = GLushort(i*4+3)	//3

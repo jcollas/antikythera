@@ -36,40 +36,39 @@ func != (lhs: DeviceComponent, rhs: DeviceComponent) -> Bool {
 
 protocol DeviceComponent: NSObjectProtocol {
 
-    func getRotation() -> Float
-    func getRadius() -> Float
+    var rotation: Float { get }
+    var radius: Float { get }
 
-    func rotate(arcAngle: Float)
-    func updateRotation(arcAngle: Float, fromSource source: DeviceComponent)
+    func rotate(_ arcAngle: Float)
+    func updateRotation(_ arcAngle: Float, fromSource source: DeviceComponent)
 
 }
 
-
 protocol ComponentView: ModelView {
 
-    func getPosition() -> Vector3D
-    func getRotation() -> Float
-    func getRadius() -> Float
-    func getOpacity() -> Float
+    var position: Vector3D { get }
+    var rotation: Float { get }
+    var radius: Float { get }
+    var opacity: Float { get }
 
 }
 
 enum AMState {
-    case Default
-    case Pointers
-    case Gears
-    case Box
-    case PinAndSlot
+    case `default`
+    case pointers
+    case gears
+    case box
+    case pinAndSlot
 }
 
 enum AMStatePhase {
-    case Start
-    case Running
-    case End
+    case start
+    case running
+    case end
 }
 
 protocol AMViewStateHandler {
 
-    func updateWithState(state: AMState, phase: AMStatePhase)
+    func updateWithState(_ state: AMState, phase: AMStatePhase)
 
 }

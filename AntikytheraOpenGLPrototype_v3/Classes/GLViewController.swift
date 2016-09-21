@@ -22,7 +22,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
     var camera: CameraViewpoint!
     var touchDelegate: Touchable?
 
-    func drawView(theView: UIView) {
+    func drawView(_ theView: UIView) {
         glLoadIdentity()
         glClearColor(0.0, 0.0, 0.0, 1.0)
         glClear(GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
@@ -48,7 +48,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
     }
 
     // UNUSED
-    func setupView(theView: UIView) {
+    func setupView(_ theView: UIView) {
     
     }
 
@@ -57,7 +57,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
 
         glMatrixMode(GLenum(GL_PROJECTION))
         
-        let radians = (Float(M_PI) * fieldOfView) / 180.0
+        let radians = (.pi * fieldOfView) / 180.0
         let size = zNear * Float(tanf(radians/2.0))
         let rect = self.view.bounds
         glFrustumf(Float(-size), Float(size), Float(-size/Float(rect.size.width/rect.size.height)),
@@ -111,16 +111,16 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         glMatrixMode(GLenum(GL_MODELVIEW))
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(self.view)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let allTouches = event?.touches(for: self.view)
         
         if !dialMode && allTouches?.count == 1 {
             let touch = allTouches?.first
-            let location = touch?.locationInView(self.view)
+            let location = touch?.location(in: self.view)
             if userDial.hitTest(Vector3D(x: Float(location!.x), y: Float(self.view.bounds.size.height-location!.y), z: 0.0)) {
                 userDial.color = Color3D(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.3)
                 dialMode = true
@@ -136,7 +136,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         }
     }
 
-    override func touchesMoved(touches: Set<UITouch>, withEvent event:UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event:UIEvent?) {
         if (dialMode) {
             userDial.touchesMoved(touches, withEvent:event)
         } else {
@@ -144,8 +144,8 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         }
     }
 
-    override func touchesEnded(touches: Set<UITouch>, withEvent event:UIEvent?) {
-        let allTouches = event?.touchesForView(self.view)
+    override func touchesEnded(_ touches: Set<UITouch>, with event:UIEvent?) {
+        let allTouches = event?.touches(for: self.view)
         
         if dialMode && allTouches?.count == 1 {
             dialMode = false
@@ -155,7 +155,7 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         }
         
         
-        if touches.first?.tapCount >= 2 {
+        if (touches.first?.tapCount)! >= 2 {
             let button1 = NSLocalizedString("Pointers", comment: "")
             let button2 = NSLocalizedString("Gears", comment:"")
             let button3 = NSLocalizedString("Box", comment:"")
@@ -167,29 +167,29 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
                                             cancelButtonTitle:cancelButton,
                                             destructiveButtonTitle: nil,
                                                             otherButtonTitles:button1,button2,button3,button4)
-            actionSheet.actionSheetStyle = .BlackTranslucent
-            actionSheet.showInView(self.view.window!)
+            actionSheet.actionSheetStyle = .blackTranslucent
+            actionSheet.show(in: self.view.window!)
         }
         
     }
 
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         
         switch (buttonIndex) {
             case 0: // STATE_POINTERS
-                antikytheraMechanismView.setCurrentState(.Pointers, phase: .Running)
+                antikytheraMechanismView.setCurrentState(.pointers, phase: .running)
 
             case 1: // STATE_GEARS
-                antikytheraMechanismView.setCurrentState(.Gears, phase: .Running)
+                antikytheraMechanismView.setCurrentState(.gears, phase: .running)
 
             case 2: // STATE_BOX
-                antikytheraMechanismView.setCurrentState(.Box, phase: .Running)
+                antikytheraMechanismView.setCurrentState(.box, phase: .running)
 
             case 3: // STATE_PIN_AND_SLOT
-                antikytheraMechanismView.setCurrentState(.PinAndSlot, phase: .Running)
+                antikytheraMechanismView.setCurrentState(.pinAndSlot, phase: .running)
 
             default: // STATE_DEFAULT
-                antikytheraMechanismView.setCurrentState(.Default, phase: .Running)
+                antikytheraMechanismView.setCurrentState(.default, phase: .running)
         }
     }
 

@@ -119,13 +119,13 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
     }
 
     // Link gears together (set them as mutual neighbors)
-    func linkGear(gear1: Gear, with gear2: Gear) {
+    func linkGear(_ gear1: Gear, with gear2: Gear) {
         gear1.addNeighbor(gear2)
         gear2.addNeighbor(gear1)
     }
 
     // Initialize new connecter with specific radius and default connections
-    func newConnectorWithRadius(radius: Float, top: DeviceComponent, bottom: DeviceComponent) -> Connector {
+    func newConnectorWithRadius(_ radius: Float, top: DeviceComponent, bottom: DeviceComponent) -> Connector {
         let connector = Connector(radius: radius)
         
         // If connecting gears, make sure the gears are aware
@@ -136,10 +136,10 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
         return connector
     }
     
-    func newPinAndSlotConnectorWithRadius(radius: Float, top: Gear, bottom: Gear) -> PinAndSlotConnector {
+    func newPinAndSlotConnectorWithRadius(_ radius: Float, top: Gear, bottom: Gear) -> PinAndSlotConnector {
         
-        let aOffset = (bottom.getRadius()*2) - (top.getRadius()*2)
-        let pOffset = top.getRadius()*0.7
+        let aOffset = (bottom.radius*2) - (top.radius*2)
+        let pOffset = top.radius*0.7
         
         let connector = PinAndSlotConnector(radius:radius, arborOffset:aOffset, pinOffset:pOffset)
         
@@ -152,7 +152,7 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
     }
 
     // Rotate input gear
-    func rotate(arcAngle: Float) {
+    func rotate(_ arcAngle: Float) {
         //	[gA1 updateRotation:arcAngle FromSource:nil];
         gA1.rotate(arcAngle)
     }

@@ -16,7 +16,7 @@ class HalfGlobeModel: GLModel3D {
 		buildModelWithRadius(radius)
     }
 
-    func buildModelWithRadius(radius: Float) {
+    func buildModelWithRadius(_ radius: Float) {
         let lonSideCount = 8
         let latSideCount = 8
         
@@ -24,17 +24,17 @@ class HalfGlobeModel: GLModel3D {
         let thetaStep = Float(M_PI*7/6)/Float(latSideCount)
         
         let vertexCount = latSideCount*(lonSideCount-1) + 2
-        vertices = [Vertex3D](count: vertexCount, repeatedValue: Vertex3D.Zero)
+        vertices = [Vertex3D](repeating: Vertex3D.zero, count: vertexCount)
         let elementCount = (latSideCount*2+2)*lonSideCount
-        elements = [GLushort](count: elementCount, repeatedValue: 0)
+        elements = [GLushort](repeating: 0, count: elementCount)
         
         
         // Shaft Vertices:
         vertices[0] = Vertex3D(x: 0.0, y: 0.0, z: radius)
         
-        for var i=1; i<(lonSideCount); i++ {
+        for i in 1 ..< (lonSideCount) {
             let phiAngle = Float(i)*phiStep
-            for var n=0; n<latSideCount; n++ {
+            for n in 0 ..< latSideCount {
                 let thetaAngle = Float(n)*thetaStep
                 
                 let vx = radius*cos(thetaAngle)*sin(phiAngle)
@@ -53,7 +53,7 @@ class HalfGlobeModel: GLModel3D {
         
         // North Pole
         var eCount = 0;
-        for var i=0; i<latSideCount; i++ {
+        for i in 0 ..< latSideCount {
             elements[eCount] = 0
             elements[eCount+1] = GLushort(i+1)
             eCount += 2
@@ -63,11 +63,11 @@ class HalfGlobeModel: GLModel3D {
         eCount += 2
         
         // Body
-        for var n=0; n<(lonSideCount-2); n++ {
+        for n in 0 ..< (lonSideCount-2) {
             topStart = GLushort(latSideCount*n+1)
             bottomStart = GLushort(latSideCount*(n+1)+1)
             
-            for var i=0; i<latSideCount; i++ {
+            for i in 0 ..< latSideCount {
                 elements[eCount] = topStart+GLushort(i)
                 elements[eCount+1] = bottomStart+GLushort(i)
                 eCount += 2
@@ -80,7 +80,7 @@ class HalfGlobeModel: GLModel3D {
         
         // South Pole
         topStart = GLushort(latSideCount*(lonSideCount-2)+1)
-        for var i=0; i<latSideCount; i++ {
+        for i in 0 ..< latSideCount {
             elements[eCount] = topStart+GLushort(i)
             elements[eCount+1] = GLushort(vertexCount-1)
             eCount += 2

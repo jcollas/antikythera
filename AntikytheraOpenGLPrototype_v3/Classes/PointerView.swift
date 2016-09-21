@@ -11,7 +11,7 @@ import OpenGLES
 class PointerView: NSObject, ComponentView, AMViewStateHandler {
     var myComponent: DeviceComponent!
     
-    var position = Vector3D.Zero
+    var position = Vector3D.zero
     var opacity: Float = 1.0
     var depthTest = false
     
@@ -28,12 +28,12 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     // Set position in 3D space
-    func setPosition(pos: Vector3D) {
+    func setPosition(_ pos: Vector3D) {
         position = pos
     }
 
-    func setPositionRelativeTo(component: ComponentView, verticalOffset vOffset: Float) {
-        let v = component.getPosition()
+    func setPositionRelativeTo(_ component: ComponentView, verticalOffset vOffset: Float) {
+        let v = component.position
         
         position.x = v.x
         position.y = v.y
@@ -41,25 +41,17 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     // Protocol Methods:
-    func getPosition() -> Vector3D {
-        return position
+    var rotation: Float {
+        return myComponent.rotation
     }
 
-    func getRotation() -> Float {
-        return myComponent.getRotation()
-    }
-
-    func getRadius() -> Float {
+    var radius: Float {
         return Float(pointerModel.pointerLength)
-    }
-    
-    func getOpacity() -> Float {
-        return opacity
     }
 
     func draw() {
 	
-	if self.getOpacity() > 0.0 {
+	if self.opacity > 0.0 {
 		glPushMatrix()
 		
 		if (!depthTest) {
@@ -67,7 +59,7 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
 		} else {
 			glTranslatef(position.x, position.y, position.z/2)
 		}
-		let rotation = myComponent.getRotation()
+		let rotation = myComponent.rotation
 		glRotatef(rotation, 0.0, 0.0, 1.0)
 		
         if (depthTest) {
@@ -76,7 +68,7 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
 		
 		glPushMatrix()
 		glScalef(1.0, 1.0, 1.0)
-		glColor4f(1.0, 1.0, 1.0, 0.5*self.getOpacity())
+		glColor4f(1.0, 1.0, 1.0, 0.5*self.opacity)
 		pointerModel.draw()
 		glPopMatrix()
 		
@@ -88,21 +80,21 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
 	}
 }
 
-    func updateWithState(state: AMState, phase: AMStatePhase) {
+    func updateWithState(_ state: AMState, phase: AMStatePhase) {
         switch (state) {
-        case .Pointers:
+        case .pointers:
             opacity = 1.0
             depthTest = false
 
-        case .Gears:
+        case .gears:
             opacity = 0.2
             depthTest = false
 
-        case .Box:
+        case .box:
             opacity = 1.0
             depthTest = true
 
-        case .PinAndSlot:
+        case .pinAndSlot:
             opacity = 0.0
 
         default: //STATE_DEFAULT

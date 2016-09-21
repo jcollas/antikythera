@@ -11,7 +11,7 @@ import OpenGLES
 class FlyThroughCamera: NSObject, CameraViewpoint {
     
     var rot: GLfloat = 0.0
-    var lastDrawTime: NSTimeInterval = 0
+    var lastDrawTime: TimeInterval = 0
 
     func updateViewpoint() {
         
@@ -24,11 +24,11 @@ class FlyThroughCamera: NSObject, CameraViewpoint {
         glClear(GLenum(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT))
         
         if (lastDrawTime != 0) {
-            let timeSinceLastDraw = NSDate.timeIntervalSinceReferenceDate() - lastDrawTime
+            let timeSinceLastDraw = Date.timeIntervalSinceReferenceDate - lastDrawTime
             rot += Float(10 * timeSinceLastDraw)
             //		NSLog(@"%f",timeSinceLastDraw);
         }
-        lastDrawTime = NSDate.timeIntervalSinceReferenceDate()
+        lastDrawTime = Date.timeIntervalSinceReferenceDate
     }
 
 }

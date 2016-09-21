@@ -11,7 +11,7 @@ import OpenGLES
 class GearView: NSObject, ComponentView, AMViewStateHandler {
     var myGear: Gear!
     
-    var position = Vector3D.Zero
+    var position = Vector3D.zero
     var opacity: Float = 1.0
     
     var isPinAndSlotGear = false
@@ -31,64 +31,57 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
     }
 
 // Set position in 3D space
-    func setPosition(pos: Vector3D) {
+    func setPosition(_ pos: Vector3D) {
         position = pos
     }
 
-    func setPositionRelativeTo(component: ComponentView, atAngle angle: Float) {
-        let distance = self.getRadius() + component.getRadius()
-        let v = component.getPosition()
+    func setPositionRelativeTo(_ component: ComponentView, atAngle angle: Float) {
+        let distance = self.radius + component.radius
+        let v = component.position
         
         position.x = v.x + distance*cos(angle)
         position.y = v.y + distance*sin(angle)
         position.z = v.z
     }
     
-    func setPositionRelativeTo(component: ComponentView, verticalOffset vOffset: Float) {
-        let v = component.getPosition()
+    func setPositionRelativeTo(_ component: ComponentView, verticalOffset vOffset: Float) {
+        let v = component.position
         
         position.x = v.x
         position.y = v.y
         position.z = v.z + vOffset
     }
 
-    func setAsPinAndSlotGear(flag: Bool) {
+    func setAsPinAndSlotGear(_ flag: Bool) {
         isPinAndSlotGear = flag
     }
 
 // Protocol Methods:
-    func getPosition() -> Vector3D {
-        return position
+
+    var rotation: Float {
+        return myGear.rotation
     }
 
-    func getRotation() -> Float {
-        return myGear.getRotation()
-    }
-
-    func getRadius() -> Float {
-        return myGear.getRadius()
-    }
-    
-    func getOpacity() -> Float {
-        return opacity
+    var radius: Float {
+        return myGear.radius
     }
 
     func draw() {
-        if self.getOpacity() > 0.0 {
+        if self.opacity > 0.0 {
             glPushMatrix()
             
             glTranslatef(position.x, position.y, position.z)
-            glRotatef(myGear.getRotation(), 0.0, 0.0, 1.0)
+            glRotatef(rotation, 0.0, 0.0, 1.0)
             
             glPushMatrix()
             glScalef(1.0, 1.0, 0.5)
-            glColor4f(1.0, 1.0, 1.0, 0.2*self.getOpacity())
+            glColor4f(1.0, 1.0, 1.0, 0.2*self.opacity)
             gearModel.draw()
             glPopMatrix()
             
             glPushMatrix()
             glScalef(1.0, 1.0, 0.6)
-            glColor4f(1.0, 0.0, 0.0, 0.3*self.getOpacity())
+            glColor4f(1.0, 0.0, 0.0, 0.3*self.opacity)
             gearShaderModel.draw()
             glPopMatrix()
             
@@ -105,22 +98,22 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
         }
     }
 
-    func updateWithState(state: AMState, phase: AMStatePhase) {
+    func updateWithState(_ state: AMState, phase: AMStatePhase) {
         switch (state) {
 
-            case .Pointers:
+            case .pointers:
                 opacity = 0.2
                 isPointerActive = false
 
-            case .Gears:
+            case .gears:
                 opacity = 1.0
                 isPointerActive = false
 
-            case .Box:
+            case .box:
                 opacity = 0.0
                 isPointerActive = false
 
-            case .PinAndSlot:
+            case .pinAndSlot:
                 if (isPinAndSlotGear) {
                     opacity = 1.0
                     isPointerActive = true

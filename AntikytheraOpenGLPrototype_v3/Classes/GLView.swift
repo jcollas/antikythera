@@ -12,8 +12,8 @@ import OpenGLES
 @objc
 protocol GLViewDelegate {
 
-    func drawView(theView: UIView)
-    func setupView(theView: UIView)
+    func drawView(_ theView: UIView)
+    func setupView(_ theView: UIView)
 
 }
 
@@ -26,16 +26,16 @@ class GLView: UIView {
     var viewFramebuffer: GLuint = 0
     var depthRenderbuffer: GLuint = 0
 
-    var animationInterval: NSTimeInterval!
+    var animationInterval: TimeInterval!
     @IBOutlet weak var delegate: GLViewDelegate!
     var context: EAGLContext?
-    var animationTimer: NSTimer? {
+    var animationTimer: Timer? {
         willSet {
             animationTimer?.invalidate()
         }
     }
 
-    override class func layerClass() -> AnyClass {
+    override class var layerClass: AnyClass {
         return CAEAGLLayer.self
     }
 
@@ -46,12 +46,12 @@ class GLView: UIView {
         // Get the layer
         let eaglLayer = self.layer as! CAEAGLLayer
         
-        eaglLayer.opaque = true
+        eaglLayer.isOpaque = true
         eaglLayer.drawableProperties = [ kEAGLDrawablePropertyRetainedBacking: false,
                                              kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8 ]
         
-        context = /*EAGLContext(API: .OpenGLES2) ??*/ EAGLContext(API: .OpenGLES1)
-        if self.context == nil || EAGLContext.setCurrentContext(self.context) == false {
+        context = /*EAGLContext(API: .OpenGLES2) ??*/ EAGLContext(api: .openGLES1)
+        if self.context == nil || EAGLContext.setCurrent(self.context) == false {
             return nil
         }
         
@@ -66,9 +66,9 @@ class GLView: UIView {
     }
     
     override func layoutSubviews() {
-        EAGLContext.setCurrentContext(self.context)
+        EAGLContext.setCurrent(self.context)
         self.destroyFramebuffer()
-        self.createFramebuffer()
+        _ = self.createFramebuffer()
         self.drawView()
     }
     
@@ -78,7 +78,7 @@ class GLView: UIView {
         
         glBindFramebufferOES(GLenum(GL_FRAMEBUFFER_OES), viewFramebuffer)
         glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), viewRenderbuffer)
-        self.context?.renderbufferStorage(Int(GL_RENDERBUFFER_OES), fromDrawable: self.layer as! CAEAGLLayer)
+        self.context?.renderbufferStorage(Int(GL_RENDERBUFFER_OES), from: self.layer as! CAEAGLLayer)
         glFramebufferRenderbufferOES(GLenum(GL_FRAMEBUFFER_OES), GLenum(GL_COLOR_ATTACHMENT0_OES), GLenum(GL_RENDERBUFFER_OES), viewRenderbuffer)
         
         glGetRenderbufferParameterivOES(GLenum(GL_RENDERBUFFER_OES), GLenum(GL_RENDERBUFFER_WIDTH_OES), &backingWidth)
@@ -112,14 +112,14 @@ class GLView: UIView {
     }
     
     func startAnimation() {
-        self.animationTimer = NSTimer.scheduledTimerWithTimeInterval(self.animationInterval, target:self, selector:"drawView", userInfo:nil, repeats:true)
+        self.animationTimer = Timer.scheduledTimer(timeInterval: self.animationInterval, target: self, selector: #selector(GLView.drawView), userInfo: nil, repeats: true)
     }
     
     func stopAnimation() {
         self.animationTimer = nil
     }
     
-    func setAnimationInterval(interval: NSTimeInterval) {
+    func setAnimationInterval(_ interval: TimeInterval) {
         animationInterval = interval
         if animationTimer != nil {
             stopAnimation()
@@ -130,8 +130,8 @@ class GLView: UIView {
     deinit {
         stopAnimation()
         
-        if EAGLContext.currentContext() == self.context {
-            EAGLContext.setCurrentContext(nil)
+        if EAGLContext.current() == self.context {
+            EAGLContext.setCurrent(nil)
         }
     }
 

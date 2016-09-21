@@ -77,8 +77,8 @@ class AntikytheraMechanismView: NSObject, DeviceView {
     var lunar: LunarPointerView!
     var box: BoxView!
 
-    var currentState: AMState = .Default
-    var currentStatePhase: AMStatePhase = .Running
+    var currentState: AMState = .default
+    var currentStatePhase: AMStatePhase = .running
 
     // Initializes view with specific mechanism
     init(mechanism: AntikytheraMechanism) {
@@ -136,7 +136,7 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         // ---
         gvB0.setPosition(Vector3D(x: 0.0, y: 0.0, z: 40.0))
         gvB1.setPositionRelativeTo(gvB0, verticalOffset:-5.0*dScale)
-        gvA1.setPositionRelativeTo(gvB1, atAngle:Float(M_PI))
+        gvA1.setPositionRelativeTo(gvB1, atAngle: .pi)
         gvB2.setPositionRelativeTo(gvB1, verticalOffset:-5.0*dScale)
         gvB3.setPositionRelativeTo(gvB2, verticalOffset:-5.0*dScale)
         gvC1.setPositionRelativeTo(gvB2, atAngle:0.0)
@@ -236,35 +236,35 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         // ---
         // Initialize View State
         // ---
-        setCurrentState(.Default, phase: .Running)
+        setCurrentState(.default, phase: .running)
     }
 
-    func addSubView(view: ModelView) {
+    func addSubView(_ view: ModelView) {
         views.append(view)
     }
 
-    func newGearView(gear: Gear) -> GearView {
+    func newGearView(_ gear: Gear) -> GearView {
         let view = GearView(gear: gear)
         
         self.addSubView(view)
         return view
     }
 
-    func newPointerView(component: DeviceComponent, shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) -> PointerView {
+    func newPointerView(_ component: DeviceComponent, shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) -> PointerView {
         let view = PointerView(component: component, shaftLength:sLen, shaftRadius:sRad, pointerLength:pLen, pointerWidth:pWidth)
         
         self.addSubView(view)
         return view
     }
 
-    func newLunarPointerView(component: DeviceComponent, yearPointer pointer: PointerView, shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) -> LunarPointerView {
+    func newLunarPointerView(_ component: DeviceComponent, yearPointer pointer: PointerView, shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) -> LunarPointerView {
         let view = LunarPointerView(component: component, yearPointer:pointer, shaftLength:sLen, shaftRadius:sRad, pointerLength:pLen, pointerWidth:pWidth)
         
         self.addSubView(view)
         return view
     }
 
-    func newConnectorView(connector: Connector, withConnections top: GearView, bottom: GearView) -> ConnectorView {
+    func newConnectorView(_ connector: Connector, withConnections top: GearView, bottom: GearView) -> ConnectorView {
         let view = ConnectorView(connector: connector)
 
         view.setPositionFromConnections(top, bottom: bottom)
@@ -272,7 +272,7 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         return view
     }
 
-    func newPinAndSlotConnectorView(connector: PinAndSlotConnector, withConnections top: GearView, bottom: GearView) -> PinAndSlotConnectorView {
+    func newPinAndSlotConnectorView(_ connector: PinAndSlotConnector, withConnections top: GearView, bottom: GearView) -> PinAndSlotConnectorView {
         let view = PinAndSlotConnectorView(connector: connector)
 
         view.setPositionFromConnections(top, bottom: bottom)
@@ -286,7 +286,7 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         }
     }
 
-    func setCurrentState(state: AMState, phase: AMStatePhase) {
+    func setCurrentState(_ state: AMState, phase: AMStatePhase) {
         currentState = state
         currentStatePhase = phase
         

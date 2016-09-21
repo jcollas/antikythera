@@ -10,9 +10,10 @@ import OpenGLES
 
 class BoxView: NSObject, ComponentView, AMViewStateHandler {
     
-    var position = Vector3D.Zero
+    var position = Vector3D.zero
     var rotation: Float = 0.0
     var opacity: Float = 1.0
+    var radius: Float = 0.0
     var depthTest = true
 
     var boxModel: BoxModel!
@@ -23,7 +24,7 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     // Set position in 3D space
-    func setPosition(pos: Vector3D) {
+    func setPosition(_ pos: Vector3D) {
         position = pos
     }
     
@@ -31,25 +32,8 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
 //        rotation = rot
 //    }
 
-    // Protocol Methods:
-    func getPosition() -> Vector3D {
-        return position
-    }
-
-    func getRotation() -> Float {
-        return rotation
-    }
-
-    func getRadius() -> Float {
-        return 0.0
-    }
-
-    func getOpacity() -> Float {
-        return opacity
-    }
-
     func draw() {
-        if getOpacity() > 0.0 {
+        if opacity > 0.0 {
             glPushMatrix();
             
             glTranslatef(position.x, position.y, position.z)
@@ -63,7 +47,7 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
             }
             
             glPushMatrix();
-            glColor4f(0.855/2, 0.573/2, 0.149/2, getOpacity())
+            glColor4f(0.855/2, 0.573/2, 0.149/2, opacity)
             boxModel.draw()
             glPopMatrix()
             
@@ -75,19 +59,19 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
         }
     }
 
-    func updateWithState(state: AMState, phase: AMStatePhase) {
+    func updateWithState(_ state: AMState, phase: AMStatePhase) {
         
         switch state {
             
-        case .Pointers, .Gears:
+        case .pointers, .gears:
             opacity = 0.1
             depthTest = false
 
-        case .Box:
+        case .box:
             opacity = 1.0
             depthTest = true
 
-        case .PinAndSlot:
+        case .pinAndSlot:
             opacity = 0.0
 
         default: //STATE_DEFAULT

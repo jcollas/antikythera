@@ -24,7 +24,7 @@ class UserDialView: NSObject, ModelView, Touchable {
     let boxModel: BoxModel
 
     init(radius rad: Float, mechanism: AntikytheraMechanism, view: UIView) {
-		position = Vector3D.Zero
+		position = Vector3D.zero
         lastPosition = position
         rotation = 0
 		radius = Double(rad)
@@ -36,9 +36,9 @@ class UserDialView: NSObject, ModelView, Touchable {
 		boxModel = BoxModel(width: rad*0.1, height: rad*0.75, length:0.5)
 }
 
-    func setOpacity(opac: Float) { color.alpha = opac }
+    func setOpacity(_ opac: Float) { color.alpha = opac }
 
-    func hitTest(hit: Vector3D) -> Bool {
+    func hitTest(_ hit: Vector3D) -> Bool {
         let outerRadius = radius*1.75
         let innerRadius = radius*0.75
         let distance = hypot(Double(hit.x-position.x), Double(hit.y-position.y))
@@ -60,7 +60,7 @@ class UserDialView: NSObject, ModelView, Touchable {
         glTranslatef(position.x, position.y, position.z)
         glRotatef(GLfloat(rotation), 0.0, 0.0, 1.0)
         
-        for var i=0; i<sides; i++ {
+        for i in 0 ..< sides {
             let angle = Double(i)*angleInc
             
             glPushMatrix()
@@ -74,17 +74,17 @@ class UserDialView: NSObject, ModelView, Touchable {
         glPopMatrix()
     }
 
-    func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(myView)
+    func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let allTouches = event?.touches(for: myView)
         let touch = allTouches?.first
-        let location = touch?.locationInView(myView)
+        let location = touch?.location(in: myView)
         lastPosition = Vector3D(x: Float(location!.x), y: Float(myView.bounds.size.height-location!.y), z: 0.0)
     }
     
-    func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(myView)
+    func touchesMoved(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let allTouches = event?.touches(for: myView)
         let touch = allTouches?.first
-        let location = touch?.locationInView(myView)
+        let location = touch?.location(in: myView)
         let newPosition = Vector3D(x: Float(location!.x), y: Float(myView.bounds.size.height-location!.y), z: 0.0)
         
         var norm1 = position.startAndEndPoints(lastPosition)
@@ -95,11 +95,11 @@ class UserDialView: NSObject, ModelView, Touchable {
         
         var angle: Double = Double(atan2f(norm2.y,norm2.x) - atan2f(norm1.y,norm1.x))
         
-        if (fabs(angle) >= M_PI) {
-            if (angle > 0) {
-                angle -= 2.0*M_PI
+        if fabs(angle) >= .pi {
+            if angle > 0 {
+                angle -= 2.0 * .pi
             } else {
-                angle += 2.0*M_PI
+                angle += 2.0 * .pi
             }
         }
         
@@ -113,10 +113,10 @@ class UserDialView: NSObject, ModelView, Touchable {
         }
     }
     
-    func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesEnded(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
     
-    func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesCancelled(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
 
 }

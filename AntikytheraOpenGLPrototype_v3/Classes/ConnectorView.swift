@@ -11,7 +11,7 @@ import OpenGLES
 class ConnectorView: NSObject, ComponentView, AMViewStateHandler {
     var myConnector: Connector!
     
-    var position = Vector3D.Zero
+    var position = Vector3D.zero
     var length: Float = 0.0
     var opacity: Float = 1.0
     
@@ -25,46 +25,38 @@ class ConnectorView: NSObject, ComponentView, AMViewStateHandler {
 
     // Sets the position in 3D space based on the views visible connections
     // NOTE: view connections may differ from the model connections.
-    func setPositionFromConnections(top: ComponentView, bottom: ComponentView) {
+    func setPositionFromConnections(_ top: ComponentView, bottom: ComponentView) {
         
         if myConnector.hasTopComponent && myConnector.hasBottomComponent {
-            position = top.getPosition().add(bottom.getPosition())
+            position = top.position.add(bottom.position)
             position = Vector3D(x: position.x/2.0, y: position.y/2.0, z: position.z/2.0)
-            let distance = top.getPosition().startAndEndPoints(bottom.getPosition())
+            let distance = top.position.startAndEndPoints(bottom.position)
             length = distance.magnitude/2.0
         } else {
-            position = Vector3D.Zero
+            position = Vector3D.zero
             length = 0.0
         }
     }
 
 // Protocol Methods:
-    func getPosition() -> Vector3D {
-        return position
+
+    var rotation: Float {
+        return myConnector.rotation
     }
     
-    func getRotation() -> Float {
-        return myConnector.getRotation()
-    }
-    
-    func getRadius() -> Float {
-        return myConnector.getRadius()
-    }
-    
-    func getOpacity() -> Float {
-        return opacity
+    var radius: Float {
+        return myConnector.radius
     }
 
     func draw() {
         
-        if self.getOpacity() > 0.0 {
+        if self.opacity > 0.0 {
             glPushMatrix()
             
-            glColor4f(1.0, 1.0, 1.0, 0.5*self.getOpacity())
+            glColor4f(1.0, 1.0, 1.0, 0.5*self.opacity)
             
             glTranslatef(position.x, position.y, position.z)
-            let rotation = myConnector.getRotation()
-            glRotatef(rotation, 0.0, 0.0, 1.0)
+            glRotatef(self.rotation, 0.0, 0.0, 1.0)
             glScalef(1.0, 1.0, length)
             
             connectorModel.draw()
@@ -73,18 +65,18 @@ class ConnectorView: NSObject, ComponentView, AMViewStateHandler {
         }
     }
 
-    func updateWithState(state: AMState, phase: AMStatePhase) {
+    func updateWithState(_ state: AMState, phase: AMStatePhase) {
         switch (state) {
-            case .Pointers:
+            case .pointers:
                 opacity = 0.2
 
-            case .Gears:
+            case .gears:
                 opacity = 1.0
 
-            case .Box:
+            case .box:
                 opacity = 0.0
 
-            case .PinAndSlot:
+            case .pinAndSlot:
                 opacity = 0.0
 
             default: //STATE_DEFAULT

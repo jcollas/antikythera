@@ -19,7 +19,7 @@ class BoxModel: GLModel3D {
 		buildModelWithWidth(width, height:height, length:length)
     }
 
-    func buildModelWithWidth(w: Float, height h: Float, length len: Float) {
+    func buildModelWithWidth(_ w: Float, height h: Float, length len: Float) {
         
         width = w
         let halfWidth = width/2
@@ -28,8 +28,8 @@ class BoxModel: GLModel3D {
         length = len
         let halfHeight = length/2
         
-        vertices = [Vertex3D](count: 8, repeatedValue: Vertex3D.Zero)
-        elements = [GLushort](count:34, repeatedValue: 0)
+        vertices = [Vertex3D](repeating: Vertex3D.zero, count: 8)
+        elements = [GLushort](repeating: 0, count: 34)
         
         // Pointer Vertices
         vertices[0] = Vertex3D(x: halfLength, y: -halfWidth, z: halfHeight)

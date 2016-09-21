@@ -22,7 +22,7 @@ class PointerModel: GLModel3D {
 		buildModelWithShaftLength(sLen, shaftRadius:sRad, pointerLength:pLen, pointerWidth:pWidth) //Weird bug: for some reason -- gone?
     }
 
-    func buildModelWithShaftLength(sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) {
+    func buildModelWithShaftLength(_ sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) {
         let sideCount = 8
         
         shaftLength = sLen
@@ -31,17 +31,17 @@ class PointerModel: GLModel3D {
         pointerLength = pLen
         pointerWidth = pWidth
         
-        let sliceAngle = Float(2.0*M_PI)/Float(sideCount)
+        let sliceAngle = 2.0 * .pi / Float(sideCount)
         let halfAngle = sliceAngle/2.0
         
-        vertices = [Vertex3D](count: (sideCount*4+2) + 8, repeatedValue: Vertex3D.Zero)
-        elements = [GLushort](count: (sideCount*10+1) + (2) + (14), repeatedValue: 0)
+        vertices = [Vertex3D](repeating: Vertex3D.zero, count: (sideCount*4+2) + 8)
+        elements = [GLushort](repeating: 0, count: (sideCount*10+1) + (2) + (14))
         
         // Shaft Vertices:
         vertices[0] = Vertex3D(x: 0.0, y: 0.0, z: self.shaftLength)
-        vertices[1] = Vertex3D.Zero
+        vertices[1] = Vertex3D.zero
         
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             let angle = Float(i)*sliceAngle
             
             vertices[i*4+2] = Vertex3D(x: self.shaftRadius*cos(angle-halfAngle), y: self.shaftRadius*sin(angle-halfAngle), z:self.shaftLength)
@@ -53,7 +53,7 @@ class PointerModel: GLModel3D {
         
         
         // Shaft Elements:
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             elements[i*10] = 0			//1
             elements[i*10+1] = GLushort(i*4+2)	//2
             elements[i*10+2] = GLushort(i*4+3)	//3

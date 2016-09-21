@@ -15,23 +15,23 @@ class ConnectorModel: GLModel3D {
 		buildModelFromConnector(connector)
     }
 
-    func buildModelFromConnector(connector: Connector) {
+    func buildModelFromConnector(_ connector: Connector) {
         let sideCount = 16
         
-        let radius = connector.getRadius()
-        
-        let sliceAngle = Float(2.0*M_PI)/Float(sideCount)
+        let radius = connector.radius
+
+        let sliceAngle = 2.0 * .pi / Float(sideCount)
         let halfAngle = sliceAngle/2.0
         
-        vertices = [Vertex3D](count: (sideCount*4+2), repeatedValue: Vertex3D.Zero)
-        elements = [GLushort](count: (sideCount*10+1), repeatedValue: 0)
+        vertices = [Vertex3D](repeating: Vertex3D.zero, count: (sideCount*4+2))
+        elements = [GLushort](repeating: 0, count: (sideCount*10+1))
         
         
         // Vertices:
         vertices[0] = Vertex3D(x: 0.0, y: 0.0, z: 1.0)
         vertices[1] = Vertex3D(x: 0.0, y: 0.0, z: -1.0)
         
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             let angle = Float(i)*sliceAngle
             
             vertices[i*4+2] = Vertex3D(x: radius*cos(angle-halfAngle), y: radius*sin(angle-halfAngle), z: 1.0)
@@ -43,7 +43,7 @@ class ConnectorModel: GLModel3D {
         
         
         // Elements:
-        for var i=0; i<sideCount; i++ {
+        for i in 0 ..< sideCount {
             elements[i*10] = 0;		//1
             elements[i*10+1] = GLushort(i*4+2)	//2
             elements[i*10+2] = GLushort(i*4+3)	//3

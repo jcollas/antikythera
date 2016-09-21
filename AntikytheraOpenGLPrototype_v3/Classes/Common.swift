@@ -7,12 +7,12 @@
 
 import CoreGraphics
 
-func DegreesToRadians (value:Double) -> Double {
-    return value * M_PI / 180.0
+func DegreesToRadians (_ value:Double) -> Double {
+    return value * .pi / 180.0
 }
 
-func RadiansToDegrees (value:Double) -> Double {
-    return value * 180.0 / M_PI
+func RadiansToDegrees (_ value:Double) -> Double {
+    return value * 180.0 / .pi
 }
 
 // MARK:- Color3D
@@ -30,14 +30,14 @@ struct Color3D {
         self.alpha = alpha
     }
     
-    mutating func set(inRed: Float, inGreen: Float, inBlue: Float, inAlpha: Float) {
+    mutating func set(_ inRed: Float, inGreen: Float, inBlue: Float, inAlpha: Float) {
         red = inRed
         green = inGreen
         blue = inBlue
         alpha = inAlpha
     }
     
-    func interpolate(color2: Color3D, percent: Float) -> Color3D {
+    func interpolate(_ color2: Color3D, percent: Float) -> Color3D {
         var ret: Color3D!
         
         ret.red = red + ((color2.red - red) * percent)
@@ -84,7 +84,7 @@ struct Vertex3D: Equatable {
     var x: Float
     var y: Float
     var z: Float
-    static let Zero = Vertex3D(x: 0.0, y: 0.0, z: 0.0)
+    static let zero = Vertex3D(x: 0.0, y: 0.0, z: 0.0)
     
     init(x: Float, y: Float, z: Float) {
         self.x = x
@@ -92,7 +92,7 @@ struct Vertex3D: Equatable {
         self.z = z
     }
     
-    mutating func set(inX: Float, inY: Float, inZ: Float) {
+    mutating func set(_ inX: Float, inY: Float, inZ: Float) {
         self.x = inX
         self.y = inY
         self.z = inZ
@@ -110,7 +110,7 @@ struct Vector3D: Equatable {
     var x: Float
     var y: Float
     var z: Float
-    static let Zero = Vector3D(x: 0.0, y: 0.0, z: 0.0)
+    static let zero = Vector3D(x: 0.0, y: 0.0, z: 0.0)
 
     init() {
         x = 0.0
@@ -124,7 +124,7 @@ struct Vector3D: Equatable {
         self.z = z
     }
     
-    mutating func set(inX: Float, inY: Float, inZ: Float) {
+    mutating func set(_ inX: Float, inY: Float, inZ: Float) {
         self.x = inX
         self.y = inY
         self.z = inZ
@@ -148,11 +148,11 @@ struct Vector3D: Equatable {
         z /= vecMag
     }
     
-    func dotProduct(vector: Vector3D) -> Float {
+    func dotProduct(_ vector: Vector3D) -> Float {
         return x*vector.x + y*vector.y + z * vector.z
     }
     
-    func crossProduct(vector: Vector3D) -> Vector3D {
+    func crossProduct(_ vector: Vector3D) -> Vector3D {
         var ret = Vector3D()
         
         ret.x = (y * vector.z) - (z * vector.y)
@@ -162,7 +162,7 @@ struct Vector3D: Equatable {
         return ret
     }
     
-    func startAndEndPoints(end: Vector3D) -> Vector3D {
+    func startAndEndPoints(_ end: Vector3D) -> Vector3D {
         var ret = Vector3D()
 
         ret.x = end.x - x
@@ -172,7 +172,7 @@ struct Vector3D: Equatable {
         return ret
     }
     
-    func add(vector: Vector3D) -> Vector3D {
+    func add(_ vector: Vector3D) -> Vector3D {
         var ret = Vector3D()
 
         ret.x = x + vector.x

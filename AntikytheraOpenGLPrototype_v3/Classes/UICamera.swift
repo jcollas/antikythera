@@ -13,10 +13,10 @@ let kMIN_ZOOM: CGFloat = 20.0
 let kMAX_ZOOM: CGFloat = 600.0
 
 enum GestureType {
-    case None
-    case Ambiguous
-    case Single
-    case Double
+    case none
+    case ambiguous
+    case single
+    case double
 }
 
 class UICamera: NSObject, CameraViewpoint, Touchable {
@@ -30,11 +30,11 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
 
     var startDist: CGFloat = 200.0
     var distance: CGFloat = 0.0
-    var center = Vertex3D.Zero
-    var panDiff = Vertex3D.Zero
+    var center = Vertex3D.zero
+    var panDiff = Vertex3D.zero
     var gestureStartPoint = CGPoint(x: 0.0, y: 0.0)
     var gestureStartDistance: CGFloat!
-    var currentGesture: GestureType = .None
+    var currentGesture: GestureType = .none
 
     init(view: UIView) {
         
@@ -52,8 +52,8 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         glRotatef(-GLfloat(thetaStart+thetaAngle), 0.0, 0.0, 1.0)
     }
 
-    func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(myView)
+    func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let allTouches = event?.touches(for: myView)
         //	NSLog(@"touchesBegan: Touches=%d TouchesForView=%d",[touches count],[allTouches count])
         
         saveViewChanges()
@@ -61,13 +61,13 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         switch allTouches!.count {
         
         case 1:
-            currentGesture = .Single
+            currentGesture = .single
             let touch = allTouches!.first
-            gestureStartPoint = touch!.locationInView(myView)
+            gestureStartPoint = touch!.location(in: myView)
             
         case 2:
-            currentGesture = .Double
-            let locations = allTouches!.map { $0.locationInView(myView) }
+            currentGesture = .double
+            let locations = allTouches!.map { $0.location(in: myView) }
             let p1 = locations[0]
             let p2 = locations[1]
             
@@ -79,20 +79,20 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
             gestureStartPoint.y = (p1.y+p2.y)/2
             
         default:
-            currentGesture = .None
+            currentGesture = .none
         }
         
     }
 
-    func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(myView)
+    func touchesMoved(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let allTouches = event?.touches(for: myView)
         //	NSLog("touchesMoved: Touches=\(touches.count) TouchesForView=\(allTouches.count)")
         
         switch allTouches!.count {
             
         case 1:
             let touch = allTouches?.first
-            let currentPosition = touch?.locationInView(myView)
+            let currentPosition = touch?.location(in: myView)
             
             let deltaX: CGFloat = (gestureStartPoint.x - currentPosition!.x)/2
             let deltaY: CGFloat = (gestureStartPoint.y - currentPosition!.y)/2
@@ -102,12 +102,12 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
             }
             
         case 2:
-            let locations = allTouches!.map { $0.locationInView(myView) }
+            let locations = allTouches!.map { $0.location(in: myView) }
             let p1 = locations[0]
             let p2 = locations[1]
             
             let delta = hypotf(Float(p2.x-p1.x), Float(p2.y-p1.y))
-            let deltaPos = CGPointMake(gestureStartPoint.x - (p1.x+p2.x)/2,gestureStartPoint.y - (p1.y+p2.y)/2)
+            let deltaPos = CGPoint(x: gestureStartPoint.x - (p1.x+p2.x)/2,y: gestureStartPoint.y - (p1.y+p2.y)/2)
             
             panDiff = Vertex3D(x: Float(-deltaPos.x)/5.0, y: 0.0, z: Float(deltaPos.y)/5.0)
             
@@ -123,8 +123,8 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         }
     }
 
-    func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let allTouches = event?.touchesForView(myView)
+    func touchesEnded(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let allTouches = event?.touches(for: myView)
         NSLog("touchesEnded: Touches=%lu TouchesForView=%lu",touches.count, allTouches!.count)
         let activeTouches = allTouches!.count - touches.count
         
@@ -133,12 +133,12 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         switch activeTouches {
             
         case 1:
-            currentGesture = .Single
+            currentGesture = .single
             let touch = touches.first
-            gestureStartPoint = touch!.locationInView(myView)
+            gestureStartPoint = touch!.location(in: myView)
             
         default:
-            currentGesture = .None
+            currentGesture = .none
         }
     }
 
@@ -153,10 +153,10 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
         
         center.x += panDiff.x
         center.z += panDiff.z
-        panDiff = Vertex3D.Zero
+        panDiff = Vertex3D.zero
     }
 
-    func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesCancelled(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     }
 

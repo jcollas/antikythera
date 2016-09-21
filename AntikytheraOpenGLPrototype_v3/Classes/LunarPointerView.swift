@@ -29,8 +29,8 @@ class LunarPointerView: PointerView {
         
         super.draw()
         
-        let r1 = normalizeRotation(self.getRotation())
-        let r2 = normalizeRotation(yearPointer.getRotation())
+        let r1 = normalizeRotation(self.rotation)
+        let r2 = normalizeRotation(yearPointer.rotation)
         let rotDiff = r2 - r1
         
         moonRotation = rotDiff+90 //RADIANS_TO_DEGREES(cosf(DEGREES_TO_RADIANS(rotDiff)));
@@ -42,8 +42,8 @@ class LunarPointerView: PointerView {
         } else {
             glTranslatef(position.x, position.y, position.z/2);
         }
-        glRotatef(myComponent.getRotation(),0.0, 0.0 ,1.0)
-        glTranslatef(self.getRadius()*2/3, 0.0, 0.0)
+        glRotatef(myComponent.rotation,0.0, 0.0 ,1.0)
+        glTranslatef(self.radius*2/3, 0.0, 0.0)
         
         glEnable(GLenum(GL_DEPTH_TEST))
         
@@ -51,14 +51,14 @@ class LunarPointerView: PointerView {
         glRotatef(moonRotation+180, 1.0, 0.0, 0.0)
         glTranslatef(0.0, 0.1, 0.0)
         glScalef(1.0, 1.0, 1.0)
-        glColor4f(1.0, 1.0, 1.0, 1.0*self.getOpacity())
+        glColor4f(1.0, 1.0, 1.0, 1.0*self.opacity)
         brightMoonModel.draw()
         glPopMatrix()
         
         glPushMatrix()
         glRotatef(moonRotation, 1.0, 0.0, 0.0)
         glTranslatef(0.0, 0.1, 0.0)
-        glColor4f(0.5, 0.2, 0.2, 1.0*self.getOpacity())
+        glColor4f(0.5, 0.2, 0.2, 1.0*self.opacity)
         darkMoonModel.draw()
         glPopMatrix()
         
@@ -67,7 +67,8 @@ class LunarPointerView: PointerView {
         glPopMatrix()
     }
 
-    func normalizeRotation(var rotation: Float) -> Float {
+    func normalizeRotation(_ rotation: Float) -> Float {
+        var rotation = rotation
         var mult = rotation/360
         
         if (mult >= 1) {
