@@ -46,6 +46,7 @@ class GLView: UIView {
         // Get the layer
         let eaglLayer = self.layer as! CAEAGLLayer
         
+        eaglLayer.contentsScale = UIScreen.main.scale
         eaglLayer.isOpaque = true
         eaglLayer.drawableProperties = [ kEAGLDrawablePropertyRetainedBacking: false,
                                              kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8 ]
@@ -87,7 +88,10 @@ class GLView: UIView {
         if USE_DEPTH_BUFFER == 1 {
             glGenRenderbuffersOES(1, &depthRenderbuffer)
             glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer);
-            glRenderbufferStorageOES(GLenum(GL_RENDERBUFFER_OES), GLenum(GL_DEPTH_COMPONENT16_OES), backingWidth, backingHeight)
+
+            let renderWidth = GLint( CGFloat(backingWidth) * UIScreen.main.scale)
+            let renderHeight = GLint( CGFloat(backingHeight) * UIScreen.main.scale)
+            glRenderbufferStorageOES(GLenum(GL_RENDERBUFFER_OES), GLenum(GL_DEPTH_COMPONENT16_OES), renderWidth, renderHeight)
             glFramebufferRenderbufferOES(GLenum(GL_FRAMEBUFFER_OES), GLenum(GL_DEPTH_ATTACHMENT_OES), GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer)
         }
         
