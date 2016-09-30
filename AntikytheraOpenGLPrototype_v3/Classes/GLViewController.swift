@@ -57,12 +57,14 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
 
         glMatrixMode(GLenum(GL_PROJECTION))
         
+        //let retinaScale = CGFloat(1.0)
+        let retinaScale = UIScreen.main.scale
         let radians = (.pi * fieldOfView) / 180.0
         let size = zNear * Float(tanf(radians/2.0))
         let rect = self.view.bounds
         glFrustumf(Float(-size), Float(size), Float(-size/Float(rect.size.width/rect.size.height)),
                    Float(size/Float(rect.size.width/rect.size.height)), zNear, zFar)
-        glViewport(0, 0, GLsizei(rect.size.width), GLsizei(rect.size.height))
+        glViewport(0, 0, GLsizei(rect.size.width * retinaScale), GLsizei(rect.size.height * retinaScale))
         
         glMatrixMode(GLenum(GL_MODELVIEW))
         
