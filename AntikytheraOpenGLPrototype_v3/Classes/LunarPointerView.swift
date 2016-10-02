@@ -33,14 +33,14 @@ class LunarPointerView: PointerView {
         let r2 = normalizeRotation(yearPointer.rotation)
         let rotDiff = r2 - r1
         
-        moonRotation = rotDiff+90 //RADIANS_TO_DEGREES(cosf(DEGREES_TO_RADIANS(rotDiff)));
+        moonRotation = rotDiff+90 //RADIANS_TO_DEGREES(cosf(DEGREES_TO_RADIANS(rotDiff)))
         
         glPushMatrix()
         
         if (!depthTest) {
-            glTranslatef(position.x, position.y, position.z);
+            glTranslatef(position.x, position.y, position.z)
         } else {
-            glTranslatef(position.x, position.y, position.z/2);
+            glTranslatef(position.x, position.y, position.z/2)
         }
         glRotatef(myComponent.rotation,0.0, 0.0 ,1.0)
         glTranslatef(self.radius*2/3, 0.0, 0.0)

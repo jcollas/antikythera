@@ -15,7 +15,7 @@ class ShowcaseCamera: NSObject, CameraViewpoint {
     
     func updateViewpoint() {
         
-        glLoadIdentity();
+        glLoadIdentity()
         
         glTranslatef(0.0,0.0,0)
         glRotatef(-90, 1.0, 0.0, 0.0)
@@ -30,7 +30,7 @@ class ShowcaseCamera: NSObject, CameraViewpoint {
         if lastDrawTime != 0 {
             let timeSinceLastDraw = Date.timeIntervalSinceReferenceDate - lastDrawTime
             rot += Float(5 * timeSinceLastDraw)
-            //		NSLog(@"%f",timeSinceLastDraw);
+            //		NSLog(@"%f",timeSinceLastDraw)
         }
         lastDrawTime = Date.timeIntervalSinceReferenceDate
     }

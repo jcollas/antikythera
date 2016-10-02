@@ -26,7 +26,7 @@ class FlyThroughCamera: NSObject, CameraViewpoint {
         if (lastDrawTime != 0) {
             let timeSinceLastDraw = Date.timeIntervalSinceReferenceDate - lastDrawTime
             rot += Float(10 * timeSinceLastDraw)
-            //		NSLog(@"%f",timeSinceLastDraw);
+            //		NSLog(@"%f",timeSinceLastDraw)
         }
         lastDrawTime = Date.timeIntervalSinceReferenceDate
     }

@@ -37,7 +37,7 @@ class PinAndSlotConnector: Connector {
     override func updateBottomComponentRotation(_ arcAngle: Float) {
         
         if hasBottomComponent {
-            //		if (arcAngle == 0.0f) { [bottomComponent updateRotation:arcAngle FromSource:self]; }
+            //		if (arcAngle == 0.0f) { [bottomComponent updateRotation:arcAngle FromSource:self] }
             
             let oldRot = Float(DegreesToRadians(Double(rotation-arcAngle)))
             let newRot = Float(DegreesToRadians(Double(rotation)))

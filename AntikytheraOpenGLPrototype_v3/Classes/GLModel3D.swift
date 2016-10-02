@@ -21,7 +21,7 @@ class GLModel3D: NSObject, ModelView {
     func draw() {
         glVertexPointer(3, GLenum(GL_FLOAT), 0, vertices)
         glDrawElements(GLenum(GL_TRIANGLE_STRIP), GLsizei(elements.count), GLenum(GL_UNSIGNED_SHORT), elements)
-        //	glDrawElements(GL_LINE_STRIP, elementCount, GL_UNSIGNED_SHORT, elements);
+        //	glDrawElements(GL_LINE_STRIP, elementCount, GL_UNSIGNED_SHORT, elements)
     }
 
 }

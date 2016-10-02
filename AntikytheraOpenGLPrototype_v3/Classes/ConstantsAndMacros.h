@@ -19,6 +19,3 @@
 #define USE_DEPTH_BUFFER                1
 // Set to 1 if you want it to attempt to create a 2.0 context
 #define kAttemptToUseOpenGLES2          0
-// Macros
-#define DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) / 180.0 * M_PI)
-#define RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) / M_PI * 180.0)

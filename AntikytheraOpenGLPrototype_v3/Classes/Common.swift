@@ -7,11 +7,11 @@
 
 import CoreGraphics
 
-func DegreesToRadians (_ value:Double) -> Double {
+func DegreesToRadians (_ value: Double) -> Double {
     return value * .pi / 180.0
 }
 
-func RadiansToDegrees (_ value:Double) -> Double {
+func RadiansToDegrees (_ value: Double) -> Double {
     return value * 180.0 / .pi
 }
 
@@ -112,12 +112,6 @@ struct Vector3D: Equatable {
     var z: Float
     static let zero = Vector3D(x: 0.0, y: 0.0, z: 0.0)
 
-    init() {
-        x = 0.0
-        y = 0.0
-        z = 0.0
-    }
-    
     init(x: Float, y: Float, z: Float) {
         self.x = x
         self.y = y
@@ -153,7 +147,7 @@ struct Vector3D: Equatable {
     }
     
     func crossProduct(_ vector: Vector3D) -> Vector3D {
-        var ret = Vector3D()
+        var ret = Vector3D.zero
         
         ret.x = (y * vector.z) - (z * vector.y)
         ret.y = (z * vector.x) - (x * vector.z)
@@ -163,7 +157,7 @@ struct Vector3D: Equatable {
     }
     
     func startAndEndPoints(_ end: Vector3D) -> Vector3D {
-        var ret = Vector3D()
+        var ret = Vector3D.zero
 
         ret.x = end.x - x
         ret.y = end.y - y
@@ -173,7 +167,7 @@ struct Vector3D: Equatable {
     }
     
     func add(_ vector: Vector3D) -> Vector3D {
-        var ret = Vector3D()
+        var ret = Vector3D.zero
 
         ret.x = x + vector.x
         ret.y = y + vector.y

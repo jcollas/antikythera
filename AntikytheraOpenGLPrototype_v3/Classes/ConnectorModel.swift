@@ -44,7 +44,7 @@ class ConnectorModel: GLModel3D {
         
         // Elements:
         for i in 0 ..< sideCount {
-            elements[i*10] = 0;		//1
+            elements[i*10] = 0		//1
             elements[i*10+1] = GLushort(i*4+2)	//2
             elements[i*10+2] = GLushort(i*4+3)	//3
             elements[i*10+3] = GLushort(i*4+4)	//6

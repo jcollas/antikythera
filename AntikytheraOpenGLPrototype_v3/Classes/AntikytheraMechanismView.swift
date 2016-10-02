@@ -218,7 +218,7 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         cvE3toE4 = newConnectorView(myMechanism.cE3toE4, withConnections:gvE3, bottom:gvE4)
         
         cvK1toK2 = newPinAndSlotConnectorView(myMechanism.cK1toK2, withConnections:gvK1, bottom:gvK2)
-        //	[gvE5 setAsPinAndSlotGear:YES]; [gvE6 setAsPinAndSlotGear:YES];
+        //	[gvE5 setAsPinAndSlotGear:YES]; [gvE6 setAsPinAndSlotGear:YES]
         gvK1.setAsPinAndSlotGear(true)
         gvK2.setAsPinAndSlotGear(true)
         

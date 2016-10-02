@@ -52,7 +52,7 @@ class HalfGlobeModel: GLModel3D {
         var bottomStart: GLushort = 0
         
         // North Pole
-        var eCount = 0;
+        var eCount = 0
         for i in 0 ..< latSideCount {
             elements[eCount] = 0
             elements[eCount+1] = GLushort(i+1)

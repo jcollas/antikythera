@@ -34,7 +34,7 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
 
     func draw() {
         if opacity > 0.0 {
-            glPushMatrix();
+            glPushMatrix()
             
             glTranslatef(position.x, position.y, position.z)
             glRotatef(rotation, 0.0, 0.0, 1.0)
@@ -46,7 +46,7 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
                 glEnable(GLenum(GL_DEPTH_TEST))
             }
             
-            glPushMatrix();
+            glPushMatrix()
             glColor4f(0.855/2, 0.573/2, 0.149/2, opacity)
             boxModel.draw()
             glPopMatrix()

@@ -26,22 +26,22 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         glLoadIdentity()
         glClearColor(0.0, 0.0, 0.0, 1.0)
         glClear(GLenum(GL_COLOR_BUFFER_BIT) | GLenum(GL_DEPTH_BUFFER_BIT))
-        //	glEnable(GL_DEPTH_TEST);
-        //	glDisable(GL_CULL_FACE);
+        //	glEnable(GL_DEPTH_TEST)
+        //	glDisable(GL_CULL_FACE)
         
         camera.updateViewpoint()
         
         //	if (antikytheraMechanismView.currentState == .PinAndSlot) {
-        //		[antikytheraMechanism rotate:0.1f];
+        //		[antikytheraMechanism rotate:0.1f]
         //	} else {
-        //		[antikytheraMechanism rotate:2.0f];
+        //		[antikytheraMechanism rotate:2.0f]
         //	}
         
         antikytheraMechanismView.draw()
         
         pushOrthoMatrix()
         glPushMatrix()
-        //	glTranslatef(self.view.bounds.size.width-160, 160, 0.0f);
+        //	glTranslatef(self.view.bounds.size.width-160, 160, 0.0f)
         userDial.draw()
         glPopMatrix()
         popOrthoMatrix()

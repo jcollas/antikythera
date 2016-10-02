@@ -153,7 +153,7 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
 
     // Rotate input gear
     func rotate(_ arcAngle: Float) {
-        //	[gA1 updateRotation:arcAngle FromSource:nil];
+        //	[gA1 updateRotation:arcAngle FromSource:nil]
         gA1.rotate(arcAngle)
     }
 

@@ -87,7 +87,7 @@ class GLView: UIView {
         
         if USE_DEPTH_BUFFER == 1 {
             glGenRenderbuffersOES(1, &depthRenderbuffer)
-            glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer);
+            glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), depthRenderbuffer)
 
             let renderWidth = GLint( CGFloat(backingWidth) * UIScreen.main.scale)
             let renderHeight = GLint( CGFloat(backingHeight) * UIScreen.main.scale)
@@ -99,7 +99,7 @@ class GLView: UIView {
             NSLog("failed to make complete framebuffer object %x", glCheckFramebufferStatusOES(GLenum(GL_FRAMEBUFFER_OES)))
             return false
         }
-        //    [self.delegate setupView:self];
+        //    [self.delegate setupView:self]
         return true
     }
     
