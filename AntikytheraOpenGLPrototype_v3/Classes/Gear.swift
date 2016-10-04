@@ -8,12 +8,27 @@
 
 import Foundation
 
+class Placement {
+    
+//    { "forComponent" : "gB0", "positionType" : "fixed",          "x" : 0.0, "y": 0.0, "z": 40.0 },
+//    { "forComponent" : "gB1", "positionType" : "verticalOffset", "toGear": "gB0", "offset" : -5.0 },
+//    { "forComponent" : "gA1", "positionType" : "angledRelative", "toGear": "gB1", "radians" : 3.1415925 },
+
+    init(dict: [String:AnyObject]) {
+        
+    }
+}
+
 class Gear: NSObject, DeviceComponent {
     var radius: Float = 0.0
     var rotation: Float = 0.0
+    var name = ""
+    
     var toothCount = 0
     
     var neighbors: [DeviceComponent] = []
+    var linkedTo = [String]()
+    var placementInfo = [String:AnyObject]()
 
     // Initialize with a specific tooth count. Radius is calculated from tooth count.
     init(teeth: Int) {
@@ -26,6 +41,32 @@ class Gear: NSObject, DeviceComponent {
 		toothCount = teeth
 		radius = (Float(teeth) / (2.0 * .pi))*scale
 		rotation = 0.0
+    }
+    
+    init(dict: [String:AnyObject]) {
+        
+        // get the name
+        self.name = dict["name"] as? String ?? ""
+        
+        // get the tooth count & radiusScale
+        if let teeth = dict["teeth"] as? NSNumber {
+            self.toothCount = teeth.intValue
+            
+            if let scale = dict["radiusScale"] as? NSNumber {
+                self.radius = (Float(teeth) / (2.0 * .pi)) * scale.floatValue
+            } else {
+                self.radius = Float(teeth) / (2.0 * .pi)
+            }
+        }
+        
+        self.placementInfo = dict["placement"] as! [String:AnyObject]
+        
+        // the names of the gears this gear is linked to
+        if let linkedTo = dict["linkedTo"] as? [String] {
+            self.linkedTo.append(contentsOf: linkedTo)
+        }
+        
+        self.rotation = 0.0
     }
 
     // Add neighbor component to list of neighbors

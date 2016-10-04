@@ -15,6 +15,7 @@
 		28FD14FE0DC6FC130079059D /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* GLView.swift */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		87D9C3731D9DF57C00E4F0FC /* device.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D9C3721D9DF57C00E4F0FC /* device.json */; };
 		C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C050AE661A2B5037005936F1 /* Default-568h@2x.png */; };
 		C08968E21C2E4589006EBECC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA7F116C25DD0097AE70 /* Models.swift */; };
 		C0E3761C1C320D3600C99043 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92F5EB0FDFF83200548BE8 /* Common.swift */; };
@@ -61,6 +62,7 @@
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* AntikytheraOpenGLPrototype_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntikytheraOpenGLPrototype_Prefix.pch; sourceTree = "<group>"; };
+		87D9C3721D9DF57C00E4F0FC /* device.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = device.json; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* AntikytheraOpenGLPrototype-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AntikytheraOpenGLPrototype-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C050AE661A2B5037005936F1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0FDE5371C2A1A32008283F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				1D3623250D0F684500981E51 /* AppDelegate.swift */,
 				1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */,
+				87D9C3721D9DF57C00E4F0FC /* device.json */,
 				1F92F5EB0FDFF83200548BE8 /* Common.swift */,
 				28FD14FD0DC6FC130079059D /* GLView.swift */,
 				1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */,
@@ -324,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D9C3731D9DF57C00E4F0FC /* device.json in Resources */,
 				C0FDE5381C2A1A32008283F4 /* Main.storyboard in Resources */,
 				C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */,
 			);

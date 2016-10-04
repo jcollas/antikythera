@@ -84,7 +84,10 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         touchDelegate = camera as? Touchable
         
-        antikytheraMechanism = AntikytheraMechanism()
+
+        // iterate over gears, connections
+        
+        antikytheraMechanism = AntikytheraMechanism(loadFromJsonFile: Bundle.main.url(forResource: "device", withExtension: "json")!)
         antikytheraMechanismView = AntikytheraMechanismView(mechanism: antikytheraMechanism)
         
         var dialRad = Float(self.view.bounds.size.width)/10.0

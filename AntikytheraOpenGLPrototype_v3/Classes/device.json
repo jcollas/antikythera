@@ -1,0 +1,157 @@
+{
+    "gears" : [
+               { "name" : "gA1", "teeth" :  48,
+                      "linkedTo": [ "gB1" ],
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gB1", "radians" : 3.1415925 }
+                      },
+               { "name" : "gB0", "teeth" :  20,
+                      "placement" : { "positionType" : "fixed",          "x" : 0.0, "y": 0.0, "z": 40.0 }
+                      },
+               { "name" : "gB1", "teeth" : 224,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gB0", "offset" : -5.0 }
+                      },
+               { "name" : "gB2", "teeth" :  64,
+                      "linkedTo": [ "gC1", "gL1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gB1", "offset" : -5.0}
+                      },
+               { "name" : "gB3", "teeth" :  32,
+                      "linkedTo": [ "gE1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gB2", "offset" : -5.0}
+                      },
+               { "name" : "gC1", "teeth" :  38,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gB2", "radians" : 0.0 }
+                      },
+               { "name" : "gC2", "teeth" :  48,
+                      "linkedTo": [ "gD1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gC1", "offset" : -5.0}
+                      },
+               { "name" : "gD1", "teeth" :  24,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gC2", "radians" : 0.0 }
+                      },
+               { "name" : "gD2", "teeth" : 127,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gD1", "offset" : -5.0}
+                      },
+               { "name" : "gE1", "teeth" :  32,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gE2", "offset" : 5.0}
+                      },
+               { "name" : "gE2", "teeth" :  32,
+                      "linkedTo": [ "gD2" ],
+                      "placement" : {  "positionType" : "angledRelative", "toGear": "gD2", "radians" : 3.51918792 }
+                      },
+               { "name" : "gE3", "teeth" : 223,
+                      "linkedTo": [ "gM3" ],
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gM3", "radians" : 0.0 }
+                      },
+               { "name" : "gE4", "teeth" : 188,
+                      "linkedTo": [ "gF1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gE3", "offset" : -1.0}
+                      },
+               { "name" : "gE5", "teeth" :  50, "radiusScale" : 0.96,
+                      "linkedTo": [ "gK1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gE2", "offset" : -8.0}
+                      },
+               { "name" : "gE6", "teeth" :  50,
+                      "linkedTo": [ "gK2" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gE5", "offset" : -2.0}
+                      },
+               { "name" : "gF1", "teeth" :  53,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gE4", "radians" : -0.05 }
+                      },
+               { "name" : "gF2", "teeth" :  30,
+                      "linkedTo": [ "gG1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gF1", "offset" : -3.0}
+                      },
+               { "name" : "gG1", "teeth" :  54,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gF2", "radians" : 1.41371669 }
+                      },
+               { "name" : "gG2", "teeth" :  20,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gG1", "offset" : -3.0}
+                      },
+               { "name" : "gH1", "teeth" :  60,
+                      "linkedTo": [ "gG2" ],
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gG2", "radians" : 2.19911485 }
+                      },
+               { "name" : "gH2", "teeth" :  15,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gH1", "offset" : -3.0}
+                      },
+               { "name" : "gI1", "teeth" :  60,
+                      "linkedTo": [ "gH2" ],
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gH2", "radians" : -2.199114857 }
+                      },
+               { "name" : "gK1", "teeth" :  50,  "radiusScale" : 0.96,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gE5", "radians" : 0.0 }
+                      },
+               { "name" : "gK2", "teeth" :  50,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gE6", "radians" : 0.0 }
+                      },
+               { "name" : "gL1", "teeth" :  38,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gB2", "radians" : 3.886150112 }
+                      },
+               { "name" : "gL2", "teeth" :  53,
+                      "linkedTo": [ "gM1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gL1", "offset" : -5.0}
+                      },
+               { "name" : "gM1", "teeth" :  96,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gL2", "radians" : 3.072477615 }
+                      },
+               { "name" : "gM2", "teeth" :  15,
+                      "linkedTo": [ "gN1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gM1", "offset" : -8.0}
+                      },
+               { "name" : "gM3", "teeth" :  27,
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gM2", "offset" : -2.0}
+                      },
+               { "name" : "gN1", "teeth" :  53,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gM2", "radians" : 2.434734306 }
+                      },
+               { "name" : "gN2", "teeth" :  15,
+                      "linkedTo": [ "gP1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gN1", "offset" : -5.0}
+                      },
+               { "name" : "gP1", "teeth" :  60,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gN2", "radians" : -1.099557428 }
+                      },
+               { "name" : "gP2", "teeth" :  12,
+                      "linkedTo": [ "gO1" ],
+                      "placement" : { "positionType" : "verticalOffset", "toGear": "gP1", "offset" : -5.0}
+                      },
+               { "name" : "gO1", "teeth" :  60,
+                      "placement" : { "positionType" : "angledRelative", "toGear": "gP2", "radians" : 0.9 }
+                      }
+                      
+                      
+
+    ],
+    "connectors" : [
+                    
+                    { "name" : "cB0toB3", "radius": 1.0, "topGear": "gB0", "bottomGear": "gB3", "connector-type" : "connector" },
+                    { "name" : "cB1toB2", "radius": 2.0, "topGear": "gB1", "bottomGear": "gB2", "connector-type" : "connector" },
+                    { "name" : "cC1toC2", "radius": 1.0, "topGear": "gC1", "bottomGear": "gC2", "connector-type" : "connector" },
+                    { "name" : "cD1toD2", "radius": 1.0, "topGear": "gD1", "bottomGear": "gD2", "connector-type" : "connector" },
+                    { "name" : "cE1toE6", "radius": 1.0, "topGear": "gE1", "bottomGear": "gE6", "connector-type" : "connector" },
+                    { "name" : "cE2toE5", "radius": 2.0, "topGear": "gE2", "bottomGear": "gE5", "connector-type" : "connector" },
+                    { "name" : "cE3toE4", "radius": 1.0, "topGear": "gE3", "bottomGear": "gE4", "connector-type" : "connector" },
+                    { "name" : "cF1toF2", "radius": 1.0, "topGear": "gF1", "bottomGear": "gF2", "connector-type" : "connector" },
+                    { "name" : "cG1toG2", "radius": 1.0, "topGear": "gG1", "bottomGear": "gG2", "connector-type" : "connector" },
+                    { "name" : "cH1toH2", "radius": 1.0, "topGear": "gH1", "bottomGear": "gH2", "connector-type" : "connector" },
+                    { "name" : "cL1toL2", "radius": 1.0, "topGear": "gL1", "bottomGear": "gL2", "connector-type" : "connector" },
+                    { "name" : "cM1toM2", "radius": 1.0, "topGear": "gM1", "bottomGear": "gM2", "connector-type" : "connector" },
+                    { "name" : "cM2toM3", "radius": 1.0, "topGear": "gM2", "bottomGear": "gM3", "connector-type" : "connector" },
+                    { "name" : "cN1toN2", "radius": 1.0, "topGear": "gN1", "bottomGear": "gN2", "connector-type" : "connector" },
+                    { "name" : "cP1toP2", "radius": 1.0, "topGear": "gP1", "bottomGear": "gP2", "connector-type" : "connector" },
+                    
+                    { "name" : "cK1toK2", "radius": 0.5, "topGear": "gK1", "bottomGear": "gK2", "connector-type" : "pin-and-slot"}
+    ],
+    "pointers" : [
+                  { "name" : "year",        "pointerKind": "regular",                               "onGear": "gB1", "shaftLength": -4.0, "shaftRadius": 2.0,  "pointerLength": 30.0, "pointerWidth": 1.0 },
+                  { "name" : "lunar",       "pointerKind": "lunar",   "rotatesToPointer":"year",    "onGear": "gB0", "shaftLength": -1.0, "shaftRadius": 1.0,  "pointerLength": 25.0, "pointerWidth": 1.0 },
+                  { "name" : "metonic",     "pointerKind": "regular",                               "onGear": "gN2", "shaftLength": 14.0, "shaftRadius": 1.0,  "pointerLength": 30.0, "pointerWidth": 1.0 },
+                  { "name" : "saros",       "pointerKind": "regular",                               "onGear": "gG2", "shaftLength": 10.0, "shaftRadius": 1.0,  "pointerLength": 30.0, "pointerWidth": 1.0 },
+                  { "name" : "callippic",   "pointerKind": "regular",                               "onGear": "gO1", "shaftLength":  8.0, "shaftRadius": 0.5,  "pointerLength": 10.0, "pointerWidth": 0.5 },
+                  { "name" : "exeligmos",   "pointerKind": "regular",                               "onGear": "gI1", "shaftLength":  6.0, "shaftRadius": 0.5,  "pointerLength": 10.0, "pointerWidth": 0.5 }
+
+    ]
+    
+    
+    
+}
