@@ -80,7 +80,7 @@ class PointerModel: GLModel3D {
         elements[le+2] = GLushort(lv+1)
         
         // Pointer Vertices
-        let height = self.shaftLength/fabs(self.shaftLength)
+        let height = self.shaftLength/abs(self.shaftLength)
         vertices[lv+1] = Vertex3D(x: self.shaftRadius, y: 0.0, z: height)
         vertices[lv+2] = Vertex3D(x: 0.0, y: self.shaftRadius, z: height)
         

@@ -53,9 +53,9 @@ class Gear: NSObject, DeviceComponent {
             self.toothCount = teeth.intValue
             
             if let scale = dict["radiusScale"] as? NSNumber {
-                self.radius = (Float(teeth) / (2.0 * .pi)) * scale.floatValue
+                self.radius = (Float(truncating: teeth) / (2.0 * .pi)) * scale.floatValue
             } else {
-                self.radius = Float(teeth) / (2.0 * .pi)
+                self.radius = Float(truncating: teeth) / (2.0 * .pi)
             }
         }
         

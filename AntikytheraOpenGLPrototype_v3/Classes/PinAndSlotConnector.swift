@@ -69,7 +69,7 @@ class PinAndSlotConnector: Connector {
             oldPinPosition.normalize()
             newPinPosition.normalize()
             
-            let sign = (arcAngle/fabs(arcAngle))
+            let sign = (arcAngle/abs(arcAngle))
             
             let angle = sign*acosf(oldPinPosition.x*newPinPosition.x + oldPinPosition.y*newPinPosition.y)
             

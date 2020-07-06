@@ -59,7 +59,7 @@ class GLView: UIView {
         self.animationInterval = 1.0 / kRenderingFrequency
     }
 
-    func drawView() {
+    @objc func drawView() {
         glBindFramebufferOES(GLenum(GL_FRAMEBUFFER_OES), viewFramebuffer)
         self.delegate?.drawView(self)
         glBindRenderbufferOES(GLenum(GL_RENDERBUFFER_OES), viewRenderbuffer)

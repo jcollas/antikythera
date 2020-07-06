@@ -20,8 +20,8 @@ class HalfGlobeModel: GLModel3D {
         let lonSideCount = 8
         let latSideCount = 8
         
-        let phiStep = Float(M_PI*7/6)/Float(lonSideCount)
-        let thetaStep = Float(M_PI*7/6)/Float(latSideCount)
+        let phiStep = Float(Float.pi*7/6)/Float(lonSideCount)
+        let thetaStep = Float(Float.pi*7/6)/Float(latSideCount)
         
         let vertexCount = latSideCount*(lonSideCount-1) + 2
         vertices = [Vertex3D](repeating: Vertex3D.zero, count: vertexCount)
