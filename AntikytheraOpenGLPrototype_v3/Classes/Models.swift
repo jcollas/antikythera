@@ -34,10 +34,15 @@ func != (lhs: DeviceComponent, rhs: DeviceComponent) -> Bool {
     return lhs !== rhs
 }
 
+enum AntikytheraError : Error {
+    case BuildError(String)
+}
+
 protocol DeviceComponent: NSObjectProtocol {
 
     var rotation: Float { get }
     var radius: Float { get }
+    var name : String { get }
 
     func rotate(_ arcAngle: Float)
     func updateRotation(_ arcAngle: Float, fromSource source: DeviceComponent)

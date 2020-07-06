@@ -17,6 +17,43 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
     
     var pointerModel: PointerModel!
 
+    class func makePointerView(dict: [String:AnyObject], allGears: [String:Gear], allGearViews: [String:GearView], allPointers: [String:PointerView]) throws -> (PointerView, String) {
+        
+        // get the common parameters from the dict
+        guard let pointerName = (dict["name"] as? String) else { throw AntikytheraError.BuildError("Missing pointer name!") }
+        guard let shaftLength = (dict["shaftLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftLength!") }
+        guard let shaftRadius = (dict["shaftRadius"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftRadius!") }
+        guard let pointerLength = (dict["pointerLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerLength!") }
+        guard let pointerWidth = (dict["pointerWidth"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerWidth!") }
+        guard let pointerKind = (dict["pointerKind"] as? String) else { throw AntikytheraError.BuildError("Missing pointerKind!") }
+        guard let onGearName = (dict["onGear"] as? String) else { throw AntikytheraError.BuildError("Missing onGear!") }
+        
+        // make the view from the params!
+        let gear = allGears[onGearName]!
+        let view : PointerView
+        switch pointerKind {
+        case "regular":
+            view = PointerView(component: gear, shaftLength:shaftLength * kDepthScale, shaftRadius:shaftRadius, pointerLength:pointerLength, pointerWidth:pointerWidth)
+            break
+            
+        case "lunar":
+            guard let yearPointerViewName = (dict["rotatesToPointer"] as? String) else { throw AntikytheraError.BuildError("Missing rotatesToPointer!") }
+            let yearPointer = allPointers[yearPointerViewName]!
+            view = LunarPointerView(component: gear, yearPointer:yearPointer, shaftLength:shaftLength * kDepthScale, shaftRadius:shaftRadius, pointerLength:pointerLength, pointerWidth:pointerWidth)
+            break
+            
+        default:
+            throw AntikytheraError.BuildError("Unrecognized pointerKind!")
+        }
+        
+        // and position it!
+        let gearView = allGearViews[onGearName]!
+        view.setPositionRelativeTo(gearView, verticalOffset: -(shaftLength * kDepthScale))
+
+        
+        return (view,pointerName)
+    }
+    
     // Initialize with gear. This is the gear to be drawn by this view.
     init(component: DeviceComponent, shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) {
         

@@ -29,7 +29,52 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
         gearShaderModel = GearShaderModel(gear: myGear)
         pointerModel = BoxModel(width: 1.0, height: 100.0, length: 1.0)
     }
+    // sets our position relative to other views (by distance or angle), or by a fixed location
+    // For example:
+    //    { "forComponent" : "gB0", "positionType" : "fixed",          "x" : 0.0, "y": 0.0, "z": 40.0 },
+    //    { "forComponent" : "gB1", "positionType" : "verticalOffset", "toGear": "gB0", "offset" : -5.0 },
+    //    { "forComponent" : "gA1", "positionType" : "angledRelative", "toGear": "gB1", "radians" : 3.1415925 },
+    
+    func setPosition(dict: [String:AnyObject], allGearViews: [String:GearView]){
+        
 
+        if let posKind = dict["positionType"] as? String {
+            switch posKind {
+            case "fixed":
+
+                let x = (dict["x"] as! NSNumber).floatValue
+                let y = (dict["y"] as! NSNumber).floatValue
+                let z = (dict["z"] as! NSNumber).floatValue
+                //print("placing gear '\(myGear.name)' at \(x), \(y), \(z)")
+
+                self.setPosition(Vector3D(x: x, y: y, z: z))
+                break
+            case "verticalOffset":
+                let toGearName = dict["toGear"] as! String
+                let verticalOffset = (dict["offset"] as! NSNumber).floatValue
+                
+                let toGearView = allGearViews[toGearName]!
+                //print("placing gear '\(myGear.name)' relative to '\(toGearName)', \(verticalOffset) units above")
+
+                self.setPositionRelativeTo(toGearView, verticalOffset: verticalOffset * kDepthScale)
+                break
+            case "angledRelative":
+                let toGearName = dict["toGear"] as! String
+                let angleInRadians = (dict["radians"] as! NSNumber).floatValue
+                //let angleInDegrees = angleInRadians * 360.0 / Float(M_PI * 2.0)
+                
+                let toGearView = allGearViews[toGearName]!
+                //print("placing gear '\(myGear.name)' relative to '\(toGearName)', \(angleInDegrees) degrees around")
+
+                self.setPositionRelativeTo(toGearView, atAngle: angleInRadians)
+                break
+            default:
+                break
+                
+            }
+        }
+    }
+    
 // Set position in 3D space
     func setPosition(_ pos: Vector3D) {
         position = pos
