@@ -35,32 +35,37 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
     //    { "forComponent" : "gB1", "positionType" : "verticalOffset", "toGear": "gB0", "offset" : -5.0 },
     //    { "forComponent" : "gA1", "positionType" : "angledRelative", "toGear": "gB1", "radians" : 3.1415925 },
     
-    func setPosition(dict: [String:AnyObject], allGearViews: [String:GearView]){
+    func setPosition(info: PlacementInfo, allGearViews: [String:GearView]) {
         
 
-        if let posKind = dict["positionType"] as? String {
-            switch posKind {
+            switch info.positionType {
             case "fixed":
 
-                let x = (dict["x"] as! NSNumber).floatValue
-                let y = (dict["y"] as! NSNumber).floatValue
-                let z = (dict["z"] as! NSNumber).floatValue
+                guard let x = info.x, let y = info.y, let z = info.z else {
+                        return
+                }
+
                 //print("placing gear '\(myGear.name)' at \(x), \(y), \(z)")
 
                 self.setPosition(Vector3D(x: x, y: y, z: z))
                 break
             case "verticalOffset":
-                let toGearName = dict["toGear"] as! String
-                let verticalOffset = (dict["offset"] as! NSNumber).floatValue
-                
+
+                guard let toGearName = info.toGear, let verticalOffset = info.offset else {
+                    return
+                }
+
                 let toGearView = allGearViews[toGearName]!
                 //print("placing gear '\(myGear.name)' relative to '\(toGearName)', \(verticalOffset) units above")
 
                 self.setPositionRelativeTo(toGearView, verticalOffset: verticalOffset * kDepthScale)
                 break
             case "angledRelative":
-                let toGearName = dict["toGear"] as! String
-                let angleInRadians = (dict["radians"] as! NSNumber).floatValue
+
+                guard let toGearName = info.toGear, let angleInRadians = info.radians else {
+                    return
+                }
+
                 //let angleInDegrees = angleInRadians * 360.0 / Float(M_PI * 2.0)
                 
                 let toGearView = allGearViews[toGearName]!
@@ -68,11 +73,10 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
 
                 self.setPositionRelativeTo(toGearView, atAngle: angleInRadians)
                 break
+
             default:
                 break
-                
             }
-        }
     }
     
 // Set position in 3D space

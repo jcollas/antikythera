@@ -28,44 +28,26 @@ class Gear: NSObject, DeviceComponent {
     
     var neighbors: [DeviceComponent] = []
     var linkedTo = [String]()
-    var placementInfo = [String:AnyObject]()
+    var placementInfo: PlacementInfo
 
     // Initialize with a specific tooth count. Radius is calculated from tooth count.
-    init(teeth: Int) {
-        toothCount = teeth
-        radius = Float(teeth) / (2.0 * .pi)
-        rotation = 0.0
-    }
-    
-    init(teeth: Int, radiusScale scale: Float) {
-		toothCount = teeth
-		radius = (Float(teeth) / (2.0 * .pi))*scale
-		rotation = 0.0
-    }
-    
-    init(dict: [String:AnyObject]) {
-        
-        // get the name
-        self.name = dict["name"] as? String ?? ""
-        
-        // get the tooth count & radiusScale
-        if let teeth = dict["teeth"] as? NSNumber {
-            self.toothCount = teeth.intValue
-            
-            if let scale = dict["radiusScale"] as? NSNumber {
-                self.radius = (Float(truncating: teeth) / (2.0 * .pi)) * scale.floatValue
-            } else {
-                self.radius = Float(truncating: teeth) / (2.0 * .pi)
-            }
+    init(_ info: GearInfo) {
+        self.name = info.name
+        self.toothCount = info.teeth
+
+        let teeth = Float(truncating: NSNumber(value: info.teeth))
+        if let scale = info.radiusScale {
+            self.radius = (teeth / (2.0 * .pi)) * scale
+        } else {
+            self.radius = teeth / (2.0 * .pi)
         }
-        
-        self.placementInfo = dict["placement"] as! [String:AnyObject]
-        
-        // the names of the gears this gear is linked to
-        if let linkedTo = dict["linkedTo"] as? [String] {
+
+        self.placementInfo = info.placement
+
+        if let linkedTo = info.linkedTo {
             self.linkedTo.append(contentsOf: linkedTo)
         }
-        
+
         self.rotation = 0.0
     }
 

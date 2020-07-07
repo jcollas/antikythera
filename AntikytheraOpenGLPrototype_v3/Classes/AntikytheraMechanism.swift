@@ -19,58 +19,45 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
     var connectors = [Connector]()
     var connectorsByName = [String:Connector]()
     // Pointer indicators (another array of dictionaries)
-    var pointers: [ [String:AnyObject] ]!
+    var pointers: [PointerInfo] = []
     
     init(loadFromJsonFile: URL) {
         super.init()
         do {
-            let mechanismData = try Data(contentsOf: loadFromJsonFile )
-            if let mechanismDict = try JSONSerialization.jsonObject(with: mechanismData) as? [String:AnyObject] {
-                
-                // load all the gears
-                if let gearsArray = mechanismDict["gears"] as? [AnyObject] {
-                    for gearObj in gearsArray {
-                        if let gearDict = gearObj as? [String:AnyObject] {
-                            let gear = Gear(dict: gearDict)
-                            self.gears.append(gear)
-                            self.gearsByName[gear.name] = gear
-                        }
-                    }
-                }
-                
-                // connect the gears
-                // (for each gear: get the names of the other gear(s) it should be linked to, resolve it, and connect them)
-                for connectGearFrom in self.gears {
-                    for connectToName in connectGearFrom.linkedTo {
-                        if let connectGearTo = self.gearsByName[connectToName] {
-                            // success, these to gears should be linked!
-                            self.linkGear(connectGearFrom, with: connectGearTo)
-                        } else {
-                            // ERROR!  couldn't find that link-to gear!
-                            print("ERROR!  Couldn't find gear named '\(connectToName)' (linked to by gear '\(connectGearFrom.name)')")
-                            
-                        }
-                    }
-                }
-                
-                // load all the connectors
-                if let connectorsArray = mechanismDict["connectors"] as? [AnyObject] {
-                    for connectorObj in connectorsArray {
-                        if let connectorDict = connectorObj as? [String:AnyObject] {
-                            let connector = try! Connector.makeConnectorFromDictionary(connectorDict, allGears: self.gearsByName)
-                            self.connectorsByName[connector.name] = connector
-                            self.connectors.append(connector)
-                        }
-                    }
-                }
-                
-                // load the pointers
-                if let pointers = mechanismDict["pointers"] as? [ [String:AnyObject] ] {
-                    self.pointers = pointers
-                }
-                
-                
+            let mechanismData = try Data(contentsOf: loadFromJsonFile)
+            let decoder = JSONDecoder()
+
+            let info = try decoder.decode(MechanismInfo.self, from: mechanismData)
+
+            self.gears = info.gears.map { Gear($0) }
+
+            for gear in self.gears {
+                self.gearsByName[gear.name] = gear
             }
+
+            // connect the gears
+            // (for each gear: get the names of the other gear(s) it should be linked to, resolve it, and connect them)
+            for connectGearFrom in self.gears {
+                for connectToName in connectGearFrom.linkedTo {
+                    if let connectGearTo = self.gearsByName[connectToName] {
+                        // success, these to gears should be linked!
+                        self.linkGear(connectGearFrom, with: connectGearTo)
+                    } else {
+                        // ERROR!  couldn't find that link-to gear!
+                        print("ERROR!  Couldn't find gear named '\(connectToName)' (linked to by gear '\(connectGearFrom.name)')")
+                    }
+                }
+            }
+
+            // load all the connectors
+            for info in info.connectors {
+                let connector = try! Connector.makeConnector(info: info, allGears: self.gearsByName)
+                self.connectorsByName[connector.name] = connector
+                self.connectors.append(connector)
+            }
+
+            // load the pointers
+            self.pointers = info.pointers
         } catch {
             
         }
@@ -99,7 +86,7 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
         repeat {
             for (idx, gear) in gearsToPlace.enumerated() {
                 
-                if let toGearName = gear.placementInfo["toGear"] as? String {
+                if let toGearName = gear.placementInfo.toGear {
                     if gearsPlaced.contains(toGearName) {
                         // the current gear is relative to a gear that's already been accepted
                         // so it's okay to add it too!
@@ -122,10 +109,7 @@ class AntikytheraMechanism: NSObject, MechanicalDevice {
         
         // gears, sorted by placement priority
         return gearsSortedByPlacementOrder
-        
-
     }
-
 
     // Rotate input gear
     func rotate(_ arcAngle: Float) {

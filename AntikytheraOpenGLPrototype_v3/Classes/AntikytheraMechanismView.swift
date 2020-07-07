@@ -54,7 +54,7 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         let gearsInPlacementOrder = myMechanism.sortGearsForPlacementOrder()
         for gear in gearsInPlacementOrder {
             let gearView = gearViewsByName[gear.name]!
-            gearView.setPosition(dict: gear.placementInfo, allGearViews: gearViewsByName)
+            gearView.setPosition(info: gear.placementInfo, allGearViews: gearViewsByName)
         }
         
 
@@ -70,8 +70,8 @@ class AntikytheraMechanismView: NSObject, DeviceView {
         // ---
         // Initialize PointerViews
         // ---
-        for pointerDict in myMechanism.pointers {
-            let (pointerView, pointerName) = try! PointerView.makePointerView(dict: pointerDict, allGears: myMechanism.gearsByName, allGearViews: self.gearViewsByName, allPointers: self.pointersByName)
+        for pointerInfo in myMechanism.pointers {
+            let (pointerView, pointerName) = try! PointerView.makePointerView(info: pointerInfo, allGears: myMechanism.gearsByName, allGearViews: self.gearViewsByName, allPointers: self.pointersByName)
             self.pointersByName[pointerName] = pointerView
             self.addSubView(pointerView)
         }

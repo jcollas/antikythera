@@ -17,29 +17,29 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
     
     var pointerModel: PointerModel!
 
-    class func makePointerView(dict: [String:AnyObject], allGears: [String:Gear], allGearViews: [String:GearView], allPointers: [String:PointerView]) throws -> (PointerView, String) {
+    class func makePointerView(info: PointerInfo, allGears: [String:Gear], allGearViews: [String:GearView], allPointers: [String:PointerView]) throws -> (PointerView, String) {
         
         // get the common parameters from the dict
-        guard let pointerName = (dict["name"] as? String) else { throw AntikytheraError.BuildError("Missing pointer name!") }
-        guard let shaftLength = (dict["shaftLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftLength!") }
-        guard let shaftRadius = (dict["shaftRadius"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftRadius!") }
-        guard let pointerLength = (dict["pointerLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerLength!") }
-        guard let pointerWidth = (dict["pointerWidth"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerWidth!") }
-        guard let pointerKind = (dict["pointerKind"] as? String) else { throw AntikytheraError.BuildError("Missing pointerKind!") }
-        guard let onGearName = (dict["onGear"] as? String) else { throw AntikytheraError.BuildError("Missing onGear!") }
+//        guard let pointerName = (dict["name"] as? String) else { throw AntikytheraError.BuildError("Missing pointer name!") }
+//        guard let shaftLength = (dict["shaftLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftLength!") }
+//        guard let shaftRadius = (dict["shaftRadius"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing shaftRadius!") }
+//        guard let pointerLength = (dict["pointerLength"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerLength!") }
+//        guard let pointerWidth = (dict["pointerWidth"] as? NSNumber)?.floatValue else { throw AntikytheraError.BuildError("Missing pointerWidth!") }
+//        guard let pointerKind = (dict["pointerKind"] as? String) else { throw AntikytheraError.BuildError("Missing pointerKind!") }
+//        guard let onGearName = (dict["onGear"] as? String) else { throw AntikytheraError.BuildError("Missing onGear!") }
         
         // make the view from the params!
-        let gear = allGears[onGearName]!
+        let gear = allGears[info.onGear]!
         let view : PointerView
-        switch pointerKind {
+        switch info.pointerKind {
         case "regular":
-            view = PointerView(component: gear, shaftLength:shaftLength * kDepthScale, shaftRadius:shaftRadius, pointerLength:pointerLength, pointerWidth:pointerWidth)
+            view = PointerView(component: gear, shaftLength:info.shaftLength * kDepthScale, shaftRadius:info.shaftRadius, pointerLength:info.pointerLength, pointerWidth:info.pointerWidth)
             break
             
         case "lunar":
-            guard let yearPointerViewName = (dict["rotatesToPointer"] as? String) else { throw AntikytheraError.BuildError("Missing rotatesToPointer!") }
+            guard let yearPointerViewName = info.rotatesToPointer else { throw AntikytheraError.BuildError("Missing rotatesToPointer!") }
             let yearPointer = allPointers[yearPointerViewName]!
-            view = LunarPointerView(component: gear, yearPointer:yearPointer, shaftLength:shaftLength * kDepthScale, shaftRadius:shaftRadius, pointerLength:pointerLength, pointerWidth:pointerWidth)
+            view = LunarPointerView(component: gear, yearPointer:yearPointer, shaftLength:info.shaftLength * kDepthScale, shaftRadius:info.shaftRadius, pointerLength:info.pointerLength, pointerWidth:info.pointerWidth)
             break
             
         default:
@@ -47,11 +47,11 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
         }
         
         // and position it!
-        let gearView = allGearViews[onGearName]!
-        view.setPositionRelativeTo(gearView, verticalOffset: -(shaftLength * kDepthScale))
+        let gearView = allGearViews[info.onGear]!
+        view.setPositionRelativeTo(gearView, verticalOffset: -(info.shaftLength * kDepthScale))
 
         
-        return (view,pointerName)
+        return (view, info.name)
     }
     
     // Initialize with gear. This is the gear to be drawn by this view.

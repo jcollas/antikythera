@@ -26,22 +26,22 @@ class Connector: NSObject, DeviceComponent {
         return bottomComponent != nil
     }
     
-    class func makeConnectorFromDictionary(_ connectorDict: [String:AnyObject], allGears: [String:Gear]) throws -> Connector {
+    class func makeConnector(info: ConnectorInfo, allGears: [String:Gear]) throws -> Connector {
         // get the type
         let connector : Connector
-        if let connectionType = connectorDict["connector-type"] as? String {
-            switch connectionType {
+//        if let connectionType = connectorDict["connector-type"] as? String {
+            switch info.connectionType {
             case "connector":
-                connector = try Connector( dict: connectorDict, allGears: allGears)
+                connector = try Connector(info: info, allGears: allGears)
             case "pin-and-slot":
-                connector = try PinAndSlotConnector( dict: connectorDict, allGears: allGears)
+                connector = try PinAndSlotConnector(info: info, allGears: allGears)
                 break
             default:
                 throw AntikytheraError.BuildError("makeConnectorFromDictionary: Unrecognized connector type")
             }
-        } else {
-            throw AntikytheraError.BuildError("makeConnectorFromDictionary: missing connector type")
-        }
+//        } else {
+//            throw AntikytheraError.BuildError("makeConnectorFromDictionary: missing connector type")
+//        }
         return connector
     }
 
@@ -51,26 +51,20 @@ class Connector: NSObject, DeviceComponent {
 		self.radius = radius
     }
 
-    init(dict: [String:AnyObject], allGears: [String:Gear]) throws {
+    init(info: ConnectorInfo, allGears: [String:Gear]) throws {
         super.init()
         
-        self.name = dict["name"] as? String ?? ""
-        if let radius = dict["radius"] as? NSNumber {
-            self.radius = radius.floatValue
-        }
-        
-        guard let topName = dict["topGear"] as? String else { throw AntikytheraError.BuildError("Connector missing topGear") }
-        guard let bottomName = dict["bottomGear"] as? String else { throw AntikytheraError.BuildError("Connector missing topGear") }
-        
-        guard let top = allGears[topName] else { throw AntikytheraError.BuildError("Couldn't find top gear")  }
-        guard let bottom = allGears[bottomName] else { throw AntikytheraError.BuildError("Couldn't find bottom gear")  }
+        self.name = info.name
+        self.radius = info.radius
+
+        guard let top = allGears[info.topGear] else { throw AntikytheraError.BuildError("Couldn't find top gear")  }
+        guard let bottom = allGears[info.bottomGear] else { throw AntikytheraError.BuildError("Couldn't find bottom gear")  }
         
         // If connecting gears, make sure the gears are aware
         top.addNeighbor(self)
         bottom.addNeighbor(self)
         
         setConnections(top, bottom: bottom)
-        
     }
 
     convenience init(radius: Float, top: DeviceComponent, bottom: DeviceComponent) {

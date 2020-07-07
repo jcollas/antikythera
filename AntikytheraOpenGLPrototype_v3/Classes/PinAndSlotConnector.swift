@@ -22,20 +22,15 @@ class PinAndSlotConnector: Connector {
         
         super.init(radius: radius)
     }
-    
-    
-    override init(dict: [String:AnyObject], allGears: [String:Gear]) throws {
-        try! super.init(dict: dict, allGears: allGears)
-        
-        guard let topGearName = dict["topGear"] as? String else { return }
-        guard let bottomGearName = dict["bottomGear"] as? String else { return }
-        
-        guard let topGear = allGears[topGearName] else { return }
-        guard let bottomGear = allGears[bottomGearName] else { return }
+
+    override init(info: ConnectorInfo, allGears: [String: Gear]) throws {
+        try! super.init(info: info, allGears: allGears)
+
+        guard let topGear = allGears[info.topGear] else { return }
+        guard let bottomGear = allGears[info.bottomGear] else { return }
         
         self.arborOffset = (bottomGear.radius*2) - (topGear.radius*2)
         self.pinOffset = topGear.radius*0.7
-                    
     }
 
     var slotOffset: Float {

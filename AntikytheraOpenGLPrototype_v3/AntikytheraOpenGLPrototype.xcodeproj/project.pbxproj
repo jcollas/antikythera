@@ -18,6 +18,10 @@
 		87D9C3731D9DF57C00E4F0FC /* device.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D9C3721D9DF57C00E4F0FC /* device.json */; };
 		C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C050AE661A2B5037005936F1 /* Default-568h@2x.png */; };
 		C08968E21C2E4589006EBECC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCAA7F116C25DD0097AE70 /* Models.swift */; };
+		C0DCF55324B3BC6D0011DEAB /* GearInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCF55224B3BC6D0011DEAB /* GearInfo.swift */; };
+		C0DCF55524B3BD260011DEAB /* ConnectorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCF55424B3BD260011DEAB /* ConnectorInfo.swift */; };
+		C0DCF55724B3BE0F0011DEAB /* PointerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCF55624B3BE0F0011DEAB /* PointerInfo.swift */; };
+		C0DCF55924B49D1F0011DEAB /* MechanismInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DCF55824B49D1F0011DEAB /* MechanismInfo.swift */; };
 		C0E3761C1C320D3600C99043 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92F5EB0FDFF83200548BE8 /* Common.swift */; };
 		C0FDE5381C2A1A32008283F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FDE5371C2A1A32008283F4 /* Main.storyboard */; };
 		C0FDE53C1C2A357D008283F4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FDE53B1C2A357D008283F4 /* GLKit.framework */; };
@@ -65,6 +69,10 @@
 		87D9C3721D9DF57C00E4F0FC /* device.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = device.json; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* AntikytheraOpenGLPrototype-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AntikytheraOpenGLPrototype-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C050AE661A2B5037005936F1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C0DCF55224B3BC6D0011DEAB /* GearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearInfo.swift; sourceTree = "<group>"; };
+		C0DCF55424B3BD260011DEAB /* ConnectorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorInfo.swift; sourceTree = "<group>"; };
+		C0DCF55624B3BE0F0011DEAB /* PointerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerInfo.swift; sourceTree = "<group>"; };
+		C0DCF55824B49D1F0011DEAB /* MechanismInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanismInfo.swift; sourceTree = "<group>"; };
 		C0FDE5371C2A1A32008283F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0FDE5391C2A29F9008283F4 /* Antikythera-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Antikythera-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0FDE53B1C2A357D008283F4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -183,6 +191,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C0DCF55124B3BC0B0011DEAB /* Device Models */ = {
+			isa = PBXGroup;
+			children = (
+				C0DCF55824B49D1F0011DEAB /* MechanismInfo.swift */,
+				C0DCF55224B3BC6D0011DEAB /* GearInfo.swift */,
+				C0DCF55424B3BD260011DEAB /* ConnectorInfo.swift */,
+				C0DCF55624B3BE0F0011DEAB /* PointerInfo.swift */,
+			);
+			name = "Device Models";
+			sourceTree = "<group>";
+		};
 		C0FDE53A1C2A2A01008283F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +215,7 @@
 			children = (
 				C9CCA9FD116BF9300097AE70 /* AntikytheraMechanism.swift */,
 				C9CCAA0A116C06E00097AE70 /* Device Components */,
+				C0DCF55124B3BC0B0011DEAB /* Device Models */,
 			);
 			name = Devices;
 			sourceTree = "<group>";
@@ -359,10 +379,13 @@
 				C9504703116E755700AE2F5D /* ShowcaseCamera.swift in Sources */,
 				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.swift in Sources */,
 				C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.swift in Sources */,
+				C0DCF55724B3BE0F0011DEAB /* PointerInfo.swift in Sources */,
 				C96AAE0F116FF7DA00869DF6 /* GearShaderModel.swift in Sources */,
+				C0DCF55324B3BC6D0011DEAB /* GearInfo.swift in Sources */,
 				C0E3761C1C320D3600C99043 /* Common.swift in Sources */,
 				C9423593117BA2A800385EC6 /* PointerModel.swift in Sources */,
 				C94235C3117BB0BF00385EC6 /* PointerView.swift in Sources */,
+				C0DCF55524B3BD260011DEAB /* ConnectorInfo.swift in Sources */,
 				C9D2FE2D118156F30042C84E /* HalfGlobeModel.swift in Sources */,
 				C9FB30451182AB1500021EDB /* LunarPointerView.swift in Sources */,
 				C91A35F8118343A400FA1697 /* BoxModel.swift in Sources */,
@@ -370,6 +393,7 @@
 				C97607CB1183CBF5000F322E /* UICamera.swift in Sources */,
 				C9747105118948B4007E04E5 /* FlatDialModel.swift in Sources */,
 				C9747108118948EE007E04E5 /* UserDialView.swift in Sources */,
+				C0DCF55924B49D1F0011DEAB /* MechanismInfo.swift in Sources */,
 				C970E24F118F7E8F00E6A01A /* BoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
