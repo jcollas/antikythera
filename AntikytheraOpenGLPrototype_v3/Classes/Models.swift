@@ -8,7 +8,7 @@
 
 import OpenGLES
 
-protocol MechanicalDevice: NSObjectProtocol {
+protocol MechanicalDevice {
 
     func buildDevice()
 

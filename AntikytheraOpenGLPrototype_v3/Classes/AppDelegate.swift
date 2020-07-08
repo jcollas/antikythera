@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        self.glView = window?.rootViewController?.view as! GLView
+        guard let glView = window?.rootViewController?.view as? GLView else {
+            return false
+        }
+
+        self.glView = glView
         
         self.glView.animationInterval = 1.0 / 60.0
         self.glView.startAnimation()

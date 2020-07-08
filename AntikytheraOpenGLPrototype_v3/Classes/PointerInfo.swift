@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PointerInfo: Codable {
+struct PointerInfo: Decodable {
 
     var name: String
     var pointerKind: String

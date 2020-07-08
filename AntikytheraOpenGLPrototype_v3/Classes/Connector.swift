@@ -28,20 +28,17 @@ class Connector: NSObject, DeviceComponent {
     
     class func makeConnector(info: ConnectorInfo, allGears: [String:Gear]) throws -> Connector {
         // get the type
-        let connector : Connector
-//        if let connectionType = connectorDict["connector-type"] as? String {
-            switch info.connectionType {
-            case "connector":
-                connector = try Connector(info: info, allGears: allGears)
-            case "pin-and-slot":
-                connector = try PinAndSlotConnector(info: info, allGears: allGears)
-                break
-            default:
-                throw AntikytheraError.BuildError("makeConnectorFromDictionary: Unrecognized connector type")
-            }
-//        } else {
-//            throw AntikytheraError.BuildError("makeConnectorFromDictionary: missing connector type")
-//        }
+        let connector: Connector
+
+        switch info.connectionType {
+        case "connector":
+            connector = try Connector(info: info, allGears: allGears)
+        case "pin-and-slot":
+            connector = try PinAndSlotConnector(info: info, allGears: allGears)
+            break
+        default:
+            throw AntikytheraError.BuildError("makeConnectorFromDictionary: Unrecognized connector type")
+        }
         return connector
     }
 

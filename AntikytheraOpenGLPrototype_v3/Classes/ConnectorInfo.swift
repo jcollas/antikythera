@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ConnectorInfo: Codable {
+struct ConnectorInfo: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case name

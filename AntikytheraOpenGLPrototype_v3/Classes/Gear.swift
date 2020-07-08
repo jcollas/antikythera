@@ -8,17 +8,6 @@
 
 import Foundation
 
-class Placement {
-    
-//    { "forComponent" : "gB0", "positionType" : "fixed",          "x" : 0.0, "y": 0.0, "z": 40.0 },
-//    { "forComponent" : "gB1", "positionType" : "verticalOffset", "toGear": "gB0", "offset" : -5.0 },
-//    { "forComponent" : "gA1", "positionType" : "angledRelative", "toGear": "gB1", "radians" : 3.1415925 },
-
-    init(dict: [String:AnyObject]) {
-        
-    }
-}
-
 class Gear: NSObject, DeviceComponent {
     var radius: Float = 0.0
     var rotation: Float = 0.0

@@ -161,41 +161,43 @@ class GLViewController: UIViewController, GLViewDelegate, UIActionSheetDelegate 
         
         
         if (touches.first?.tapCount)! >= 2 {
-            let button1 = NSLocalizedString("Pointers", comment: "")
-            let button2 = NSLocalizedString("Gears", comment:"")
-            let button3 = NSLocalizedString("Box", comment:"")
-            let button4 = NSLocalizedString("Pin and Slot", comment:"")
-            let cancelButton = NSLocalizedString("Default", comment:"")
-            
-            let actionSheet = UIActionSheet(title:NSLocalizedString("Visualization mode", comment:""),
-                                                                     delegate:self,
-                                            cancelButtonTitle:cancelButton,
-                                            destructiveButtonTitle: nil,
-                                                            otherButtonTitles:button1,button2,button3,button4)
-            actionSheet.actionSheetStyle = .blackTranslucent
-            actionSheet.show(in: self.view.window!)
+            let alertController = UIAlertController(title: "Visualization mode", message: "", preferredStyle: .actionSheet)
+
+            let pointersAction = UIAlertAction(title: "Pointers",
+                                               style: .default) { action in
+                                                self.antikytheraMechanismView.setCurrentState(.pointers, phase: .running)
+
+            }
+            let gearsAction = UIAlertAction(title: "Gears",
+                                               style: .default) { action in
+                                                self.antikytheraMechanismView.setCurrentState(.gears, phase: .running)
+
+            }
+            let boxAction = UIAlertAction(title: "Box",
+                                               style: .default) { action in
+                                                self.antikytheraMechanismView.setCurrentState(.box, phase: .running)
+
+            }
+            let pinSlotAction = UIAlertAction(title: "Pin and Slot",
+                                               style: .default) { action in
+                                                self.antikytheraMechanismView.setCurrentState(.pinAndSlot, phase: .running)
+
+            }
+            let defaultAction = UIAlertAction(title: "Default",
+                                               style: .cancel) { action in
+                                                self.antikytheraMechanismView.setCurrentState(.default, phase: .running)
+
+            }
+            alertController.addAction(pointersAction)
+            alertController.addAction(gearsAction)
+            alertController.addAction(boxAction)
+            alertController.addAction(pinSlotAction)
+            alertController.addAction(defaultAction)
+
+            self.present(alertController,
+                animated: true, completion: nil)
         }
         
-    }
-
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        
-        switch (buttonIndex) {
-            case 0: // STATE_POINTERS
-                antikytheraMechanismView.setCurrentState(.pointers, phase: .running)
-
-            case 1: // STATE_GEARS
-                antikytheraMechanismView.setCurrentState(.gears, phase: .running)
-
-            case 2: // STATE_BOX
-                antikytheraMechanismView.setCurrentState(.box, phase: .running)
-
-            case 3: // STATE_PIN_AND_SLOT
-                antikytheraMechanismView.setCurrentState(.pinAndSlot, phase: .running)
-
-            default: // STATE_DEFAULT
-                antikytheraMechanismView.setCurrentState(.default, phase: .running)
-        }
     }
 
 }
