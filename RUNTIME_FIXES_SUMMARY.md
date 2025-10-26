@@ -15,7 +15,7 @@ This document details the runtime issues encountered after the Metal conversion 
 
 **Error**:
 ```
-Unknown class _TtC26AntikytheraOpenGLPrototype16GLViewController in Interface Builder file.
+Unknown class _TtC26Antikythera16GLViewController in Interface Builder file.
 ```
 
 **Root Cause**: The `Main.storyboard` still referenced the old OpenGL classes that were removed during the Metal conversion.
@@ -39,7 +39,7 @@ Unknown class _TtC26AntikytheraOpenGLPrototype16GLViewController in Interface Bu
 
 **Error**:
 ```
--[AntikytheraOpenGLPrototype.MetalViewController mtkView:drawableSizeWillChange:]: unrecognized selector sent to instance
+-[Antikythera.MetalViewController mtkView:drawableSizeWillChange:]: unrecognized selector sent to instance
 ```
 
 **Root Cause**: The storyboard was connecting the MTKView's `delegate` property to MetalViewController, but MetalViewController only implements `MetalViewDelegate`, not `MTKViewDelegate`.

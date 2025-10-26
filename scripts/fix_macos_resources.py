@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 def main():
-    project_path = Path('AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj/project.pbxproj')
+    project_path = Path('Antikythera/Antikythera.xcodeproj/project.pbxproj')
 
     if not project_path.exists():
         print(f"Error: {project_path} not found")

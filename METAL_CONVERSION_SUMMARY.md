@@ -15,7 +15,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
 
 ### Core Metal Infrastructure
 
-#### `AntikytheraOpenGLPrototype_v3/Shaders.metal`
+#### `Antikythera/Shaders.metal`
 - **Purpose**: Metal shader program for vertex transformation and fragment coloring
 - **Key Features**:
   - Vertex shader with MVP matrix transformation
@@ -23,7 +23,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
   - `Uniforms` structure for matrix and color data
   - Input/output structs for vertex pipeline
 
-#### `AntikytheraOpenGLPrototype_v3/Classes/MetalRenderer.swift`
+#### `Antikythera/Classes/MetalRenderer.swift`
 - **Purpose**: Core rendering engine providing OpenGL-style API over Metal
 - **Key Features**:
   - Matrix stack implementation (push/pop/translate/rotate/scale)
@@ -33,7 +33,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
   - Perspective and orthographic matrix helpers
   - Integration with MTLRenderCommandEncoder
 
-#### `AntikytheraOpenGLPrototype_v3/Classes/MetalView.swift`
+#### `Antikythera/Classes/MetalView.swift`
 - **Purpose**: MTKView wrapper with platform abstraction
 - **Key Features**:
   - Platform-specific imports (UIKit/AppKit)
@@ -42,7 +42,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
   - Delegate pattern for rendering callbacks
   - Device and command queue setup
 
-#### `AntikytheraOpenGLPrototype_v3/Classes/MetalModel3D.swift`
+#### `Antikythera/Classes/MetalModel3D.swift`
 - **Purpose**: Base class for all 3D geometry with Metal buffer management
 - **Key Features**:
   - Vertex and element array management
@@ -50,7 +50,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
   - Base draw() implementation using MetalRenderContext
   - ModelView protocol conformance
 
-#### `AntikytheraOpenGLPrototype_v3/Classes/MetalViewController.swift`
+#### `Antikythera/Classes/MetalViewController.swift`
 - **Purpose**: Main view controller replacing GLViewController
 - **Key Features**:
   - Metal rendering setup
@@ -59,7 +59,7 @@ This document summarizes the complete conversion of the Antikythera Mechanism ap
   - Perspective and orthographic projection setup using simd
   - Touch/mouse input handling (iOS implementation complete)
 
-#### `AntikytheraOpenGLPrototype_v3/Classes/MetalRenderContext.swift`
+#### `Antikythera/Classes/MetalRenderContext.swift`
 - **Purpose**: Singleton providing global access to MetalRenderer
 - **Key Features**:
   - Thread-safe shared instance
@@ -327,7 +327,7 @@ class CustomModel: MetalModel3D {
 ## Next Steps
 
 ### 1. Add macOS Target to Xcode Project
-- Open `AntikytheraOpenGLPrototype.xcodeproj` in Xcode
+- Open `Antikythera.xcodeproj` in Xcode
 - Add new macOS target
 - Configure deployment target (macOS 11.0+)
 - Add all necessary files to macOS target
@@ -346,15 +346,15 @@ Files needing macOS input implementation:
 ### 3. Build and Test
 ```bash
 # Test iOS build
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -sdk iphonesimulator \
   -destination 'platform=iOS Simulator,name=iPhone 15' \
   build
 
 # Test macOS build (after adding target)
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -destination 'platform=macOS' \
   build
 ```

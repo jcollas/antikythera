@@ -1,6 +1,6 @@
 //
 //  GearInfo.swift
-//  AntikytheraOpenGLPrototype
+//  Antikythera
 //
 //  Created by Juan J. Collas on 7/6/2020.
 //

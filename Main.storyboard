@@ -8,12 +8,12 @@
         <!--MetalViewController-->
         <scene sceneID="REB-uY-KRJ">
             <objects>
-                <viewController id="xTy-tl-M00" userLabel="MetalViewController" customClass="MetalViewController" customModule="AntikytheraOpenGLPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xTy-tl-M00" userLabel="MetalViewController" customClass="MetalViewController" customModule="Antikythera" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FCP-Iq-Z00"/>
                         <viewControllerLayoutGuide type="bottom" id="m4V-kg-PvR"/>
                     </layoutGuides>
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="glt-Qj-rvA" customClass="MetalView" customModule="AntikytheraOpenGLPrototype" customModuleProvider="target">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="glt-Qj-rvA" customClass="MetalView" customModule="Antikythera" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

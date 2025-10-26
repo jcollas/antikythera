@@ -13,18 +13,18 @@ This is an iOS/macOS application that renders a 3D, real-time, interactive model
 ### Build Commands
 ```bash
 # Build the project
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj -scheme AntikytheraOpenGLPrototype -configuration Debug build
+xcodebuild -project Antikythera/Antikythera.xcodeproj -scheme Antikythera -configuration Debug build
 
 # Clean build
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj -scheme AntikytheraOpenGLPrototype clean
+xcodebuild -project Antikythera/Antikythera.xcodeproj -scheme Antikythera clean
 
 # Build for simulator
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj -scheme AntikytheraOpenGLPrototype -sdk iphonesimulator
+xcodebuild -project Antikythera/Antikythera.xcodeproj -scheme Antikythera -sdk iphonesimulator
 ```
 
 ### Opening in Xcode
 ```bash
-open AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj
+open Antikythera/Antikythera.xcodeproj
 ```
 
 ## Architecture

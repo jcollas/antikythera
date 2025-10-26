@@ -13,7 +13,7 @@ def generate_uuid():
     return ''.join(random.choices('0123456789ABCDEF', k=24))
 
 def main():
-    project_path = Path('AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj/project.pbxproj')
+    project_path = Path('Antikythera/Antikythera.xcodeproj/project.pbxproj')
 
     if not project_path.exists():
         print(f"Error: {project_path} not found")
@@ -53,8 +53,8 @@ def main():
     file_ref_section = re.search(r'(/\* Begin PBXFileReference section \*/.*?/\* End PBXFileReference section \*/)', content, re.DOTALL)
     if file_ref_section:
         insert_pos = file_ref_section.end(1) - len('/* End PBXFileReference section */')
-        new_file_ref = f"\t\t{uuids['info_plist']} /* AntikytheraOpenGLPrototype-macOS-Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = \"AntikytheraOpenGLPrototype-macOS-Info.plist\"; sourceTree = \"<group>\"; }};\n"
-        new_file_ref += f"\t\t{uuids['product']} /* AntikytheraOpenGLPrototype.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntikytheraOpenGLPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; }};\n"
+        new_file_ref = f"\t\t{uuids['info_plist']} /* Antikythera-macOS-Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = \"Antikythera-macOS-Info.plist\"; sourceTree = \"<group>\"; }};\n"
+        new_file_ref += f"\t\t{uuids['product']} /* Antikythera.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antikythera.app; sourceTree = BUILT_PRODUCTS_DIR; }};\n"
         new_file_ref += f"\t\t{uuids['AppKit.framework']} /* AppKit.framework */ = {{isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; }};\n"
         content = content[:insert_pos - 1] + new_file_ref + content[insert_pos - 1:]
 
@@ -65,7 +65,7 @@ def main():
         children = children.rstrip()
         if children and not children.endswith(','):
             children += ','
-        children += f"\n\t\t\t\t{uuids['product']} /* AntikytheraOpenGLPrototype.app */,"
+        children += f"\n\t\t\t\t{uuids['product']} /* Antikythera.app */,"
         content = content[:products_group.start(2)] + children + content[products_group.end(2):]
 
     # Add AppKit to Frameworks group
@@ -86,14 +86,14 @@ def main():
         children = children.rstrip()
         if children and not children.endswith(','):
             children += ','
-        children += f"\n\t\t\t\t{uuids['info_plist']} /* AntikytheraOpenGLPrototype-macOS-Info.plist */,"
+        children += f"\n\t\t\t\t{uuids['info_plist']} /* Antikythera-macOS-Info.plist */,"
         content = content[:resources_group.start(2)] + children + content[resources_group.end(2):]
 
     # Add PBXBuildFile for Info.plist
     build_file_section = re.search(r'(/\* Begin PBXBuildFile section \*/.*?/\* End PBXBuildFile section \*/)', content, re.DOTALL)
     if build_file_section:
         insert_pos = build_file_section.end(1) - len('/* End PBXBuildFile section */')
-        new_build_file = f"\t\t{uuids['info_plist_build']} /* AntikytheraOpenGLPrototype-macOS-Info.plist in Resources */ = {{isa = PBXBuildFile; fileRef = {uuids['info_plist']} /* AntikytheraOpenGLPrototype-macOS-Info.plist */; }};\n"
+        new_build_file = f"\t\t{uuids['info_plist_build']} /* Antikythera-macOS-Info.plist in Resources */ = {{isa = PBXBuildFile; fileRef = {uuids['info_plist']} /* Antikythera-macOS-Info.plist */; }};\n"
         new_build_file += f"\t\t{uuids['AppKit_build']} /* AppKit.framework in Frameworks */ = {{isa = PBXBuildFile; fileRef = {uuids['AppKit.framework']} /* AppKit.framework */; }};\n"
         content = content[:insert_pos - 1] + new_build_file + content[insert_pos - 1:]
 
@@ -161,9 +161,9 @@ def main():
     native_target_section = re.search(r'(/\* Begin PBXNativeTarget section \*/.*?/\* End PBXNativeTarget section \*/)', content, re.DOTALL)
     if native_target_section:
         insert_pos = native_target_section.end(1) - len('/* End PBXNativeTarget section */')
-        new_target = f"\t\t{uuids['target']} /* AntikytheraOpenGLPrototype-macOS */ = {{\n"
+        new_target = f"\t\t{uuids['target']} /* Antikythera-macOS */ = {{\n"
         new_target += f"\t\t\tisa = PBXNativeTarget;\n"
-        new_target += f"\t\t\tbuildConfigurationList = {uuids['config_list']} /* Build configuration list for PBXNativeTarget \"AntikytheraOpenGLPrototype-macOS\" */;\n"
+        new_target += f"\t\t\tbuildConfigurationList = {uuids['config_list']} /* Build configuration list for PBXNativeTarget \"Antikythera-macOS\" */;\n"
         new_target += f"\t\t\tbuildPhases = (\n"
         new_target += f"\t\t\t\t{uuids['resources_phase']} /* Resources */,\n"
         new_target += f"\t\t\t\t{uuids['sources_phase']} /* Sources */,\n"
@@ -173,9 +173,9 @@ def main():
         new_target += f"\t\t\t);\n"
         new_target += f"\t\t\tdependencies = (\n"
         new_target += f"\t\t\t);\n"
-        new_target += f"\t\t\tname = \"AntikytheraOpenGLPrototype-macOS\";\n"
-        new_target += f"\t\t\tproductName = \"AntikytheraOpenGLPrototype-macOS\";\n"
-        new_target += f"\t\t\tproductReference = {uuids['product']} /* AntikytheraOpenGLPrototype.app */;\n"
+        new_target += f"\t\t\tname = \"Antikythera-macOS\";\n"
+        new_target += f"\t\t\tproductName = \"Antikythera-macOS\";\n"
+        new_target += f"\t\t\tproductReference = {uuids['product']} /* Antikythera.app */;\n"
         new_target += f"\t\t\tproductType = \"com.apple.product-type.application\";\n"
         new_target += f"\t\t}};\n"
         content = content[:insert_pos - 1] + new_target + content[insert_pos - 1:]
@@ -187,7 +187,7 @@ def main():
         targets = targets.rstrip()
         if targets and not targets.endswith(','):
             targets += ','
-        targets += f"\n\t\t\t\t{uuids['target']} /* AntikytheraOpenGLPrototype-macOS */,"
+        targets += f"\n\t\t\t\t{uuids['target']} /* Antikythera-macOS */,"
         content = content[:project_section.start(2)] + targets + content[project_section.end(2):]
 
     # Create XCBuildConfiguration for macOS Debug
@@ -206,11 +206,11 @@ def main():
         debug_config += f"\t\t\t\tDEVELOPMENT_TEAM = ZW9JSEAYHF;\n"
         debug_config += f"\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;\n"
         debug_config += f"\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;\n"
-        debug_config += f"\t\t\t\tINFOPLIST_FILE = \"AntikytheraOpenGLPrototype-macOS-Info.plist\";\n"
+        debug_config += f"\t\t\t\tINFOPLIST_FILE = \"Antikythera-macOS-Info.plist\";\n"
         debug_config += f"\t\t\t\tLD_RUNPATH_SEARCH_PATHS = \"@executable_path/../Frameworks\";\n"
         debug_config += f"\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 11.0;\n"
-        debug_config += f"\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = \"com.yourcompany.AntikytheraOpenGLPrototype-macOS\";\n"
-        debug_config += f"\t\t\t\tPRODUCT_NAME = AntikytheraOpenGLPrototype;\n"
+        debug_config += f"\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = \"com.yourcompany.Antikythera-macOS\";\n"
+        debug_config += f"\t\t\t\tPRODUCT_NAME = Antikythera;\n"
         debug_config += f"\t\t\t\tSDKROOT = macosx;\n"
         debug_config += f"\t\t\t\tSWIFT_OBJC_BRIDGING_HEADER = \"Antikythera-Bridging-Header.h\";\n"
         debug_config += f"\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Onone\";\n"
@@ -229,11 +229,11 @@ def main():
         release_config += f"\t\t\t\tCOPY_PHASE_STRIP = YES;\n"
         release_config += f"\t\t\t\tDEVELOPMENT_TEAM = ZW9JSEAYHF;\n"
         release_config += f"\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;\n"
-        release_config += f"\t\t\t\tINFOPLIST_FILE = \"AntikytheraOpenGLPrototype-macOS-Info.plist\";\n"
+        release_config += f"\t\t\t\tINFOPLIST_FILE = \"Antikythera-macOS-Info.plist\";\n"
         release_config += f"\t\t\t\tLD_RUNPATH_SEARCH_PATHS = \"@executable_path/../Frameworks\";\n"
         release_config += f"\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 11.0;\n"
-        release_config += f"\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = \"com.yourcompany.AntikytheraOpenGLPrototype-macOS\";\n"
-        release_config += f"\t\t\t\tPRODUCT_NAME = AntikytheraOpenGLPrototype;\n"
+        release_config += f"\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = \"com.yourcompany.Antikythera-macOS\";\n"
+        release_config += f"\t\t\t\tPRODUCT_NAME = Antikythera;\n"
         release_config += f"\t\t\t\tSDKROOT = macosx;\n"
         release_config += f"\t\t\t\tSWIFT_OBJC_BRIDGING_HEADER = \"Antikythera-Bridging-Header.h\";\n"
         release_config += f"\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Owholemodule\";\n"
@@ -249,7 +249,7 @@ def main():
     if config_list_section:
         insert_pos = config_list_section.end(1) - len('/* End XCConfigurationList section */')
 
-        new_config_list = f"\t\t{uuids['config_list']} /* Build configuration list for PBXNativeTarget \"AntikytheraOpenGLPrototype-macOS\" */ = {{\n"
+        new_config_list = f"\t\t{uuids['config_list']} /* Build configuration list for PBXNativeTarget \"Antikythera-macOS\" */ = {{\n"
         new_config_list += f"\t\t\tisa = XCConfigurationList;\n"
         new_config_list += f"\t\t\tbuildConfigurations = (\n"
         new_config_list += f"\t\t\t\t{uuids['debug_config']} /* Debug */,\n"

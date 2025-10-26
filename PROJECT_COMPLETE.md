@@ -273,23 +273,23 @@ All documentation includes:
 ### iOS
 ```bash
 # Simulator
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -sdk iphonesimulator \
   -destination 'platform=iOS Simulator,name=iPhone 17' \
   build
 
 # Device
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -sdk iphoneos \
   build
 ```
 
 ### macOS
 ```bash
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype-macOS \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera-macOS \
   -destination 'platform=macOS' \
   build
 ```
@@ -300,7 +300,7 @@ xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xco
 
 ```
 antikythera/
-├── AntikytheraOpenGLPrototype_v3/
+├── Antikythera/
 │   ├── Classes/
 │   │   ├── MetalRenderer.swift          ✨ NEW
 │   │   ├── MetalView.swift              ✨ NEW
@@ -315,9 +315,9 @@ antikythera/
 │   │   ├── [All View Classes]           🔧 UPDATED (7 files)
 │   │   └── [All Camera Classes]         🔧 UPDATED (5 files)
 │   ├── Main.storyboard                  🔧 UPDATED
-│   ├── AntikytheraOpenGLPrototype-Info.plist
-│   ├── AntikytheraOpenGLPrototype-macOS-Info.plist  ✨ NEW
-│   └── AntikytheraOpenGLPrototype.xcodeproj/
+│   ├── Antikythera-Info.plist
+│   ├── Antikythera-macOS-Info.plist  ✨ NEW
+│   └── Antikythera.xcodeproj/
 ├── CLAUDE.md                            📄 UPDATED
 ├── METAL_CONVERSION_SUMMARY.md          📄 NEW
 ├── MACOS_SUPPORT_SUMMARY.md             📄 NEW

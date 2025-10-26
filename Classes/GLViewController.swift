@@ -1,6 +1,6 @@
 //
 //  GLViewController.m
-//  AntikytheraOpenGLPrototype
+//  Antikythera
 //
 //  Created by Matt Ricketson on 2/3/10.
 //  Copyright __MyCompanyName__ 2010. All rights reserved.

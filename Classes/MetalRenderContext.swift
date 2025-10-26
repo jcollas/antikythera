@@ -1,6 +1,6 @@
 //
 //  MetalRenderContext.swift
-//  AntikytheraOpenGLPrototype
+//  Antikythera
 //
 //  Created by Claude Code on 10/26/25.
 //

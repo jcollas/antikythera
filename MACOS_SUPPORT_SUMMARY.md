@@ -13,9 +13,9 @@ Successfully added full macOS support to the Antikythera Mechanism app, enabling
 
 ### 1. Created macOS Target
 
-**File**: `AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj/project.pbxproj`
+**File**: `Antikythera/Antikythera.xcodeproj/project.pbxproj`
 
-- Added new native macOS target: `AntikytheraOpenGLPrototype-macOS`
+- Added new native macOS target: `Antikythera-macOS`
 - Configured macOS deployment target: 11.0
 - Shared all source files between iOS and macOS targets
 - Added AppKit.framework for macOS
@@ -23,7 +23,7 @@ Successfully added full macOS support to the Antikythera Mechanism app, enabling
 
 ### 2. Created macOS Info.plist
 
-**File**: `AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype-macOS-Info.plist`
+**File**: `Antikythera/Antikythera-macOS-Info.plist`
 
 ```xml
 Key features:
@@ -321,23 +321,23 @@ protocol Touchable {
 ### iOS
 ```bash
 # Simulator
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -sdk iphonesimulator \
   -destination 'platform=iOS Simulator,name=iPhone 17' \
   build
 
 # Device
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera \
   -sdk iphoneos \
   build
 ```
 
 ### macOS
 ```bash
-xcodebuild -project AntikytheraOpenGLPrototype_v3/AntikytheraOpenGLPrototype.xcodeproj \
-  -scheme AntikytheraOpenGLPrototype-macOS \
+xcodebuild -project Antikythera/Antikythera.xcodeproj \
+  -scheme Antikythera-macOS \
   -destination 'platform=macOS' \
   build
 ```

@@ -115,7 +115,6 @@
 		28FD14FD0DC6FC130079059D /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLView.swift; path = Classes/GLView.swift; sourceTree = SOURCE_ROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2B21ADC5DCE8C79297AF1FD8 /* MetalRenderContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalRenderContext.swift; path = Classes/MetalRenderContext.swift; sourceTree = SOURCE_ROOT; };
-		32CA4F630368D1EE00C91783 /* Antikythera_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Antikythera_Prefix.pch; sourceTree = "<group>"; };
 		375E2DCCB2B57C22F2BEF842 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Shaders.metal; path = Classes/Shaders.metal; sourceTree = SOURCE_ROOT; };
 		4CE14724DE455ED0E2E16D43 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		6B1ECF1C1FB00890AD9280BC /* MetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalViewController.swift; path = Classes/MetalViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -131,7 +130,6 @@
 		C0DCF55624B3BE0F0011DEAB /* PointerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerInfo.swift; sourceTree = "<group>"; };
 		C0DCF55824B49D1F0011DEAB /* MechanismInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanismInfo.swift; sourceTree = "<group>"; };
 		C0FDE5371C2A1A32008283F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C0FDE5391C2A29F9008283F4 /* Antikythera-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Antikythera-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewpoints.swift; sourceTree = "<group>"; };
 		C91A35F7118343A400FA1697 /* BoxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
 		C91A36291183484500FA1697 /* SideCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideCamera.swift; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* Antikythera_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 		C0FDE53A1C2A2A01008283F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C0FDE5391C2A29F9008283F4 /* Antikythera-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -574,7 +570,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Antikythera;
-				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -596,7 +591,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Antikythera;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};

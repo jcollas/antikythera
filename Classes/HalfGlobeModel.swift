@@ -1,6 +1,6 @@
 //
 //  HalfGlobeModel.swift
-//  AntikytheraOpenGLPrototype
+//  Antikythera
 //
 //  Created by Matt Ricketson on 4/23/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.

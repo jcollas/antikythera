@@ -1,6 +1,6 @@
 //
 //  Viewpoints.swift
-//  AntikytheraOpenGLPrototype
+//  Antikythera
 //
 //  Created by Juan J. Collas on 12/23/2015.
 //
