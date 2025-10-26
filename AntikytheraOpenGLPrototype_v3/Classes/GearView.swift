@@ -1,12 +1,13 @@
 //
-//  GearView.m
+//  GearView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/6/10.
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class GearView: NSObject, ComponentView, AMViewStateHandler {
     var myGear: Gear!
@@ -116,34 +117,36 @@ class GearView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     func draw() {
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
         if self.opacity > 0.0 {
-            glPushMatrix()
-            
-            glTranslatef(position.x, position.y, position.z)
-            glRotatef(rotation, 0.0, 0.0, 1.0)
-            
-            glPushMatrix()
-            glScalef(1.0, 1.0, 0.5)
-            glColor4f(1.0, 1.0, 1.0, 0.2*self.opacity)
+            renderer.pushMatrix()
+
+            renderer.translate(x: position.x, y: position.y, z: position.z)
+            renderer.rotate(angle: rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+
+            renderer.pushMatrix()
+            renderer.scale(x: 1.0, y: 1.0, z: 0.5)
+            renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 0.2 * self.opacity)
             gearModel.draw()
-            glPopMatrix()
-            
-            glPushMatrix()
-            glScalef(1.0, 1.0, 0.6)
-            glColor4f(1.0, 0.0, 0.0, 0.3*self.opacity)
+            renderer.popMatrix()
+
+            renderer.pushMatrix()
+            renderer.scale(x: 1.0, y: 1.0, z: 0.6)
+            renderer.setColor(r: 1.0, g: 0.0, b: 0.0, a: 0.3 * self.opacity)
             gearShaderModel.draw()
-            glPopMatrix()
-            
-            if (isPointerActive) {
-                glPushMatrix()
-                glTranslatef(50.0, 0.0, 0.0)
-                glScalef(1.0, 1.0, 0.6)
-                glColor4f(1.0, 1.0, 1.0, 1.0)
+            renderer.popMatrix()
+
+            if isPointerActive {
+                renderer.pushMatrix()
+                renderer.translate(x: 50.0, y: 0.0, z: 0.0)
+                renderer.scale(x: 1.0, y: 1.0, z: 0.6)
+                renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 1.0)
                 pointerModel.draw()
-                glPopMatrix()
+                renderer.popMatrix()
             }
-            
-            glPopMatrix()
+
+            renderer.popMatrix()
         }
     }
 

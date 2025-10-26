@@ -1,13 +1,18 @@
 //
-//  UICamera.m
+//  UICamera.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/24/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
-import OpenGLES
+#elseif os(macOS)
+import AppKit
+#endif
+import Metal
+import MetalKit
 
 let kMIN_ZOOM: CGFloat = 20.0
 let kMAX_ZOOM: CGFloat = 600.0
@@ -20,7 +25,11 @@ enum GestureType {
 }
 
 class UICamera: NSObject, CameraViewpoint, Touchable {
-    let  myView: UIView!
+    #if os(iOS)
+    let myView: UIView!
+    #elseif os(macOS)
+    let myView: NSView!
+    #endif
     
     // Touch-handling
     var phiStart: CGFloat = -30.0
@@ -36,22 +45,30 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
     var gestureStartDistance: CGFloat!
     var currentGesture: GestureType = .none
 
+    #if os(iOS)
     init(view: UIView) {
-        
         myView = view
-
-        super.init()        
+        super.init()
     }
+    #elseif os(macOS)
+    init(view: NSView) {
+        myView = view
+        super.init()
+    }
+    #endif
 
     func updateViewpoint() {
-        glRotatef(-90, 1.0, 0.0, 0.0)
-        glTranslatef(center.x+panDiff.x,center.y+panDiff.y,center.z+panDiff.z)
-        glTranslatef(0.0, GLfloat(startDist+distance), 0.0)
-        
-        glRotatef(-GLfloat(phiStart+phiAngle), 1.0, 0.0, 0.0)
-        glRotatef(-GLfloat(thetaStart+thetaAngle), 0.0, 0.0, 1.0)
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
+        renderer.rotate(angle: -90, x: 1.0, y: 0.0, z: 0.0)
+        renderer.translate(x: center.x + panDiff.x, y: center.y + panDiff.y, z: center.z + panDiff.z)
+        renderer.translate(x: 0.0, y: Float(startDist + distance), z: 0.0)
+
+        renderer.rotate(angle: -Float(phiStart + phiAngle), x: 1.0, y: 0.0, z: 0.0)
+        renderer.rotate(angle: -Float(thetaStart + thetaAngle), x: 0.0, y: 0.0, z: 1.0)
     }
 
+    #if os(iOS)
     func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
         let allTouches = event?.touches(for: myView)
         //	NSLog(@"touchesBegan: Touches=%d TouchesForView=%d",[touches count],[allTouches count])
@@ -159,5 +176,6 @@ class UICamera: NSObject, CameraViewpoint, Touchable {
     func touchesCancelled(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     }
+    #endif
 
 }

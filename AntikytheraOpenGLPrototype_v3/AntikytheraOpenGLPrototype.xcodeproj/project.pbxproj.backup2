@@ -59,8 +59,6 @@
 		CB74DFDD18925C74DA3BB692 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 375E2DCCB2B57C22F2BEF842 /* Shaders.metal */; };
 		E40C3D39DEEB93615FD75A42 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE14724DE455ED0E2E16D43 /* Metal.framework */; };
 		CBE986871ED20B7BF8F02B06 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF2ED6093AA2DDDA58E5ECD /* MetalKit.framework */; };
-		8D62F58BEBF8B44514653D63 /* AntikytheraOpenGLPrototype-macOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 936074AFA7FC01012DC4080E /* AntikytheraOpenGLPrototype-macOS-Info.plist */; };
-		D03427D3097775A974588831 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BAFB67EC3878F1999F819 /* AppKit.framework */; };
 
 /* End PBXBuildFile section */
 
@@ -122,9 +120,6 @@
 		375E2DCCB2B57C22F2BEF842 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Shaders.metal; path = Classes/Shaders.metal; sourceTree = SOURCE_ROOT; };
 		4CE14724DE455ED0E2E16D43 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		7EF2ED6093AA2DDDA58E5ECD /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		936074AFA7FC01012DC4080E /* AntikytheraOpenGLPrototype-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AntikytheraOpenGLPrototype-macOS-Info.plist"; sourceTree = "<group>"; };
-		D13808607C239732EFB8522F /* AntikytheraOpenGLPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntikytheraOpenGLPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		191BAFB67EC3878F1999F819 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 
 /* End PBXFileReference section */
 
@@ -140,20 +135,7 @@
 				E40C3D39DEEB93615FD75A42 /* Metal.framework in Frameworks */,
 				CBE986871ED20B7BF8F02B06 /* MetalKit.framework in Frameworks */,);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		D3EC74970BDFB8460DFC770B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				D03427D3097775A974588831 /* AppKit.framework in Frameworks */,
-				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
-				1FF404F30FF2AC4B00D17C20 /* CoreGraphics.framework in Frameworks */,
-				E40C3D39DEEB93615FD75A42 /* Metal.framework in Frameworks */,
-				CBE986871ED20B7BF8F02B06 /* MetalKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -184,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* AntikytheraOpenGLPrototype.app */,
-				D13808607C239732EFB8522F /* AntikytheraOpenGLPrototype.app */,);
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -215,7 +197,7 @@
 				C050AE661A2B5037005936F1 /* Default-568h@2x.png */,
 				8D1107310486CEB800E47090 /* AntikytheraOpenGLPrototype-Info.plist */,
 				C0FDE5371C2A1A32008283F4 /* Main.storyboard */,
-				936074AFA7FC01012DC4080E /* AntikytheraOpenGLPrototype-macOS-Info.plist */,);
+			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
@@ -228,7 +210,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */,
-				191BAFB67EC3878F1999F819 /* AppKit.framework */,);
+			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
@@ -350,24 +332,7 @@
 			productName = AntikytheraOpenGLPrototype;
 			productReference = 1D6058910D05DD3D006BFB54 /* AntikytheraOpenGLPrototype.app */;
 			productType = "com.apple.product-type.application";
-		};		A3AEF41A8462795526632413 /* AntikytheraOpenGLPrototype-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 813D1AB95A2F9572B2F87A84 /* Build configuration list for PBXNativeTarget "AntikytheraOpenGLPrototype-macOS" */;
-			buildPhases = (
-				D09317C73303DA940E0BB1FF /* Resources */,
-				C07DDE5830D86D7FD350E209 /* Sources */,
-				D3EC74970BDFB8460DFC770B /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "AntikytheraOpenGLPrototype-macOS";
-			productName = "AntikytheraOpenGLPrototype-macOS";
-			productReference = D13808607C239732EFB8522F /* AntikytheraOpenGLPrototype.app */;
-			productType = "com.apple.product-type.application";
 		};
-
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -397,7 +362,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* AntikytheraOpenGLPrototype */,
-				A3AEF41A8462795526632413 /* AntikytheraOpenGLPrototype-macOS */,);
+			);
 		};
 /* End PBXProject section */
 
@@ -411,16 +376,7 @@
 				C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		D09317C73303DA940E0BB1FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87D9C3731D9DF57C00E4F0FC /* device.json in Resources */,
-				C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,52 +423,7 @@
 				4BB2195EA5CD7C2802694D10 /* MetalRenderContext.swift in Sources */,
 				CB74DFDD18925C74DA3BB692 /* Shaders.metal in Sources */,);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		C07DDE5830D86D7FD350E209 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D3623260D0F684500981E51 /* AppDelegate.swift in Sources */,
-				C0FDE57A1C2AD56C008283F4 /* Viewpoints.swift in Sources */,
-				C9CCA9FE116BF9300097AE70 /* AntikytheraMechanism.swift in Sources */,
-				C9CCAA05116BFB920097AE70 /* Connector.swift in Sources */,
-				C9CCAA0D116C076C0097AE70 /* Gear.swift in Sources */,
-				C9CCAA83116C26230097AE70 /* GearView.swift in Sources */,
-				C9CCAA86116CC52A0097AE70 /* ConnectorView.swift in Sources */,
-				C08968E21C2E4589006EBECC /* Models.swift in Sources */,
-				C9CCAAB3116CD1820097AE70 /* AntikytheraMechanismView.swift in Sources */,
-				C9CCAB31116D8B660097AE70 /* GearModel.swift in Sources */,
-				C9CCABEE116E31650097AE70 /* FlyThroughCamera.swift in Sources */,
-				C9CCAC06116E32740097AE70 /* TopCamera.swift in Sources */,
-				C95046EE116E72FC00AE2F5D /* ConnectorModel.swift in Sources */,
-				C9504703116E755700AE2F5D /* ShowcaseCamera.swift in Sources */,
-				C9BCDC12116EBAAF00B6A4BA /* PinAndSlotConnector.swift in Sources */,
-				C9BCDCB2116EE2D200B6A4BA /* PinAndSlotConnectorView.swift in Sources */,
-				C0DCF55724B3BE0F0011DEAB /* PointerInfo.swift in Sources */,
-				C96AAE0F116FF7DA00869DF6 /* GearShaderModel.swift in Sources */,
-				C0DCF55324B3BC6D0011DEAB /* GearInfo.swift in Sources */,
-				C0E3761C1C320D3600C99043 /* Common.swift in Sources */,
-				C9423593117BA2A800385EC6 /* PointerModel.swift in Sources */,
-				C94235C3117BB0BF00385EC6 /* PointerView.swift in Sources */,
-				C0DCF55524B3BD260011DEAB /* ConnectorInfo.swift in Sources */,
-				C9D2FE2D118156F30042C84E /* HalfGlobeModel.swift in Sources */,
-				C9FB30451182AB1500021EDB /* LunarPointerView.swift in Sources */,
-				C91A35F8118343A400FA1697 /* BoxModel.swift in Sources */,
-				C91A362A1183484500FA1697 /* SideCamera.swift in Sources */,
-				C97607CB1183CBF5000F322E /* UICamera.swift in Sources */,
-				C9747105118948B4007E04E5 /* FlatDialModel.swift in Sources */,
-				C9747108118948EE007E04E5 /* UserDialView.swift in Sources */,
-				C0DCF55924B49D1F0011DEAB /* MechanismInfo.swift in Sources */,
-				C970E24F118F7E8F00E6A01A /* BoxView.swift in Sources */,
-				CF77058807E7D9929DABEDB1 /* MetalRenderer.swift in Sources */,
-				62BB8991008F6DAC95900CD0 /* MetalView.swift in Sources */,
-				E5EC9DDD4072881D107EEF59 /* MetalModel3D.swift in Sources */,
-				85CF5692AC44A5D01A6A90AB /* MetalViewController.swift in Sources */,
-				4BB2195EA5CD7C2802694D10 /* MetalRenderContext.swift in Sources */,
-				CB74DFDD18925C74DA3BB692 /* Shaders.metal in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -639,52 +550,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
-		};		33AA07A78A3BB027247291AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "AntikytheraOpenGLPrototype-macOS-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.AntikytheraOpenGLPrototype-macOS";
-				PRODUCT_NAME = AntikytheraOpenGLPrototype;
-				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
 		};
-		27860CBD4B85962E5DA468F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "AntikytheraOpenGLPrototype-macOS-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.AntikytheraOpenGLPrototype-macOS";
-				PRODUCT_NAME = AntikytheraOpenGLPrototype;
-				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Antikythera-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -705,16 +571,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};		813D1AB95A2F9572B2F87A84 /* Build configuration list for PBXNativeTarget "AntikytheraOpenGLPrototype-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				33AA07A78A3BB027247291AE /* Debug */,
-				27860CBD4B85962E5DA468F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-
 /* End XCConfigurationList section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;

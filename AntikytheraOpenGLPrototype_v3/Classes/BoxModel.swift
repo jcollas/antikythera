@@ -1,14 +1,15 @@
 //
-//  BoxModel.m
+//  BoxModel.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/24/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
-class BoxModel: GLModel3D {
+class BoxModel: MetalModel3D {
 
     var width: Float = 0.0
     var height: Float = 0.0
@@ -16,7 +17,8 @@ class BoxModel: GLModel3D {
 
     init(width: Float, height: Float, length: Float) {
         super.init()
-		buildModelWithWidth(width, height:height, length:length)
+        buildModelWithWidth(width, height:height, length:length)
+        updateBuffers()
     }
 
     func buildModelWithWidth(_ w: Float, height h: Float, length len: Float) {
@@ -29,7 +31,7 @@ class BoxModel: GLModel3D {
         let halfHeight = length/2
         
         vertices = [Vertex3D](repeating: Vertex3D.zero, count: 8)
-        elements = [GLushort](repeating: 0, count: 34)
+        elements = [UInt16](repeating: 0, count: 34)
         
         // Pointer Vertices
         vertices[0] = Vertex3D(x: halfLength, y: -halfWidth, z: halfHeight)

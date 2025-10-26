@@ -6,31 +6,22 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
-    weak var glView: GLView!
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        guard let glView = window?.rootViewController?.view as? GLView else {
-            return false
-        }
-
-        self.glView = glView
-        
-        self.glView.animationInterval = 1.0 / 60.0
-        self.glView.startAnimation()
-
+        // MetalView and MetalViewController handle their own initialization
         return true
     }
 
 
     func applicationWillResignActive(_ application: UIApplication) {
-        self.glView.animationInterval = 1.0 / 60.0
+        // MetalView pauses automatically when app becomes inactive
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -43,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        self.glView.animationInterval = 1.0 / 60.0
+        // MetalView resumes automatically when app becomes active
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -51,3 +42,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+#elseif os(macOS)
+import AppKit
+
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
+
+    var window: NSWindow!
+    var viewController: MetalViewController!
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Create window
+        let contentRect = NSRect(x: 0, y: 0, width: 800, height: 600)
+        window = NSWindow(
+            contentRect: contentRect,
+            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Antikythera Mechanism"
+        window.isReleasedWhenClosed = false
+
+        // Create view controller
+        viewController = MetalViewController()
+        window.contentViewController = viewController
+
+        // Show window
+        window.makeKeyAndOrderFront(nil)
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        // Insert code here to tear down your application
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+}
+#endif

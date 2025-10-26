@@ -1,12 +1,13 @@
 //
-//  BoxView.m
+//  BoxView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 5/3/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class BoxView: NSObject, ComponentView, AMViewStateHandler {
     
@@ -33,29 +34,31 @@ class BoxView: NSObject, ComponentView, AMViewStateHandler {
 //    }
 
     func draw() {
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
         if opacity > 0.0 {
-            glPushMatrix()
-            
-            glTranslatef(position.x, position.y, position.z)
-            glRotatef(rotation, 0.0, 0.0, 1.0)
-            if (!depthTest) {
-                glScalef(1.0, 1.0, (75.0/35.0))
+            renderer.pushMatrix()
+
+            renderer.translate(x: position.x, y: position.y, z: position.z)
+            renderer.rotate(angle: rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+            if !depthTest {
+                renderer.scale(x: 1.0, y: 1.0, z: (75.0 / 35.0))
             }
-            
-            if (depthTest) {
-                glEnable(GLenum(GL_DEPTH_TEST))
+
+            if depthTest {
+                renderer.enableDepthTest()
             }
-            
-            glPushMatrix()
-            glColor4f(0.855/2, 0.573/2, 0.149/2, opacity)
+
+            renderer.pushMatrix()
+            renderer.setColor(r: 0.855 / 2, g: 0.573 / 2, b: 0.149 / 2, a: opacity)
             boxModel.draw()
-            glPopMatrix()
-            
-            if (depthTest) {
-                glDisable(GLenum(GL_DEPTH_TEST))
+            renderer.popMatrix()
+
+            if depthTest {
+                renderer.disableDepthTest()
             }
-            
-            glPopMatrix()
+
+            renderer.popMatrix()
         }
     }
 

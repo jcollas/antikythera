@@ -1,18 +1,20 @@
 //
-//  ConnectorModel.m
+//  ConnectorModel.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/8/10.
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
-class ConnectorModel: GLModel3D {
-    
+class ConnectorModel: MetalModel3D {
+
     init(connector: Connector) {
         super.init()
-		buildModelFromConnector(connector)
+        buildModelFromConnector(connector)
+        updateBuffers()
     }
 
     func buildModelFromConnector(_ connector: Connector) {
@@ -24,7 +26,7 @@ class ConnectorModel: GLModel3D {
         let halfAngle = sliceAngle/2.0
         
         vertices = [Vertex3D](repeating: Vertex3D.zero, count: (sideCount*4+2))
-        elements = [GLushort](repeating: 0, count: (sideCount*10+1))
+        elements = [UInt16](repeating: 0, count: (sideCount*10+1))
         
         
         // Vertices:
@@ -45,17 +47,17 @@ class ConnectorModel: GLModel3D {
         // Elements:
         for i in 0 ..< sideCount {
             elements[i*10] = 0		//1
-            elements[i*10+1] = GLushort(i*4+2)	//2
-            elements[i*10+2] = GLushort(i*4+3)	//3
-            elements[i*10+3] = GLushort(i*4+4)	//6
-            elements[i*10+4] = GLushort(i*4+5)	//7
+            elements[i*10+1] = UInt16(i*4+2)	//2
+            elements[i*10+2] = UInt16(i*4+3)	//3
+            elements[i*10+3] = UInt16(i*4+4)	//6
+            elements[i*10+4] = UInt16(i*4+5)	//7
             elements[i*10+5] = 1		//5
-            elements[i*10+6] = GLushort(i*4+5)	//7
-            elements[i*10+8] = GLushort(i*4+3)	//3
-            
+            elements[i*10+6] = UInt16(i*4+5)	//7
+            elements[i*10+8] = UInt16(i*4+3)	//3
+
             if (i<(sideCount-1)) {
-                elements[i*10+7] = GLushort((i+1)*4+4)	//8
-                elements[i*10+9] = GLushort((i+1)*4+2)	//4
+                elements[i*10+7] = UInt16((i+1)*4+4)	//8
+                elements[i*10+9] = UInt16((i+1)*4+2)	//4
             } else {
                 elements[i*10+7] = 4	//8
                 elements[i*10+9] = 2	//4

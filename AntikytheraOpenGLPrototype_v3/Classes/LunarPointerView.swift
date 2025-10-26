@@ -1,12 +1,13 @@
 //
-//  LunarPointerView.m
+//  LunarPointerView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/24/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class LunarPointerView: PointerView {
     var yearPointer: PointerView
@@ -26,45 +27,46 @@ class LunarPointerView: PointerView {
     }
 
     override func draw() {
-        
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
         super.draw()
-        
-        let r1 = normalizeRotation(self.rotation)
-        let r2 = normalizeRotation(yearPointer.rotation)
+
+        let r1 = normalizeRotation(self.rotation * 180.0 / .pi)
+        let r2 = normalizeRotation(yearPointer.rotation * 180.0 / .pi)
         let rotDiff = r2 - r1
-        
-        moonRotation = rotDiff+90 //RADIANS_TO_DEGREES(cosf(DEGREES_TO_RADIANS(rotDiff)))
-        
-        glPushMatrix()
-        
-        if (!depthTest) {
-            glTranslatef(position.x, position.y, position.z)
+
+        moonRotation = rotDiff + 90
+
+        renderer.pushMatrix()
+
+        if !depthTest {
+            renderer.translate(x: position.x, y: position.y, z: position.z)
         } else {
-            glTranslatef(position.x, position.y, position.z/2)
+            renderer.translate(x: position.x, y: position.y, z: position.z / 2)
         }
-        glRotatef(myComponent.rotation,0.0, 0.0 ,1.0)
-        glTranslatef(self.radius*2/3, 0.0, 0.0)
-        
-        glEnable(GLenum(GL_DEPTH_TEST))
-        
-        glPushMatrix()
-        glRotatef(moonRotation+180, 1.0, 0.0, 0.0)
-        glTranslatef(0.0, 0.1, 0.0)
-        glScalef(1.0, 1.0, 1.0)
-        glColor4f(1.0, 1.0, 1.0, 1.0*self.opacity)
+        renderer.rotate(angle: myComponent.rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+        renderer.translate(x: self.radius * 2 / 3, y: 0.0, z: 0.0)
+
+        renderer.enableDepthTest()
+
+        renderer.pushMatrix()
+        renderer.rotate(angle: moonRotation + 180, x: 1.0, y: 0.0, z: 0.0)
+        renderer.translate(x: 0.0, y: 0.1, z: 0.0)
+        renderer.scale(x: 1.0, y: 1.0, z: 1.0)
+        renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 1.0 * self.opacity)
         brightMoonModel.draw()
-        glPopMatrix()
-        
-        glPushMatrix()
-        glRotatef(moonRotation, 1.0, 0.0, 0.0)
-        glTranslatef(0.0, 0.1, 0.0)
-        glColor4f(0.5, 0.2, 0.2, 1.0*self.opacity)
+        renderer.popMatrix()
+
+        renderer.pushMatrix()
+        renderer.rotate(angle: moonRotation, x: 1.0, y: 0.0, z: 0.0)
+        renderer.translate(x: 0.0, y: 0.1, z: 0.0)
+        renderer.setColor(r: 0.5, g: 0.2, b: 0.2, a: 1.0 * self.opacity)
         darkMoonModel.draw()
-        glPopMatrix()
-        
-        glDisable(GLenum(GL_DEPTH_TEST))
-        
-        glPopMatrix()
+        renderer.popMatrix()
+
+        renderer.disableDepthTest()
+
+        renderer.popMatrix()
     }
 
     func normalizeRotation(_ rotation: Float) -> Float {

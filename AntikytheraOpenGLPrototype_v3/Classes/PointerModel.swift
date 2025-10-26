@@ -1,5 +1,5 @@
 //
-//  PointerModel.m
+//  PointerModel.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/18/10.
@@ -7,19 +7,21 @@
 //
 
 import CoreGraphics
-import OpenGLES
+import Metal
+import MetalKit
 
-class PointerModel: GLModel3D {
+class PointerModel: MetalModel3D {
 
     var shaftLength: Float = 0.0
     var shaftRadius: Float = 0.0
-    
+
     var pointerLength: Float = 0.0
     var pointerWidth: Float = 0.0
 
     init(shaftLength sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) {
         super.init()
-		buildModelWithShaftLength(sLen, shaftRadius:sRad, pointerLength:pLen, pointerWidth:pWidth) //Weird bug: for some reason -- gone?
+        buildModelWithShaftLength(sLen, shaftRadius:sRad, pointerLength:pLen, pointerWidth:pWidth)
+        updateBuffers()
     }
 
     func buildModelWithShaftLength(_ sLen: Float, shaftRadius sRad: Float, pointerLength pLen: Float, pointerWidth pWidth: Float) {
@@ -35,7 +37,7 @@ class PointerModel: GLModel3D {
         let halfAngle = sliceAngle/2.0
         
         vertices = [Vertex3D](repeating: Vertex3D.zero, count: (sideCount*4+2) + 8)
-        elements = [GLushort](repeating: 0, count: (sideCount*10+1) + (2) + (14))
+        elements = [UInt16](repeating: 0, count: (sideCount*10+1) + (2) + (14))
         
         // Shaft Vertices:
         vertices[0] = Vertex3D(x: 0.0, y: 0.0, z: self.shaftLength)
@@ -55,29 +57,29 @@ class PointerModel: GLModel3D {
         // Shaft Elements:
         for i in 0 ..< sideCount {
             elements[i*10] = 0			//1
-            elements[i*10+1] = GLushort(i*4+2)	//2
-            elements[i*10+2] = GLushort(i*4+3)	//3
-            elements[i*10+3] = GLushort(i*4+4)	//6
-            elements[i*10+4] = GLushort(i*4+5)	//7
+            elements[i*10+1] = UInt16(i*4+2)	//2
+            elements[i*10+2] = UInt16(i*4+3)	//3
+            elements[i*10+3] = UInt16(i*4+4)	//6
+            elements[i*10+4] = UInt16(i*4+5)	//7
             elements[i*10+5] = 1		//5
-            elements[i*10+6] = GLushort(i*4+5)	//7
-            elements[i*10+8] = GLushort(i*4+3)	//3
-            
+            elements[i*10+6] = UInt16(i*4+5)	//7
+            elements[i*10+8] = UInt16(i*4+3)	//3
+
             if (i<(sideCount-1)) {
-                elements[i*10+7] = GLushort((i+1)*4+4)	//8
-                elements[i*10+9] = GLushort((i+1)*4+2)	//4
+                elements[i*10+7] = UInt16((i+1)*4+4)	//8
+                elements[i*10+9] = UInt16((i+1)*4+2)	//4
             } else {
                 elements[i*10+7] = 4	//8
                 elements[i*10+9] = 2	//4
                 elements[i*10+10] = 0	//1
             }
         }
-        
+
         // Transition:
         let le = (sideCount-1)*10+10
         let lv = (sideCount-1)*4+5
         elements[le+1] = 0
-        elements[le+2] = GLushort(lv+1)
+        elements[le+2] = UInt16(lv+1)
         
         // Pointer Vertices
         let height = self.shaftLength/abs(self.shaftLength)
@@ -94,20 +96,20 @@ class PointerModel: GLModel3D {
         vertices[lv+8] = Vertex3D(x: self.pointerLength-self.shaftRadius, y: self.shaftRadius, z: 0.0)
         
         // Pointer Elements
-        elements[le+3] = GLushort(lv+1)
-        elements[le+4] = GLushort(lv+2)
-        elements[le+5] = GLushort(lv+4)
-        elements[le+6] = GLushort(lv+6)
-        elements[le+7] = GLushort(lv+8)
-        elements[le+8] = GLushort(lv+7)
-        elements[le+9] = GLushort(lv+4)
-        elements[le+10] = GLushort(lv+3)
-        elements[le+11] = GLushort(lv+1)
-        elements[le+12] = GLushort(lv+7)
-        elements[le+13] = GLushort(lv+5)
-        elements[le+14] = GLushort(lv+6)
-        elements[le+15] = GLushort(lv+1)
-        elements[le+16] = GLushort(lv+2)
+        elements[le+3] = UInt16(lv+1)
+        elements[le+4] = UInt16(lv+2)
+        elements[le+5] = UInt16(lv+4)
+        elements[le+6] = UInt16(lv+6)
+        elements[le+7] = UInt16(lv+8)
+        elements[le+8] = UInt16(lv+7)
+        elements[le+9] = UInt16(lv+4)
+        elements[le+10] = UInt16(lv+3)
+        elements[le+11] = UInt16(lv+1)
+        elements[le+12] = UInt16(lv+7)
+        elements[le+13] = UInt16(lv+5)
+        elements[le+14] = UInt16(lv+6)
+        elements[le+15] = UInt16(lv+1)
+        elements[le+16] = UInt16(lv+2)
     }
 
 }

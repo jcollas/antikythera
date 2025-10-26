@@ -1,12 +1,13 @@
 //
-//  PointerView.m
+//  PointerView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/18/10.
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class PointerView: NSObject, ComponentView, AMViewStateHandler {
     var myComponent: DeviceComponent!
@@ -79,35 +80,36 @@ class PointerView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     func draw() {
-	
-	if self.opacity > 0.0 {
-		glPushMatrix()
-		
-		if (!depthTest) {
-			glTranslatef(position.x, position.y, position.z)
-		} else {
-			glTranslatef(position.x, position.y, position.z/2)
-		}
-		let rotation = myComponent.rotation
-		glRotatef(rotation, 0.0, 0.0, 1.0)
-		
-        if (depthTest) {
-            glEnable(GLenum(GL_DEPTH_TEST))
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
+        if self.opacity > 0.0 {
+            renderer.pushMatrix()
+
+            if !depthTest {
+                renderer.translate(x: position.x, y: position.y, z: position.z)
+            } else {
+                renderer.translate(x: position.x, y: position.y, z: position.z / 2)
+            }
+            let rotation = myComponent.rotation
+            renderer.rotate(angle: rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+
+            if depthTest {
+                renderer.enableDepthTest()
+            }
+
+            renderer.pushMatrix()
+            renderer.scale(x: 1.0, y: 1.0, z: 1.0)
+            renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 0.5 * self.opacity)
+            pointerModel.draw()
+            renderer.popMatrix()
+
+            if depthTest {
+                renderer.disableDepthTest()
+            }
+
+            renderer.popMatrix()
         }
-		
-		glPushMatrix()
-		glScalef(1.0, 1.0, 1.0)
-		glColor4f(1.0, 1.0, 1.0, 0.5*self.opacity)
-		pointerModel.draw()
-		glPopMatrix()
-		
-        if (depthTest) {
-            glDisable(GLenum(GL_DEPTH_TEST))
-        }
-		
-		glPopMatrix()
-	}
-}
+    }
 
     func updateWithState(_ state: AMState, phase: AMStatePhase) {
         switch (state) {

@@ -6,7 +6,11 @@
 //
 //
 
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 protocol CameraViewpoint {
 
@@ -14,6 +18,7 @@ protocol CameraViewpoint {
 
 }
 
+#if os(iOS)
 protocol Touchable {
 
     func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?)
@@ -22,3 +27,9 @@ protocol Touchable {
     func touchesCancelled(_ touches: Set<UITouch>, withEvent event: UIEvent?)
 
 }
+#elseif os(macOS)
+protocol Touchable {
+    // macOS mouse/trackpad event handling would go here
+    // For now, this is a placeholder for future implementation
+}
+#endif

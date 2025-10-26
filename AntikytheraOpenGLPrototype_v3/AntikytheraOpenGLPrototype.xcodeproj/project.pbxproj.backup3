@@ -416,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87D9C3731D9DF57C00E4F0FC /* device.json in Resources */,
+				C0FDE5381C2A1A32008283F4 /* Main.storyboard in Resources */,
 				C050AE671A2B5037005936F1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

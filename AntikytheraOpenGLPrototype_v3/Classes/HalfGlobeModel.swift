@@ -1,5 +1,5 @@
 //
-//  HalfGlobeModel.m
+//  HalfGlobeModel.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/23/10.
@@ -7,13 +7,15 @@
 //
 
 import CoreGraphics
-import OpenGLES
+import Metal
+import MetalKit
 
-class HalfGlobeModel: GLModel3D {
-    
+class HalfGlobeModel: MetalModel3D {
+
     init(radius: Float) {
         super.init()
-		buildModelWithRadius(radius)
+        buildModelWithRadius(radius)
+        updateBuffers()
     }
 
     func buildModelWithRadius(_ radius: Float) {
@@ -26,7 +28,7 @@ class HalfGlobeModel: GLModel3D {
         let vertexCount = latSideCount*(lonSideCount-1) + 2
         vertices = [Vertex3D](repeating: Vertex3D.zero, count: vertexCount)
         let elementCount = (latSideCount*2+2)*lonSideCount
-        elements = [GLushort](repeating: 0, count: elementCount)
+        elements = [UInt16](repeating: 0, count: elementCount)
         
         
         // Shaft Vertices:
@@ -48,45 +50,45 @@ class HalfGlobeModel: GLModel3D {
         vertices[vertexCount-1] = Vertex3D(x: 0.0, y: 0.0, z: -radius)
         
         // Shaft Elements:
-        var topStart: GLushort = 0
-        var bottomStart: GLushort = 0
-        
+        var topStart: UInt16 = 0
+        var bottomStart: UInt16 = 0
+
         // North Pole
         var eCount = 0
         for i in 0 ..< latSideCount {
             elements[eCount] = 0
-            elements[eCount+1] = GLushort(i+1)
+            elements[eCount+1] = UInt16(i+1)
             eCount += 2
         }
         elements[eCount] = 0
         elements[eCount+1] = 1
         eCount += 2
-        
+
         // Body
         for n in 0 ..< (lonSideCount-2) {
-            topStart = GLushort(latSideCount*n+1)
-            bottomStart = GLushort(latSideCount*(n+1)+1)
-            
+            topStart = UInt16(latSideCount*n+1)
+            bottomStart = UInt16(latSideCount*(n+1)+1)
+
             for i in 0 ..< latSideCount {
-                elements[eCount] = topStart+GLushort(i)
-                elements[eCount+1] = bottomStart+GLushort(i)
+                elements[eCount] = topStart+UInt16(i)
+                elements[eCount+1] = bottomStart+UInt16(i)
                 eCount += 2
             }
-            
+
             elements[eCount] = topStart
             elements[eCount+1] = bottomStart
             eCount += 2
         }
-        
+
         // South Pole
-        topStart = GLushort(latSideCount*(lonSideCount-2)+1)
+        topStart = UInt16(latSideCount*(lonSideCount-2)+1)
         for i in 0 ..< latSideCount {
-            elements[eCount] = topStart+GLushort(i)
-            elements[eCount+1] = GLushort(vertexCount-1)
+            elements[eCount] = topStart+UInt16(i)
+            elements[eCount+1] = UInt16(vertexCount-1)
             eCount += 2
         }
         elements[eCount] = topStart
-        elements[eCount+1] = GLushort(vertexCount-1)
+        elements[eCount+1] = UInt16(vertexCount-1)
         eCount += 2
         
     }

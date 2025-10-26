@@ -6,7 +6,7 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Foundation
 
 protocol MechanicalDevice {
 

@@ -1,12 +1,13 @@
 //
-//  ConnectorView.m
+//  ConnectorView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/7/10.
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class ConnectorView: NSObject, ComponentView, AMViewStateHandler {
     var myConnector: Connector!
@@ -49,19 +50,20 @@ class ConnectorView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     func draw() {
-        
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
         if self.opacity > 0.0 {
-            glPushMatrix()
-            
-            glColor4f(1.0, 1.0, 1.0, 0.5*self.opacity)
-            
-            glTranslatef(position.x, position.y, position.z)
-            glRotatef(self.rotation, 0.0, 0.0, 1.0)
-            glScalef(1.0, 1.0, length)
-            
+            renderer.pushMatrix()
+
+            renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 0.5 * self.opacity)
+
+            renderer.translate(x: position.x, y: position.y, z: position.z)
+            renderer.rotate(angle: self.rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+            renderer.scale(x: 1.0, y: 1.0, z: length)
+
             connectorModel.draw()
-            
-            glPopMatrix()
+
+            renderer.popMatrix()
         }
     }
 

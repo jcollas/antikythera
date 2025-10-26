@@ -1,12 +1,13 @@
 //
-//  PinAndSlotConnectorView.m
+//  PinAndSlotConnectorView.swift
 //  AntikytheraOpenGLPrototype
 //
 //  Created by Matt Ricketson on 4/9/10.
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-import OpenGLES
+import Metal
+import MetalKit
 
 class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
     var myConnector: PinAndSlotConnector!
@@ -58,30 +59,34 @@ class PinAndSlotConnectorView: NSObject, ComponentView, AMViewStateHandler {
     }
 
     func draw() {
-        glPushMatrix()
-        
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
+        renderer.pushMatrix()
+
         self.drawPin()
         self.drawSlot()
-        
-        glPopMatrix()
+
+        renderer.popMatrix()
     }
 
     func drawPin() {
+        guard let renderer = MetalRenderContext.shared.renderer else { return }
+
         let rotation = myConnector.pinRotation
-        
+
         if self.opacity > 0.0 {
-            glPushMatrix()
-            
-            glColor4f(1.0, 1.0, 1.0, 0.8*self.opacity)
-            
-            glTranslatef(pinPosition.x, pinPosition.y, pinPosition.z)
-            glRotatef(rotation, 0.0, 0.0, 1.0)
-            glTranslatef(myConnector.pinOffset, 0.0, 0.0)
-            glScalef(1.0, 1.0, length)
-            
+            renderer.pushMatrix()
+
+            renderer.setColor(r: 1.0, g: 1.0, b: 1.0, a: 0.8 * self.opacity)
+
+            renderer.translate(x: pinPosition.x, y: pinPosition.y, z: pinPosition.z)
+            renderer.rotate(angle: rotation * 180.0 / .pi, x: 0.0, y: 0.0, z: 1.0)
+            renderer.translate(x: myConnector.pinOffset, y: 0.0, z: 0.0)
+            renderer.scale(x: 1.0, y: 1.0, z: length)
+
             connectorModel.draw()
-            
-            glPopMatrix()
+
+            renderer.popMatrix()
         }
     }
 
