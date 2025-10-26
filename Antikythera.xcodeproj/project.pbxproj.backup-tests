@@ -99,12 +99,7 @@
 		CF77058807E7D9929DABEDB1 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC5E46F2B8A90925C88A08 /* MetalRenderer.swift */; };
 		D03427D3097775A974588831 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BAFB67EC3878F1999F819 /* AppKit.framework */; };
 		E40C3D39DEEB93615FD75A42 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE14724DE455ED0E2E16D43 /* Metal.framework */; };
-		E5EC9DDD4072881D107EEF59 /* MetalModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */; };		10E343D3255EF3DDACED3B99 /* GearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CF47675AD488EED5F7E91 /* GearTests.swift */; };
-		162D7D4156702E8E22FBF616 /* ConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */; };
-		5D9B84269B6F24A73A8C770F /* AntikytheraMechanismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */; };
-		DE59065537B4D002A0244FAE /* test-device.json in Resources */ = {isa = PBXBuildFile; fileRef = A448AAD200A7CAA6451EAB28 /* test-device.json */; };
-		F6F17701BD8DA2FF6390EECE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E85F23100FD400287E9C7A /* XCTest.framework */; };
-
+		E5EC9DDD4072881D107EEF59 /* MetalModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,13 +158,7 @@
 		C9D2FE2C118156F30042C84E /* HalfGlobeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfGlobeModel.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C9FB30441182AB1500021EDB /* LunarPointerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarPointerView.swift; sourceTree = "<group>"; };
 		D13808607C239732EFB8522F /* Antikythera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antikythera.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9FAC7A946C94390682CA99A /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalView.swift; path = Classes/MetalView.swift; sourceTree = SOURCE_ROOT; };		068CF47675AD488EED5F7E91 /* GearTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/GearTests.swift"; sourceTree = SOURCE_ROOT; };
-		15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/ConnectorTests.swift"; sourceTree = SOURCE_ROOT; };
-		1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/AntikytheraMechanismTests.swift"; sourceTree = SOURCE_ROOT; };
-		A448AAD200A7CAA6451EAB28 /* test-device.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Tests/ModelTests/test-device.json"; sourceTree = SOURCE_ROOT; };
-		C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntikytheraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58E85F23100FD400287E9C7A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-
+		E9FAC7A946C94390682CA99A /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalView.swift; path = Classes/MetalView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,15 +187,7 @@
 				C0A438672EAE3F0600612886 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		787EDA1B948EC66D0E01E0AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F6F17701BD8DA2FF6390EECE /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -238,7 +219,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Antikythera.app */,
 				D13808607C239732EFB8522F /* Antikythera.app */,
-				C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */,);
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -283,7 +264,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */,
 				191BAFB67EC3878F1999F819 /* AppKit.framework */,
-				58E85F23100FD400287E9C7A /* XCTest.framework */,);
+			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
@@ -384,26 +365,7 @@
 			);
 			name = "Camera Viewpoints";
 			sourceTree = "<group>";
-		};		79821B956267758A893A603A /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				D419F7C5382519596D9EA28F /* ModelTests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
 		};
-		D419F7C5382519596D9EA28F /* ModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				068CF47675AD488EED5F7E91 /* GearTests.swift */,
-				15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */,
-				1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */,
-				A448AAD200A7CAA6451EAB28 /* test-device.json */,
-			);
-			path = ModelTests;
-			sourceTree = "<group>";
-		};
-
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,24 +402,7 @@
 			productName = "Antikythera-macOS";
 			productReference = D13808607C239732EFB8522F /* Antikythera.app */;
 			productType = "com.apple.product-type.application";
-		};		2997CCDC53FF10FF31B29713 /* AntikytheraTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 45B860B29F2CA4BA4AB3E8DB /* Build configuration list for PBXNativeTarget "AntikytheraTests" */;
-			buildPhases = (
-				98C6164DD299F11844D9FA72 /* Sources */,
-				787EDA1B948EC66D0E01E0AA /* Frameworks */,
-				C51AF67A0DC303E1A388A566 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AntikytheraTests;
-			productName = AntikytheraTests;
-			productReference = C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
-
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -489,7 +434,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Antikythera */,
 				A3AEF41A8462795526632413 /* Antikythera-macOS */,
-				2997CCDC53FF10FF31B29713 /* AntikytheraTests */,);
+			);
 		};
 /* End PBXProject section */
 
@@ -512,15 +457,7 @@
 				C0A4383C2EAE3F0600612886 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		C51AF67A0DC303E1A388A566 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE59065537B4D002A0244FAE /* test-device.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -613,17 +550,7 @@
 				C0A438622EAE3F0600612886 /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		98C6164DD299F11844D9FA72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10E343D3255EF3DDACED3B99 /* GearTests.swift in Sources */,
-				162D7D4156702E8E22FBF616 /* ConnectorTests.swift in Sources */,
-				5D9B84269B6F24A73A8C770F /* AntikytheraMechanismTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -797,44 +724,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
-		};		70A55E3D1792E713F4531965 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
-			};
-			name = Debug;
 		};
-		6AF2D4E2FD5D7362BD38D958 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -864,16 +754,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};		45B860B29F2CA4BA4AB3E8DB /* Build configuration list for PBXNativeTarget "AntikytheraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70A55E3D1792E713F4531965 /* Debug */,
-				6AF2D4E2FD5D7362BD38D958 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-
 /* End XCConfigurationList section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;

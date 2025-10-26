@@ -1,0 +1,64 @@
+{
+  "gears": [
+    {
+      "name": "gA1",
+      "teeth": 40,
+      "placement": {
+        "positionType": "fixed",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "linkedTo": ["gA2"]
+    },
+    {
+      "name": "gA2",
+      "teeth": 20,
+      "placement": {
+        "positionType": "fixed",
+        "x": 10.0,
+        "y": 0.0,
+        "z": 5.0
+      },
+      "linkedTo": ["gA1", "gA3"]
+    },
+    {
+      "name": "gA3",
+      "teeth": 60,
+      "placement": {
+        "positionType": "angledRelative",
+        "toGear": "gA2",
+        "offset": 5.0,
+        "radians": 1.57
+      },
+      "linkedTo": ["gA2"]
+    }
+  ],
+  "connectors": [
+    {
+      "name": "connector1",
+      "radius": 1.0,
+      "topGear": "gA1",
+      "bottomGear": "gA2",
+      "connector-type": "connector"
+    },
+    {
+      "name": "pinslot1",
+      "radius": 1.5,
+      "topGear": "gA2",
+      "bottomGear": "gA3",
+      "connector-type": "pin-and-slot"
+    }
+  ],
+  "pointers": [
+    {
+      "name": "pointer1",
+      "pointerKind": "standard",
+      "onGear": "gA3",
+      "shaftLength": 10.0,
+      "shaftRadius": 0.5,
+      "pointerLength": 15.0,
+      "pointerWidth": 1.0
+    }
+  ]
+}
