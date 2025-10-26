@@ -170,9 +170,9 @@ typealias PlatformView = NSView
 5. **PROJECT_COMPLETE.md** - This file
 
 ### Build Scripts
-1. **update_xcode_project.py** - Adds Metal files, removes OpenGL files
-2. **add_macos_target.py** - Adds macOS target to project
-3. **fix_macos_resources.py** - Fixes macOS resource configuration
+1. **scripts/update_xcode_project.py** - Adds Metal files, removes OpenGL files
+2. **scripts/add_macos_target.py** - Adds macOS target to project
+3. **scripts/fix_macos_resources.py** - Fixes macOS resource configuration
 
 All documentation includes:
 - Technical details
@@ -323,9 +323,11 @@ antikythera/
 ├── MACOS_SUPPORT_SUMMARY.md             📄 NEW
 ├── RUNTIME_FIXES_SUMMARY.md             📄 NEW
 ├── PROJECT_COMPLETE.md                  📄 NEW (this file)
-├── update_xcode_project.py              🔧 NEW
-├── add_macos_target.py                  🔧 NEW
-└── fix_macos_resources.py               🔧 NEW
+└── scripts/                             📁 NEW
+    ├── README.md                        📄 NEW
+    ├── update_xcode_project.py          🔧 NEW
+    ├── add_macos_target.py              🔧 NEW
+    └── fix_macos_resources.py           🔧 NEW
 ```
 
 ---
