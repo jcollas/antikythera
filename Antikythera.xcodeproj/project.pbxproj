@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10E343D3255EF3DDACED3B99 /* Tests/ModelTests/GearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CF47675AD488EED5F7E91 /* Tests/ModelTests/GearTests.swift */; };
+		162D7D4156702E8E22FBF616 /* Tests/ModelTests/ConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EB7278B5BC9C821DF9DCEE /* Tests/ModelTests/ConnectorTests.swift */; };
 		1D3623260D0F684500981E51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.swift */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		1FF404F30FF2AC4B00D17C20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		4BB2195EA5CD7C2802694D10 /* MetalRenderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21ADC5DCE8C79297AF1FD8 /* MetalRenderContext.swift */; };
+		5D9B84269B6F24A73A8C770F /* Tests/ModelTests/AntikytheraMechanismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10922009B8209A4CF44EE5 /* Tests/ModelTests/AntikytheraMechanismTests.swift */; };
 		62BB8991008F6DAC95900CD0 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FAC7A946C94390682CA99A /* MetalView.swift */; };
 		85CF5692AC44A5D01A6A90AB /* MetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1ECF1C1FB00890AD9280BC /* MetalViewController.swift */; };
 		87D9C3731D9DF57C00E4F0FC /* device.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D9C3721D9DF57C00E4F0FC /* device.json */; };
@@ -98,30 +101,28 @@
 		CBE986871ED20B7BF8F02B06 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF2ED6093AA2DDDA58E5ECD /* MetalKit.framework */; };
 		CF77058807E7D9929DABEDB1 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCC5E46F2B8A90925C88A08 /* MetalRenderer.swift */; };
 		D03427D3097775A974588831 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BAFB67EC3878F1999F819 /* AppKit.framework */; };
+		DE59065537B4D002A0244FAE /* Tests/ModelTests/test-device.json in Resources */ = {isa = PBXBuildFile; fileRef = A448AAD200A7CAA6451EAB28 /* Tests/ModelTests/test-device.json */; };
 		E40C3D39DEEB93615FD75A42 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE14724DE455ED0E2E16D43 /* Metal.framework */; };
-		E5EC9DDD4072881D107EEF59 /* MetalModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */; };		10E343D3255EF3DDACED3B99 /* GearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068CF47675AD488EED5F7E91 /* GearTests.swift */; };
-		162D7D4156702E8E22FBF616 /* ConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */; };
-		5D9B84269B6F24A73A8C770F /* AntikytheraMechanismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */; };
-		DE59065537B4D002A0244FAE /* test-device.json in Resources */ = {isa = PBXBuildFile; fileRef = A448AAD200A7CAA6451EAB28 /* test-device.json */; };
+		E5EC9DDD4072881D107EEF59 /* MetalModel3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */; };
 		F6F17701BD8DA2FF6390EECE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E85F23100FD400287E9C7A /* XCTest.framework */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		068CF47675AD488EED5F7E91 /* Tests/ModelTests/GearTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests/ModelTests/GearTests.swift; sourceTree = SOURCE_ROOT; };
+		15EB7278B5BC9C821DF9DCEE /* Tests/ModelTests/ConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests/ModelTests/ConnectorTests.swift; sourceTree = SOURCE_ROOT; };
 		191BAFB67EC3878F1999F819 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1C10922009B8209A4CF44EE5 /* Tests/ModelTests/AntikytheraMechanismTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests/ModelTests/AntikytheraMechanismTests.swift; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623250D0F684500981E51 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		1D6058910D05DD3D006BFB54 /* Antikythera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antikythera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantsAndMacros.h; path = Classes/ConstantsAndMacros.h; sourceTree = SOURCE_ROOT; };
-		1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLViewController.swift; path = Classes/GLViewController.swift; sourceTree = SOURCE_ROOT; };
 		1F92F5EB0FDFF83200548BE8 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Classes/Common.swift; sourceTree = SOURCE_ROOT; };
 		1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28FD14FD0DC6FC130079059D /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLView.swift; path = Classes/GLView.swift; sourceTree = SOURCE_ROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2B21ADC5DCE8C79297AF1FD8 /* MetalRenderContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalRenderContext.swift; path = Classes/MetalRenderContext.swift; sourceTree = SOURCE_ROOT; };
 		375E2DCCB2B57C22F2BEF842 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Shaders.metal; path = Classes/Shaders.metal; sourceTree = SOURCE_ROOT; };
 		4CE14724DE455ED0E2E16D43 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		58E85F23100FD400287E9C7A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6B1ECF1C1FB00890AD9280BC /* MetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalViewController.swift; path = Classes/MetalViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DCC5E46F2B8A90925C88A08 /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalRenderer.swift; path = Classes/MetalRenderer.swift; sourceTree = SOURCE_ROOT; };
 		7EF2ED6093AA2DDDA58E5ECD /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +130,7 @@
 		8D1107310486CEB800E47090 /* Antikythera-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Antikythera-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		936074AFA7FC01012DC4080E /* Antikythera-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Antikythera-macOS-Info.plist"; sourceTree = "<group>"; };
 		A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalModel3D.swift; path = Classes/MetalModel3D.swift; sourceTree = SOURCE_ROOT; };
+		A448AAD200A7CAA6451EAB28 /* Tests/ModelTests/test-device.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Tests/ModelTests/test-device.json"; sourceTree = SOURCE_ROOT; };
 		C050AE661A2B5037005936F1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0DCF55224B3BC6D0011DEAB /* GearInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearInfo.swift; sourceTree = "<group>"; };
 		C0DCF55424B3BD260011DEAB /* ConnectorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorInfo.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		C0DCF55824B49D1F0011DEAB /* MechanismInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanismInfo.swift; sourceTree = "<group>"; };
 		C0FDE5371C2A1A32008283F4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0FDE5791C2AD56C008283F4 /* Viewpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewpoints.swift; sourceTree = "<group>"; };
+		C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntikytheraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91A35F7118343A400FA1697 /* BoxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxModel.swift; sourceTree = "<group>"; };
 		C91A36291183484500FA1697 /* SideCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideCamera.swift; sourceTree = "<group>"; };
 		C9423592117BA2A800385EC6 /* PointerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerModel.swift; sourceTree = "<group>"; };
@@ -156,20 +159,13 @@
 		C9CCAA82116C26230097AE70 /* GearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearView.swift; sourceTree = "<group>"; };
 		C9CCAA85116CC52A0097AE70 /* ConnectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectorView.swift; sourceTree = "<group>"; };
 		C9CCAAB2116CD1820097AE70 /* AntikytheraMechanismView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntikytheraMechanismView.swift; sourceTree = "<group>"; };
-		C9CCAB25116D87B60097AE70 /* GLModel3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLModel3D.swift; sourceTree = "<group>"; };
 		C9CCAB30116D8B660097AE70 /* GearModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearModel.swift; sourceTree = "<group>"; };
 		C9CCABED116E31650097AE70 /* FlyThroughCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyThroughCamera.swift; sourceTree = "<group>"; };
 		C9CCAC05116E32740097AE70 /* TopCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCamera.swift; sourceTree = "<group>"; };
 		C9D2FE2C118156F30042C84E /* HalfGlobeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfGlobeModel.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		C9FB30441182AB1500021EDB /* LunarPointerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LunarPointerView.swift; sourceTree = "<group>"; };
 		D13808607C239732EFB8522F /* Antikythera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antikythera.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9FAC7A946C94390682CA99A /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalView.swift; path = Classes/MetalView.swift; sourceTree = SOURCE_ROOT; };		068CF47675AD488EED5F7E91 /* GearTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/GearTests.swift"; sourceTree = SOURCE_ROOT; };
-		15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/ConnectorTests.swift"; sourceTree = SOURCE_ROOT; };
-		1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests/ModelTests/AntikytheraMechanismTests.swift"; sourceTree = SOURCE_ROOT; };
-		A448AAD200A7CAA6451EAB28 /* test-device.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Tests/ModelTests/test-device.json"; sourceTree = SOURCE_ROOT; };
-		C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntikytheraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58E85F23100FD400287E9C7A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-
+		E9FAC7A946C94390682CA99A /* MetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalView.swift; path = Classes/MetalView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +182,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		787EDA1B948EC66D0E01E0AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6F17701BD8DA2FF6390EECE /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3EC74970BDFB8460DFC770B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,15 +202,7 @@
 				C0A438672EAE3F0600612886 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		787EDA1B948EC66D0E01E0AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F6F17701BD8DA2FF6390EECE /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -214,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				1D3623250D0F684500981E51 /* AppDelegate.swift */,
-				1F92F5E80FDFF83200548BE8 /* ConstantsAndMacros.h */,
 				87D9C3721D9DF57C00E4F0FC /* device.json */,
 				1F92F5EB0FDFF83200548BE8 /* Common.swift */,
 				7DCC5E46F2B8A90925C88A08 /* MetalRenderer.swift */,
@@ -223,8 +218,6 @@
 				A2BEF1AC3AC75B6B87DDA35B /* MetalModel3D.swift */,
 				2B21ADC5DCE8C79297AF1FD8 /* MetalRenderContext.swift */,
 				375E2DCCB2B57C22F2BEF842 /* Shaders.metal */,
-				28FD14FD0DC6FC130079059D /* GLView.swift */,
-				1F92F5EA0FDFF83200548BE8 /* GLViewController.swift */,
 				C9CCAA7F116C25DD0097AE70 /* Models.swift */,
 				C9CCABEF116E316A0097AE70 /* Camera Viewpoints */,
 				C9CCA9FB116BF90E0097AE70 /* Devices */,
@@ -238,7 +231,8 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Antikythera.app */,
 				D13808607C239732EFB8522F /* Antikythera.app */,
-				C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */,);
+				C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */,
+			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -251,6 +245,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				C00097342EAE889500D7EA71 /* Recovered References */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -283,8 +278,20 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				1FF404F20FF2AC4B00D17C20 /* CoreGraphics.framework */,
 				191BAFB67EC3878F1999F819 /* AppKit.framework */,
-				58E85F23100FD400287E9C7A /* XCTest.framework */,);
+				58E85F23100FD400287E9C7A /* XCTest.framework */,
+			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C00097342EAE889500D7EA71 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				068CF47675AD488EED5F7E91 /* Tests/ModelTests/GearTests.swift */,
+				15EB7278B5BC9C821DF9DCEE /* Tests/ModelTests/ConnectorTests.swift */,
+				1C10922009B8209A4CF44EE5 /* Tests/ModelTests/AntikytheraMechanismTests.swift */,
+				A448AAD200A7CAA6451EAB28 /* Tests/ModelTests/test-device.json */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		C0DCF55124B3BC0B0011DEAB /* Device Models */ = {
@@ -331,7 +338,7 @@
 				C9747107118948EE007E04E5 /* UserDialView.swift */,
 				C9CCAAB0116CD16A0097AE70 /* Device Views */,
 				C9CCAAAF116CD1620097AE70 /* Component Views */,
-				C9CCAB27116D89C20097AE70 /* GLModel3D */,
+				C9CCAB27116D89C20097AE70 /* Model3D */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -357,10 +364,9 @@
 			name = "Device Views";
 			sourceTree = "<group>";
 		};
-		C9CCAB27116D89C20097AE70 /* GLModel3D */ = {
+		C9CCAB27116D89C20097AE70 /* Model3D */ = {
 			isa = PBXGroup;
 			children = (
-				C9CCAB25116D87B60097AE70 /* GLModel3D.swift */,
 				C9CCAB30116D8B660097AE70 /* GearModel.swift */,
 				C96AAE0E116FF7DA00869DF6 /* GearShaderModel.swift */,
 				C95046ED116E72FC00AE2F5D /* ConnectorModel.swift */,
@@ -369,7 +375,7 @@
 				C91A35F7118343A400FA1697 /* BoxModel.swift */,
 				C9747104118948B4007E04E5 /* FlatDialModel.swift */,
 			);
-			name = GLModel3D;
+			name = Model3D;
 			sourceTree = "<group>";
 		};
 		C9CCABEF116E316A0097AE70 /* Camera Viewpoints */ = {
@@ -384,26 +390,7 @@
 			);
 			name = "Camera Viewpoints";
 			sourceTree = "<group>";
-		};		79821B956267758A893A603A /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				D419F7C5382519596D9EA28F /* ModelTests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
 		};
-		D419F7C5382519596D9EA28F /* ModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				068CF47675AD488EED5F7E91 /* GearTests.swift */,
-				15EB7278B5BC9C821DF9DCEE /* ConnectorTests.swift */,
-				1C10922009B8209A4CF44EE5 /* AntikytheraMechanismTests.swift */,
-				A448AAD200A7CAA6451EAB28 /* test-device.json */,
-			);
-			path = ModelTests;
-			sourceTree = "<group>";
-		};
-
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,23 +411,7 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Antikythera.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A3AEF41A8462795526632413 /* Antikythera-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 813D1AB95A2F9572B2F87A84 /* Build configuration list for PBXNativeTarget "Antikythera-macOS" */;
-			buildPhases = (
-				D09317C73303DA940E0BB1FF /* Resources */,
-				C07DDE5830D86D7FD350E209 /* Sources */,
-				D3EC74970BDFB8460DFC770B /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Antikythera-macOS";
-			productName = "Antikythera-macOS";
-			productReference = D13808607C239732EFB8522F /* Antikythera.app */;
-			productType = "com.apple.product-type.application";
-		};		2997CCDC53FF10FF31B29713 /* AntikytheraTests */ = {
+		2997CCDC53FF10FF31B29713 /* AntikytheraTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45B860B29F2CA4BA4AB3E8DB /* Build configuration list for PBXNativeTarget "AntikytheraTests" */;
 			buildPhases = (
@@ -457,7 +428,23 @@
 			productReference = C7CB947C6628E785B201F012 /* AntikytheraTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-
+		A3AEF41A8462795526632413 /* Antikythera-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 813D1AB95A2F9572B2F87A84 /* Build configuration list for PBXNativeTarget "Antikythera-macOS" */;
+			buildPhases = (
+				D09317C73303DA940E0BB1FF /* Resources */,
+				C07DDE5830D86D7FD350E209 /* Sources */,
+				D3EC74970BDFB8460DFC770B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Antikythera-macOS";
+			productName = "Antikythera-macOS";
+			productReference = D13808607C239732EFB8522F /* Antikythera.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -489,7 +476,8 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Antikythera */,
 				A3AEF41A8462795526632413 /* Antikythera-macOS */,
-				2997CCDC53FF10FF31B29713 /* AntikytheraTests */,);
+				2997CCDC53FF10FF31B29713 /* AntikytheraTests */,
+			);
 		};
 /* End PBXProject section */
 
@@ -504,6 +492,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C51AF67A0DC303E1A388A566 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE59065537B4D002A0244FAE /* Tests/ModelTests/test-device.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D09317C73303DA940E0BB1FF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,15 +508,7 @@
 				C0A4383C2EAE3F0600612886 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		C51AF67A0DC303E1A388A566 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE59065537B4D002A0244FAE /* test-device.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -569,6 +557,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98C6164DD299F11844D9FA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10E343D3255EF3DDACED3B99 /* Tests/ModelTests/GearTests.swift in Sources */,
+				162D7D4156702E8E22FBF616 /* Tests/ModelTests/ConnectorTests.swift in Sources */,
+				5D9B84269B6F24A73A8C770F /* Tests/ModelTests/AntikytheraMechanismTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C07DDE5830D86D7FD350E209 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -613,17 +611,7 @@
 				C0A438622EAE3F0600612886 /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-		};		98C6164DD299F11844D9FA72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10E343D3255EF3DDACED3B99 /* GearTests.swift in Sources */,
-				162D7D4156702E8E22FBF616 /* ConnectorTests.swift in Sources */,
-				5D9B84269B6F24A73A8C770F /* AntikytheraMechanismTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -713,6 +701,51 @@
 			};
 			name = Debug;
 		};
+		6AF2D4E2FD5D7362BD38D958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZW9JSEAYHF;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		70A55E3D1792E713F4531965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZW9JSEAYHF;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
+			};
+			name = Debug;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -797,44 +830,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
-		};		70A55E3D1792E713F4531965 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
-			};
-			name = Debug;
 		};
-		6AF2D4E2FD5D7362BD38D958 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZW9JSEAYHF;
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.AntikytheraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antikythera.app/Antikythera";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -843,6 +839,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45B860B29F2CA4BA4AB3E8DB /* Build configuration list for PBXNativeTarget "AntikytheraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70A55E3D1792E713F4531965 /* Debug */,
+				6AF2D4E2FD5D7362BD38D958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -864,16 +869,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};		45B860B29F2CA4BA4AB3E8DB /* Build configuration list for PBXNativeTarget "AntikytheraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70A55E3D1792E713F4531965 /* Debug */,
-				6AF2D4E2FD5D7362BD38D958 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-
 /* End XCConfigurationList section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
